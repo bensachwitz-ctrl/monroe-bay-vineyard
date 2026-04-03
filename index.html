@@ -72,18 +72,18 @@
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <!-- Tailwind CDN -->
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
-tailwind.config={theme:{extend:{colors:{navy:{DEFAULT:'#1B263B',light:'#2B3A52',dark:'#0F1726'},gold:{DEFAULT:'#E0C389',light:'#EDD9AD',dark:'#C4A060',muted:'#D4B87A'},green:{bottle:'#2D6A4F',sage:'#52796F',moss:'#3A5A40',light:'#A7C4BC',pale:'#D4E4DD'},cream:{DEFAULT:'#FAF7F2',warm:'#F5EDE0',dark:'#E8DFD0'},sand:{DEFAULT:'#D4C5A9',light:'#E8DDCA',dark:'#B8A88C'},heron:{DEFAULT:'#4A7C8A',light:'#6B9DAB',dark:'#35606C'}},fontFamily:{heading:['Playfair Display','Georgia','serif'],body:['Montserrat','system-ui','sans-serif']},animation:{'ken-burns':'kenBurns 24s ease-in-out infinite alternate','fade-up':'fadeUp 0.8s ease-out forwards','fade-in':'fadeIn 0.6s ease-out forwards','float':'float 6s ease-in-out infinite','glow-pulse':'glowPulse 4s ease-in-out infinite'},keyframes:{kenBurns:{'0%':{transform:'scale(1) translate(0,0)'},'100%':{transform:'scale(1.08) translate(-1.5%,-1%)'}},fadeUp:{'0%':{opacity:'0',transform:'translateY(30px)'},'100%':{opacity:'1',transform:'translateY(0)'}},fadeIn:{'0%':{opacity:'0'},'100%':{opacity:'1'}},float:{'0%,100%':{transform:'translateY(0)'},'50%':{transform:'translateY(-10px)'}},glowPulse:{'0%,100%':{opacity:'0.3'},'50%':{opacity:'0.7'}}}}}}
+tailwind.config={theme:{extend:{colors:{navy:{DEFAULT:'#1B263B',light:'#2B3A52',dark:'#0F1726'},gold:{DEFAULT:'#E0C389',light:'#EDD9AD',dark:'#C4A060',muted:'#D4B87A'},green:{bottle:'#2D6A4F',sage:'#52796F',moss:'#3A5A40',light:'#A7C4BC',pale:'#D4E4DD'},creek:{DEFAULT:'#4A7C8A',900:'#1D3640',700:'#35606C',500:'#4A7C8A',300:'#8BB5C2',100:'#D6E8EE'},straw:{DEFAULT:'#D4C5A9',50:'#F5F0E5',100:'#EDE4D0',500:'#D4C5A9',700:'#B8A88C',900:'#8A7B5E'},emerald:{DEFAULT:'#2D6A4F',800:'#1E4D38',600:'#2D6A4F',400:'#52796F',200:'#A7C4BC'},cream:{DEFAULT:'#FAF7F2',warm:'#F5EDE0',dark:'#E8DFD0'},sand:{DEFAULT:'#D4C5A9',light:'#E8DDCA',dark:'#B8A88C'},heron:{DEFAULT:'#4A7C8A',light:'#6B9DAB',dark:'#35606C'}},fontFamily:{heading:['Playfair Display','Georgia','serif'],display:['Cormorant Garamond','Playfair Display','serif'],body:['Montserrat','system-ui','sans-serif']},animation:{'ken-burns':'kenBurns 24s ease-in-out infinite alternate','fade-up':'fadeUp 0.8s ease-out forwards','fade-in':'fadeIn 0.6s ease-out forwards','float':'float 6s ease-in-out infinite','glow-pulse':'glowPulse 4s ease-in-out infinite'},keyframes:{kenBurns:{'0%':{transform:'scale(1) translate(0,0)'},'100%':{transform:'scale(1.08) translate(-1.5%,-1%)'}},fadeUp:{'0%':{opacity:'0',transform:'translateY(30px)'},'100%':{opacity:'1',transform:'translateY(0)'}},fadeIn:{'0%':{opacity:'0'},'100%':{opacity:'1'}},float:{'0%,100%':{transform:'translateY(0)'},'50%':{transform:'translateY(-10px)'}},glowPulse:{'0%,100%':{opacity:'0.3'},'50%':{opacity:'0.7'}}}}}}
 </script>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Montserrat',system-ui,sans-serif;background:#FAF7F2;color:#1B263B;overflow-x:hidden}
+html{scroll-behavior:smooth;scroll-snap-type:y proximity}
+body{font-family:'Montserrat',system-ui,sans-serif;background:#FAF7F2;color:#1B263B;overflow-x:hidden;-webkit-tap-highlight-color:transparent}
 
 /* ── PARCHMENT TEXTURE ── */
 body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;
@@ -111,13 +111,31 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;
   animation:glowShift 8s ease-in-out infinite alternate}
 @keyframes glowShift{0%{opacity:.4;transform:scale(1)}100%{opacity:.8;transform:scale(1.05) translate(2%,1%)}}
 
-/* ── BOTTLE MOSAIC PATTERN ── */
+/* ── BOTTLE MOSAIC PATTERN WITH PULSING LIGHT ── */
 .bottle-mosaic{
   background-image:radial-gradient(circle 4px at 20% 30%,rgba(45,106,79,0.08) 0%,transparent 100%),
   radial-gradient(circle 3px at 50% 50%,rgba(224,195,137,0.06) 0%,transparent 100%),
   radial-gradient(circle 5px at 80% 70%,rgba(74,124,138,0.07) 0%,transparent 100%),
   radial-gradient(circle 3px at 35% 80%,rgba(114,47,55,0.05) 0%,transparent 100%),
-  radial-gradient(circle 4px at 65% 20%,rgba(45,106,79,0.06) 0%,transparent 100%)}
+  radial-gradient(circle 4px at 65% 20%,rgba(45,106,79,0.06) 0%,transparent 100%);
+  animation:bottleRadiance 8s ease-in-out infinite
+}
+@keyframes bottleRadiance{
+  0%{background:radial-gradient(circle 4px at 20% 30%,rgba(45,106,79,0.06) 0%,transparent 100%),radial-gradient(circle 3px at 50% 50%,rgba(224,195,137,0.04) 0%,transparent 100%),radial-gradient(circle 5px at 80% 70%,rgba(74,124,138,0.05) 0%,transparent 100%),radial-gradient(circle 3px at 35% 80%,rgba(114,47,55,0.03) 0%,transparent 100%),radial-gradient(circle 4px at 65% 20%,rgba(45,106,79,0.04) 0%,transparent 100%)}
+  50%{background:radial-gradient(circle 4px at 20% 30%,rgba(45,106,79,0.12) 0%,transparent 100%),radial-gradient(circle 3px at 50% 50%,rgba(224,195,137,0.09) 0%,transparent 100%),radial-gradient(circle 5px at 80% 70%,rgba(74,124,138,0.10) 0%,transparent 100%),radial-gradient(circle 3px at 35% 80%,rgba(114,47,55,0.08) 0%,transparent 100%),radial-gradient(circle 4px at 65% 20%,rgba(45,106,79,0.09) 0%,transparent 100%)}
+  100%{background:radial-gradient(circle 4px at 20% 30%,rgba(45,106,79,0.06) 0%,transparent 100%),radial-gradient(circle 3px at 50% 50%,rgba(224,195,137,0.04) 0%,transparent 100%),radial-gradient(circle 5px at 80% 70%,rgba(74,124,138,0.05) 0%,transparent 100%),radial-gradient(circle 3px at 35% 80%,rgba(114,47,55,0.03) 0%,transparent 100%),radial-gradient(circle 4px at 65% 20%,rgba(45,106,79,0.04) 0%,transparent 100%)}
+}
+
+/* ── TEXT CLIP VINEYARD (Gold shift on MONROE) ── */
+.text-clip-vineyard{
+  background:linear-gradient(135deg,#E0C389 0%,#C4A060 30%,#8B6914 60%,#E0C389 100%);
+  background-size:200% 200%;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  animation:goldShift 6s ease-in-out infinite
+}
+@keyframes goldShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
 
 /* ── SCROLL PROGRESS ── */
 #scroll-progress{position:fixed;top:0;left:0;height:3px;z-index:9999;
@@ -140,34 +158,47 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;
 /* ── DEPTH ── */
 .depth{box-shadow:0 -20px 60px -15px rgba(27,38,59,0.06);position:relative;z-index:2}
 .depth-inset{box-shadow:inset 0 4px 20px rgba(27,38,59,0.04),inset 0 -4px 20px rgba(27,38,59,0.02)}
+.depth-luxury{box-shadow:0 25px 60px rgba(27,38,59,0.15),0 10px 25px rgba(45,106,79,0.08),0 0 0 1px rgba(224,195,137,0.1)}
 
 /* ── CARDS ── */
 .wine-card{transition:all 0.45s cubic-bezier(0.34,1.56,0.64,1);box-shadow:0 2px 8px rgba(27,38,59,0.05)}
-.wine-card:hover{transform:translateY(-8px) scale(1.01);box-shadow:0 20px 50px rgba(27,38,59,0.12),0 8px 20px rgba(27,38,59,0.06)}
+.wine-card:hover{transform:translateY(-12px) scale(1.02);box-shadow:0 25px 60px rgba(27,38,59,0.15),0 10px 25px rgba(45,106,79,0.08),0 0 0 1px rgba(224,195,137,0.1)}
 .card-3d{perspective:800px}.card-3d:hover .card-inner{transform:rotateY(-2deg) rotateX(1deg)}
 .card-inner{transition:transform 0.5s cubic-bezier(0.34,1.56,0.64,1)}
 .img-frame{overflow:hidden;border-radius:8px;box-shadow:0 8px 30px rgba(27,38,59,0.1)}
 .img-frame img{width:100%;height:100%;object-fit:cover;transition:transform 0.7s cubic-bezier(0.4,0,0.2,1)}
 .img-frame:hover img{transform:scale(1.06)}
 
-/* ── BUTTONS ── */
+/* ── BUTTONS WITH ENHANCED SHIMMER ── */
 .btn-primary{background:linear-gradient(135deg,#2D6A4F,#3A5A40);color:#FAF7F2;padding:14px 32px;border-radius:4px;
   font-family:'Montserrat',sans-serif;font-weight:600;font-size:.85rem;letter-spacing:1.5px;text-transform:uppercase;
   border:none;cursor:pointer;transition:all .35s cubic-bezier(.34,1.56,.64,1);position:relative;overflow:hidden}
-.btn-primary::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;
-  background:linear-gradient(90deg,transparent,rgba(224,195,137,0.2),transparent);transition:left .5s}
-.btn-primary:hover::after{left:100%}
+.btn-primary::after{content:'';position:absolute;top:0;left:-150%;width:150%;height:100%;
+  background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,0.25) 50%,transparent 100%);transition:left .6s ease}
+.btn-primary:hover::after{left:150%}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(45,106,79,0.35)}
-.btn-outline{background:transparent;color:#FAF7F2;padding:14px 32px;border-radius:4px;
-  font-family:'Montserrat',sans-serif;font-weight:600;font-size:.85rem;letter-spacing:1.5px;text-transform:uppercase;
-  cursor:pointer;border:2px solid rgba(224,195,137,0.5);transition:all .35s cubic-bezier(.34,1.56,.64,1)}
-.btn-outline:hover{background:rgba(224,195,137,0.12);border-color:#E0C389;transform:translateY(-2px)}
+
 .btn-gold{background:linear-gradient(135deg,#E0C389,#C4A060);color:#1B263B;padding:14px 32px;border-radius:4px;
   font-family:'Montserrat',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:1.5px;text-transform:uppercase;
-  border:none;cursor:pointer;transition:all .35s cubic-bezier(.34,1.56,.64,1)}
+  border:none;cursor:pointer;transition:all .35s cubic-bezier(.34,1.56,.64,1);position:relative;overflow:hidden}
+.btn-gold::after{content:'';position:absolute;top:0;left:-150%;width:150%;height:100%;
+  background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,0.3) 50%,transparent 100%);transition:left .6s ease}
+.btn-gold:hover::after{left:150%}
 .btn-gold:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(224,195,137,0.4)}
 
+.btn-outline{background:transparent;color:#FAF7F2;padding:14px 32px;border-radius:4px;
+  font-family:'Montserrat',sans-serif;font-weight:600;font-size:.85rem;letter-spacing:1.5px;text-transform:uppercase;
+  cursor:pointer;border:2px solid rgba(224,195,137,0.5);transition:all .35s cubic-bezier(.34,1.56,.64,1);position:relative;overflow:hidden}
+.btn-outline::after{content:'';position:absolute;top:0;left:-150%;width:150%;height:100%;
+  background:linear-gradient(90deg,transparent 0%,rgba(224,195,137,0.2) 50%,transparent 100%);transition:left .6s ease}
+.btn-outline:hover::after{left:150%}
+.btn-outline:hover{background:rgba(224,195,137,0.12);border-color:#E0C389;transform:translateY(-2px)}
+
 .section-line{width:60px;height:2px;background:linear-gradient(90deg,#E0C389,#2D6A4F);margin:0 auto}
+
+/* ── BOTTLE DIVIDER ── */
+.bottle-divider{position:relative;height:60px;overflow:hidden;margin:40px 0}
+.bottle-divider svg{width:100%;height:100%;display:block;filter:drop-shadow(0 2px 8px rgba(27,38,59,0.08))}
 
 /* ── ACCORDION ── */
 .acc{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.4,0,.2,1)}
@@ -180,7 +211,7 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;
 .float-btn{position:fixed;bottom:24px;right:24px;z-index:90;width:60px;height:60px;border-radius:50%;
   background:linear-gradient(135deg,#2D6A4F,#3A5A40);color:#FAF7F2;border:none;cursor:pointer;
   box-shadow:0 6px 25px rgba(45,106,79,0.45);transition:all .35s cubic-bezier(.34,1.56,.64,1);
-  display:flex;align-items:center;justify-content:center;animation:pulse 3s ease-in-out infinite}
+  display:flex;align-items:center;justify-content:center;animation:pulse 3s ease-in-out infinite;min-height:44px;min-width:44px}
 .float-btn:hover{transform:scale(1.1) translateY(-2px);box-shadow:0 10px 35px rgba(45,106,79,0.55)}
 @keyframes pulse{0%,100%{box-shadow:0 6px 25px rgba(45,106,79,0.45),0 0 0 0 rgba(45,106,79,0.3)}50%{box-shadow:0 6px 25px rgba(45,106,79,0.45),0 0 0 12px rgba(45,106,79,0)}}
 .float-panel{position:fixed;bottom:96px;right:24px;z-index:89;width:340px;max-height:0;opacity:0;overflow:hidden;
@@ -218,6 +249,7 @@ input:focus,textarea:focus,select:focus{outline:none;border-color:#E0C389 !impor
   .float-panel{width:calc(100vw - 48px);right:24px}
   .float-btn{bottom:16px;right:16px;width:54px;height:54px}
   .float-panel{right:16px;bottom:80px}
+  input,button{min-height:44px}
 }
 </style>
 </head>
@@ -397,26 +429,18 @@ function Footer(){
             {NAV.map(n=><button key={n.id} onClick={()=>go(n.id)} className="block text-sm text-cream/50 hover:text-gold transition-colors mb-2.5 font-body">{n.label}</button>)}
           </div>
           <div>
-            <h4 className="font-heading text-gold text-lg mb-6">Hours</h4>
-            <div className="space-y-2 text-sm">
-              <div className="flex justify-between"><span className="text-cream/50">Saturday</span><span className="text-cream">12 – 5 PM</span></div>
-              <div className="flex justify-between"><span className="text-cream/50">Sunday</span><span className="text-cream">12 – 5 PM</span></div>
-              <div className="flex justify-between"><span className="text-cream/50">Summer Fri</span><span className="text-cream">5 – 8 PM</span></div>
-              <div className="border-t border-white/10 pt-2 mt-2 text-cream/30 text-xs">Open April – December. Closed January – March.</div>
-            </div>
+            <h4 className="font-heading text-gold text-lg mb-6">Visit</h4>
+            <p className="text-sm text-cream/60 mb-3">4786 James Monroe Hwy<br/>Colonial Beach, VA 22443</p>
+            <p className="text-sm text-cream/60">(804) 410-5628</p>
           </div>
           <div>
-            <h4 className="font-heading text-gold text-lg mb-6">Find Us</h4>
-            <div className="space-y-2 text-sm text-cream/50">
-              <p>4786 James Monroe Highway<br/>Colonial Beach, VA 22443</p>
-              <p><a href="tel:8044105628" className="hover:text-gold transition-colors">(804) 410-5628</a></p>
-              <p><a href="https://www.monroebaywine.com" className="hover:text-gold transition-colors">monroebaywine.com</a></p>
-            </div>
+            <h4 className="font-heading text-gold text-lg mb-6">Hours</h4>
+            <p className="text-sm text-cream/60 mb-2">Saturday & Sunday<br/>12:00 PM - 5:00 PM</p>
+            <p className="text-xs text-cream/40">Or by appointment</p>
           </div>
         </div>
-        <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-cream/25">© 2026 Monroe Bay Vineyard. All rights reserved. Please drink responsibly.</p>
-          <p className="text-xs text-cream/25">On the James Monroe Birthplace Farm — Chesapeake Bay Wine Trail</p>
+        <div className="border-t border-white/10 mt-12 pt-8 text-center text-sm text-cream/40">
+          <p>© 2024 Monroe Bay Vineyard. All rights reserved. | Sitemap | Privacy Policy</p>
         </div>
       </div>
     </footer>
@@ -427,717 +451,693 @@ function Footer(){
 /*  MODAL                                          */
 /* ═══════════════════════════════════════════════ */
 function Modal(){
-  const{modal,closeModal}=useContext(Ctx);
-  const[sent,setSent]=useState(false);
-  const[f,setF]=useState({name:'',email:'',phone:'',date:'',guests:'',msg:'',type:''});
-  const u=(k,v)=>setF(p=>({...p,[k]:v}));
-  useEffect(()=>{if(!modal){setSent(false);setF({name:'',email:'',phone:'',date:'',guests:'',msg:'',type:''})}},[modal]);
-  const titles={reserve:'Reserve a Tasting',wedding:'Wedding Inquiry',event:'Private Event',wineclub:'Join the Family'};
-  const isWed=modal==='wedding'||modal==='event';
-  return(<>
-    <div className={`modal-bg ${modal?'on':''}`} onClick={closeModal}/>
-    <div className={`modal-box ${modal?'on':''} w-[90vw] max-w-lg`}>
-      <div className="bg-cream rounded-lg overflow-hidden shadow-2xl">
-        <div className="bg-navy p-6 relative texture-straw">
-          <div className="relative z-10">
-            <button onClick={closeModal} className="absolute top-0 right-0 text-cream/50 hover:text-cream"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 6l12 12M6 18L18 6"/></svg></button>
-            <h3 className="font-heading text-2xl text-cream">{titles[modal]||'Contact Us'}</h3>
-            <div className="section-line mt-3" style={{margin:0}}/>
+  const {modal,closeModal}=useContext(Ctx);
+  const [form,setForm]=useState({name:'',email:'',phone:'',type:''});
+  const [sent,setSent]=useState(false);
+
+  const handleSubmit=e=>{e.preventDefault();setSent(true);setTimeout(closeModal,2000)};
+  if(!modal)return null;
+
+  return(
+    <>
+      <div className="modal-bg on" onClick={closeModal}/>
+      <div className="modal-box on bg-cream rounded-2xl p-8 max-w-lg glass-cream">
+        <button onClick={closeModal} className="absolute top-6 right-6 text-navy hover:text-gold transition-colors text-xl">✕</button>
+        {sent?(
+          <div className="text-center py-8">
+            <div className="text-4xl mb-4">✓</div>
+            <h3 className="font-heading text-2xl text-navy mb-2">Thank You!</h3>
+            <p className="text-navy/60 font-body">We'll be in touch within 24 hours.</p>
           </div>
-        </div>
-        <div className="p-6">
-          {sent?(<div className="text-center py-8"><div className="text-4xl mb-4">🍷</div><h4 className="font-heading text-xl text-navy mb-2">We'll Be in Touch</h4><p className="font-body text-sm text-navy/50">Thank you. We'll respond within 24 hours.</p></div>):(
-            <form onSubmit={e=>{e.preventDefault();setSent(true)}} className="space-y-4">
-              <input type="text" placeholder="Your Name" required value={f.name} onChange={e=>u('name',e.target.value)} className="w-full border border-navy/12 rounded px-4 py-3 font-body text-sm bg-cream-warm"/>
-              <div className="grid grid-cols-2 gap-4">
-                <input type="email" placeholder="Email" required value={f.email} onChange={e=>u('email',e.target.value)} className="w-full border border-navy/12 rounded px-4 py-3 font-body text-sm bg-cream-warm"/>
-                <input type="tel" placeholder="Phone" value={f.phone} onChange={e=>u('phone',e.target.value)} className="w-full border border-navy/12 rounded px-4 py-3 font-body text-sm bg-cream-warm"/>
-              </div>
-              {isWed&&<div className="grid grid-cols-2 gap-4">
-                <input type="date" value={f.date} onChange={e=>u('date',e.target.value)} className="w-full border border-navy/12 rounded px-4 py-3 font-body text-sm bg-cream-warm"/>
-                <input type="number" placeholder="Guests" value={f.guests} onChange={e=>u('guests',e.target.value)} className="w-full border border-navy/12 rounded px-4 py-3 font-body text-sm bg-cream-warm"/>
-              </div>}
-              {modal==='wineclub'&&<select value={f.type} onChange={e=>u('type',e.target.value)} className="w-full border border-navy/12 rounded px-4 py-3 font-body text-sm bg-cream-warm">
-                <option value="">Membership Interest</option><option value="red">Reds Only</option><option value="white">Whites Only</option><option value="mixed">Mixed Selection</option><option value="all">Everything — Surprise Me</option>
-              </select>}
-              <textarea placeholder={isWed?'Tell us about your vision...':'Your message...'} rows={4} value={f.msg} onChange={e=>u('msg',e.target.value)} className="w-full border border-navy/12 rounded px-4 py-3 font-body text-sm bg-cream-warm resize-none"/>
-              <button type="submit" className="btn-primary w-full">{modal==='wineclub'?'Join the Family':'Send Inquiry'}</button>
+        ):(
+          <>
+            <h2 className="font-heading text-3xl text-navy mb-2">
+              {modal==='reserve'&&'Reserve a Tasting'}
+              {modal==='weddings'&&'Plan Your Wedding'}
+              {modal==='events'&&'Host an Event'}
+            </h2>
+            <p className="text-navy/60 font-body text-sm mb-6">
+              {modal==='reserve'&&'Join us for an unforgettable tasting experience.'}
+              {modal==='weddings'&&'Let\'s talk about your special day.'}
+              {modal==='events'&&'We\'d love to host your event.'}
+            </p>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <input type="text" placeholder="Your Name" value={form.name} onChange={e=>setForm({...form,name:e.target.value})} className="w-full px-4 py-3 border border-navy/20 rounded bg-white font-body text-sm" required/>
+              <input type="email" placeholder="Email" value={form.email} onChange={e=>setForm({...form,email:e.target.value})} className="w-full px-4 py-3 border border-navy/20 rounded bg-white font-body text-sm" required/>
+              <input type="tel" placeholder="Phone" value={form.phone} onChange={e=>setForm({...form,phone:e.target.value})} className="w-full px-4 py-3 border border-navy/20 rounded bg-white font-body text-sm" required/>
+              <button type="submit" className="w-full btn-primary text-white py-3 mt-6">Submit</button>
             </form>
-          )}
-        </div>
+          </>
+        )}
       </div>
-    </div>
-  </>);
+    </>
+  );
 }
 
 /* ═══════════════════════════════════════════════ */
-/*  FLOATING CTA                                   */
+/*  FLOATING CTA & WINE CLUB INVITE               */
 /* ═══════════════════════════════════════════════ */
 function FloatingCTA(){
-  const[open,setOpen]=useState(false);
-  const[sent,setSent]=useState(false);
-  const[f,setF]=useState({name:'',email:'',phone:'',msg:'',interest:''});
-  const{openModal}=useContext(Ctx);
-  const u=(k,v)=>setF(p=>({...p,[k]:v}));
-  return(<>
-    <div className={`float-panel ${open?'open':''}`}>
-      <div className="bg-cream rounded-xl overflow-hidden border border-navy/10">
-        <div className="bg-navy p-5 relative"><button onClick={()=>setOpen(false)} className="absolute top-3 right-3 text-cream/50 hover:text-cream"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 6l12 12M6 18L18 6"/></svg></button>
-          <h4 className="font-heading text-cream text-lg">Get in Touch</h4><p className="font-body text-cream/40 text-xs mt-1">We respond within 24 hours.</p></div>
-        {sent?<div className="p-8 text-center"><div className="text-3xl mb-3">🍷</div><h4 className="font-heading text-navy text-lg mb-1">Sent</h4><p className="font-body text-navy/40 text-xs">Talk soon.</p></div>:(
-          <div className="p-5">
-            <div className="grid grid-cols-2 gap-2 mb-4">
-              {[{l:'Book a Tasting',i:'🍷',a:()=>{setOpen(false);openModal('reserve')}},{l:'Wedding Inquiry',i:'💍',a:()=>{setOpen(false);openModal('wedding')}},{l:'Private Event',i:'🎉',a:()=>{setOpen(false);openModal('event')}},{l:'Call Us',i:'📞',a:()=>{window.location.href='tel:8044105628'}}].map((b,i)=>
-                <button key={i} onClick={b.a} className="flex items-center gap-2 p-3 rounded-lg border border-navy/10 bg-cream-warm hover:bg-gold/10 hover:border-gold/30 transition-all text-left group">
-                  <span className="text-lg">{b.i}</span><span className="font-body text-navy text-xs font-medium group-hover:text-green-bottle">{b.l}</span>
-                </button>
-              )}
-            </div>
-            <div className="text-center font-body text-navy/25 text-xs mb-3">— or send a message —</div>
-            <form onSubmit={e=>{e.preventDefault();setSent(true);setTimeout(()=>{setSent(false);setOpen(false);setF({name:'',email:'',phone:'',msg:'',interest:''})},3000)}} className="space-y-3">
-              <input type="text" placeholder="Name" required value={f.name} onChange={e=>u('name',e.target.value)} className="w-full border border-navy/10 rounded-lg px-3 py-2.5 font-body text-xs bg-cream-warm"/>
-              <div className="grid grid-cols-2 gap-2">
-                <input type="email" placeholder="Email" required value={f.email} onChange={e=>u('email',e.target.value)} className="w-full border border-navy/10 rounded-lg px-3 py-2.5 font-body text-xs bg-cream-warm"/>
-                <input type="tel" placeholder="Phone" value={f.phone} onChange={e=>u('phone',e.target.value)} className="w-full border border-navy/10 rounded-lg px-3 py-2.5 font-body text-xs bg-cream-warm"/>
-              </div>
-              <select value={f.interest} onChange={e=>u('interest',e.target.value)} className="w-full border border-navy/10 rounded-lg px-3 py-2.5 font-body text-xs bg-cream-warm">
-                <option value="">Interested in...</option><option value="tasting">Wine Tasting</option><option value="wedding">Wedding Venue</option><option value="event">Private Event</option><option value="club">Wine Club</option><option value="other">Something Else</option>
-              </select>
-              <textarea placeholder="Message..." rows={2} value={f.msg} onChange={e=>u('msg',e.target.value)} className="w-full border border-navy/10 rounded-lg px-3 py-2.5 font-body text-xs bg-cream-warm resize-none"/>
-              <button type="submit" className="btn-primary w-full text-xs py-2.5">Send</button>
-            </form>
-          </div>
-        )}
+  const {openModal}=useContext(Ctx);
+  const [panelOpen,setPanelOpen]=useState(false);
+  return(
+    <>
+      <button onClick={()=>setPanelOpen(!panelOpen)} className="float-btn" title="Quick Reserve">
+        <span className="text-2xl">🍷</span>
+      </button>
+      <div className={`float-panel ${panelOpen?'open':''}`}>
+        <div className="glass-cream p-6">
+          <h4 className="font-heading text-navy text-lg mb-2">Quick Tasting</h4>
+          <p className="text-navy/60 text-sm font-body mb-4">Reserve your spot and experience Monroe Bay.</p>
+          <button onClick={()=>{openModal('reserve');setPanelOpen(false)}} className="w-full btn-gold py-2 text-sm">Reserve Now</button>
+        </div>
       </div>
-    </div>
-    <button className="float-btn" onClick={()=>setOpen(!open)} aria-label="Contact">
-      {open?<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 6l12 12M6 18L18 6"/></svg>
-        :<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>}
-    </button>
-  </>);
+    </>
+  );
 }
 
-/* ═══════════════════════════════════════════════ */
-/*  WINE CLUB INVITE (not an ad — an invitation)  */
-/* ═══════════════════════════════════════════════ */
 function WineClubInvite(){
-  const{clubShow,setClubShow,openModal}=useContext(Ctx);
-  if(!clubShow)return null;
+  const {clubShow,setClubShow}=useContext(Ctx);
   return(
     <div className={`club-invite ${clubShow?'show':''}`}>
-      <div className="glass-cream mx-4 mb-4 md:mx-auto md:max-w-xl rounded-xl p-6 relative">
-        <button onClick={()=>setClubShow(false)} className="absolute top-3 right-3 text-navy/30 hover:text-navy"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 6l12 12M6 18L18 6"/></svg></button>
-        <div className="flex items-center gap-5">
-          <div className="flex-shrink-0 w-16 h-16 rounded-full bg-navy flex items-center justify-center">
-            <svg width="28" height="28" viewBox="0 0 80 80" fill="none"><path d="M40 10 C25 20,15 35,20 55 C22 62,30 68,40 70 C50 68,58 62,60 55 C65 35,55 20,40 10Z" stroke="#E0C389" strokeWidth="2" fill="none"/></svg>
-          </div>
-          <div className="flex-1 min-w-0">
-            <h4 className="font-heading text-navy text-lg mb-1">You're invited to the Family.</h4>
-            <p className="font-body text-navy/50 text-xs leading-relaxed">First pour on new releases. Exclusive events. The stories behind the wine. No spam — just the good stuff from the Creek.</p>
-          </div>
-          <button onClick={()=>{setClubShow(false);openModal('wineclub')}} className="flex-shrink-0 btn-primary text-xs py-2.5 px-5 hidden sm:block">Join</button>
-        </div>
-        <button onClick={()=>{setClubShow(false);openModal('wineclub')}} className="sm:hidden mt-4 btn-primary text-xs py-2.5 w-full">Join the Family</button>
+      <div className="bg-gradient-to-r from-green-bottle to-green-sage px-6 py-8 max-w-md mx-auto glass-cream">
+        <h3 className="font-heading text-gold text-2xl mb-2">Join the Wine Club</h3>
+        <p className="text-navy/80 font-body text-sm mb-6">Exclusive access to new releases and member events.</p>
+        <button onClick={()=>setClubShow(false)} className="btn-gold w-full py-3 text-sm">Learn More</button>
       </div>
     </div>
   );
 }
 
 /* ═══════════════════════════════════════════════ */
-/*  WINE FINDER QUIZ                               */
+/*  WINE QUIZ                                      */
 /* ═══════════════════════════════════════════════ */
 function WineQuiz(){
-  const[step,setStep]=useState(0);const[ans,setAns]=useState([]);const[res,setRes]=useState(null);
-  const pick=(v)=>{const a=[...ans,v];setAns(a);if(step<QUIZ_Q.length-1)setStep(step+1);else{const c={};a.forEach(x=>{c[x]=(c[x]||0)+1});setRes(QUIZ_R[Object.keys(c).reduce((a,b)=>c[a]>c[b]?a:b)])}};
-  const reset=()=>{setStep(0);setAns([]);setRes(null)};
-  if(res)return(<div className="text-center"><div className="text-4xl mb-4">🍷</div><h3 className="font-heading text-navy text-2xl mb-2">Your Wine: {res.wine}</h3><div className="section-line my-4"/><p className="font-body text-navy/55 text-sm leading-relaxed max-w-md mx-auto mb-6">{res.desc}</p><button onClick={reset} className="font-body text-green-bottle text-sm font-semibold hover:text-gold-dark transition-colors">Take it again →</button></div>);
-  const q=QUIZ_Q[step];
-  return(<div>
-    <div className="flex gap-1 mb-6">{QUIZ_Q.map((_,i)=><div key={i} className={`h-1 flex-1 rounded-full ${i<=step?'bg-gold':'bg-navy/10'}`}/>)}</div>
-    <h3 className="font-heading text-navy text-xl mb-6">{q.q}</h3>
-    <div className="grid grid-cols-2 gap-3">{q.opts.map((o,i)=><button key={i} onClick={()=>pick(o.v)} className="border-2 border-navy/10 rounded-lg p-4 text-left hover:border-gold hover:bg-gold/5 transition-all bg-white"><span className="font-body text-navy text-sm">{o.t}</span></button>)}</div>
-  </div>);
-}
+  const [step,setStep]=useState(0);
+  const [scores,setScores]=useState({bold:0,crisp:0,social:0,mellow:0});
+  const [result,setResult]=useState(null);
 
-/* ═══════════════════════════════════════════════ */
-/*  PAGE HERO (Reusable with image)                */
-/* ═══════════════════════════════════════════════ */
-function PageHero({img,kicker,title,subtitle}){
-  return(
-    <section className="relative pt-32 pb-24 bg-navy overflow-hidden">
-      <img src={`images/${img}`} alt="" className="absolute inset-0 w-full h-full object-cover opacity-25"/>
-      <div className="absolute inset-0 bg-navy/70"/>
-      <div className="absolute inset-0 bottle-mosaic opacity-40"/>
-      <div className="max-w-[1400px] mx-auto px-6 relative z-10">
-        <p className="font-body text-gold text-sm tracking-[5px] uppercase mb-4 animate-fade-in">{kicker}</p>
-        <h1 className="font-heading text-cream text-5xl md:text-6xl font-semibold mb-4 animate-fade-up" dangerouslySetInnerHTML={{__html:title}}/>
-        {subtitle&&<p className="font-body text-cream/55 text-lg max-w-xl animate-fade-up" style={{animationDelay:'.2s',animationFillMode:'both'}}>{subtitle}</p>}
+  const pick=v=>{
+    const ns={...scores,[v]:scores[v]+1};
+    setScores(ns);
+    if(step===2){
+      const mx=Math.max(...Object.values(ns));
+      const w=Object.keys(ns).find(k=>ns[k]===mx);
+      setResult(w);
+    }else setStep(step+1);
+  };
+
+  if(result){
+    const r=QUIZ_R[result];
+    return(
+      <div className="text-center py-12 reveal">
+        <h3 className="font-display text-4xl text-navy mb-3">{r.wine}</h3>
+        <p className="text-navy/70 font-body max-w-lg mx-auto mb-8">{r.desc}</p>
+        <button onClick={()=>{setStep(0);setScores({bold:0,crisp:0,social:0,mellow:0});setResult(null)}} className="btn-gold">Start Over</button>
       </div>
-    </section>
+    );
+  }
+
+  return(
+    <div className="text-center reveal">
+      <h3 className="font-heading text-2xl text-navy mb-8">{QUIZ_Q[step].q}</h3>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-md mx-auto">
+        {QUIZ_Q[step].opts.map((o,i)=>(
+          <button key={i} onClick={()=>pick(o.v)} className="p-4 bg-cream border-2 border-gold/20 hover:border-gold hover:bg-gold/5 rounded-lg transition-all font-body text-sm text-navy">
+            {o.t}
+          </button>
+        ))}
+      </div>
+      <div className="flex gap-1 justify-center mt-8">
+        {[0,1,2].map(i=><div key={i} className={`h-1 w-8 rounded ${i<=step?'bg-gold':'bg-gold/20'}`}/>)}
+      </div>
+    </div>
   );
 }
 
 /* ═══════════════════════════════════════════════ */
-/*  HOME PAGE                                      */
+/*  PAGE COMPONENTS                                */
 /* ═══════════════════════════════════════════════ */
+
 function HomePage(){
-  const{go,openModal}=useContext(Ctx);
   useReveal();
-  return(<div>
-    {/* ── HERO ── */}
-    <section className="relative h-screen min-h-[700px] flex items-center overflow-hidden">
-      <div className="absolute inset-0 bg-navy">
-        <img src="images/vineyard-hero.jpg" alt="Monroe Bay Vineyard at golden hour" className="absolute inset-0 w-full h-full object-cover animate-ken-burns" style={{opacity:.55}}/>
-        <div className="absolute inset-0 hero-grad"/>
-        <div className="absolute inset-0 bottle-mosaic"/>
-      </div>
-      {/* Floating particles */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(14)].map((_,i)=><div key={i} className="absolute rounded-full animate-float" style={{width:`${Math.random()*4+2}px`,height:`${Math.random()*4+2}px`,background:i%3===0?'#E0C389':i%3===1?'#4A7C8A':'rgba(255,255,255,0.25)',left:`${Math.random()*100}%`,top:`${Math.random()*100}%`,animationDelay:`${Math.random()*6}s`,animationDuration:`${Math.random()*4+4}s`,opacity:0.35}}/>)}
-      </div>
-      <div className="relative z-10 max-w-[1400px] mx-auto px-6 w-full">
-        <div className="max-w-3xl">
-          <p className="font-body text-gold/80 text-sm tracking-[5px] uppercase mb-6 animate-fade-in" style={{animationDelay:'.3s',animationFillMode:'both'}}>Est. 2014 — Colonial Beach, Virginia</p>
-          <h1 className="font-heading text-cream text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.1] mb-6 animate-fade-up" style={{animationDelay:'.5s',animationFillMode:'both'}}>
-            Where the James Monroe<br/>Birthplace Meets<br/><span className="text-gold italic font-normal">the Blue Heron's Flight</span>
+  const {openModal}=useContext(Ctx);
+  return(
+    <main>
+      {/* HERO */}
+      <section className="relative h-screen flex items-end pt-[80px] overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img src="images/vineyard-hero.jpg" className="w-full h-full object-cover animate-ken-burns" alt="Monroe Bay Vineyard"/>
+          <div className="hero-grad absolute inset-0"/>
+        </div>
+        <div className="relative z-10 max-w-[1400px] mx-auto px-6 pb-24 w-full text-center">
+          <h1 className="font-display text-6xl md:text-7xl text-cream mb-6 tracking-wider">
+            <span className="text-clip-vineyard">MONROE</span><br/>BAY VINEYARD
           </h1>
-          <p className="font-body text-cream/60 text-lg md:text-xl max-w-xl mb-10 animate-fade-up" style={{animationDelay:'.7s',animationFillMode:'both'}}>
-            On 75 waterfront acres, we craft wines and ciders inside a barn built from 10,000 recycled wine bottles. Every glass holds the story of this land.
+          <p className="font-body text-lg text-cream/80 max-w-2xl mx-auto mb-8">
+            Breathe in the salt-tinged creek air. Feel the warmth of sun-dried straw beneath cathedral walls of recycled glass. On 75 waterfront acres where a president was born, every pour carries the weight of this earth and the lightness of a Chesapeake sunset.
           </p>
-          <div className="flex flex-wrap gap-4 animate-fade-up" style={{animationDelay:'.9s',animationFillMode:'both'}}>
-            <button onClick={()=>openModal('reserve')} className="btn-primary">Reserve a Tasting</button>
-            <button onClick={()=>go('wines')} className="btn-outline">Explore the Cellar</button>
-          </div>
+          <button onClick={()=>openModal('reserve')} className="btn-primary">Reserve Your Tasting</button>
         </div>
-      </div>
-      {/* Quick Info Bar */}
-      <div className="absolute bottom-0 left-0 right-0 glass">
-        <div className="max-w-[1400px] mx-auto px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <div className="flex items-center gap-6 text-cream/75 text-sm font-body">
-            <span className="flex items-center gap-2"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#E0C389" strokeWidth="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Sat–Sun 12–5 PM</span>
-            <span className="hidden sm:flex items-center gap-2"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#E0C389" strokeWidth="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Colonial Beach, VA</span>
-            <span className="hidden md:flex items-center gap-2"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#E0C389" strokeWidth="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72"/></svg>(804) 410-5628</span>
-          </div>
-          <button onClick={()=>go('visit')} className="text-gold text-sm font-body font-semibold hover:underline">Plan Your Visit →</button>
-        </div>
-      </div>
-    </section>
+        <!-- FUTURE: Replace static image with slow-motion video loop:
+             Scene 1: Wine being poured into a glass on the waterfront, golden hour
+             Scene 2: Wind rolling through vineyard rows, late afternoon light
+             Scene 3: Sunset reflecting off Monroe Creek through the barn's bottle walls
+             Duration: 15-20 seconds, seamless loop, muted autoplay -->
+      </section>
 
-    {/* ── EXPERIENCE CARDS ── */}
-    <section className="py-24 bg-cream depth texture-straw shimmer-water">
-      <div className="max-w-[1400px] mx-auto px-6 relative z-10">
-        <div className="text-center mb-16 reveal">
-          <p className="font-body text-gold-dark text-sm tracking-[4px] uppercase mb-4">The Experience</p>
-          <h2 className="font-heading text-navy text-4xl md:text-5xl mb-4">Not Just a Winery.<br/><span className="italic text-green-bottle">A Destination.</span></h2>
-          <div className="section-line mt-6"/>
+      {/* LIGHT THROUGH GLASS */}
+      <section className="py-24 bg-cream bottle-mosaic glass-glow">
+        <div className="max-w-[1400px] mx-auto px-6">
+          <div className="text-center mb-16 reveal">
+            <h2 className="font-heading text-5xl text-navy mb-4">Light Through Glass</h2>
+            <div className="section-line"></div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="reveal text-center">
+              <div className="text-5xl mb-4">🍇</div>
+              <h3 className="font-heading text-2xl text-navy mb-3">The Vineyard</h3>
+              <p className="text-navy/70 font-body">On 75 acres of the James Monroe Birthplace, every vine tells a story of earth and season.</p>
+            </div>
+            <div className="reveal text-center">
+              <div className="text-5xl mb-4">🏛️</div>
+              <h3 className="font-heading text-2xl text-navy mb-3">The Barn</h3>
+              <p className="text-navy/70 font-body">Built from 10,000+ recycled wine bottles, our cathedral of glass glows golden at sunset.</p>
+            </div>
+            <div className="reveal text-center">
+              <div className="text-5xl mb-4">🌊</div>
+              <h3 className="font-heading text-2xl text-navy mb-3">The Creek</h3>
+              <p className="text-navy/70 font-body">Monroe Creek whispers through salt marshes, carrying the breath of the Chesapeake.</p>
+            </div>
+          </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {[
-            {title:'The Strawbale Barn',desc:'3,000 sq ft of sustainable wonder — straw-bale walls, hydraulic lime finish, and stained-glass mosaics made from 10,000+ recycled wine bottles. When the sun hits, the barn glows.',img:'barn-interior.jpg',link:'barn'},
-            {title:'Waterfront Tastings',desc:'Adirondack chairs, Monroe Creek breezes, and a flight of Blue Heron wines. Bring your picnic, your dog, and your sunset expectations.',img:'adirondack-sunset.jpg',link:'visit'},
-            {title:'Weddings on Water',desc:'Say "I do" in the glow of recycled bottle-glass walls. 100–200 guests, 400 ft of shoreline, and the LOVE sign at sunset. 4.9/5 rated.',img:'wedding-barn.jpg',link:'weddings'},
-          ].map((c,i)=>(
-            <div key={i} className="reveal wine-card bg-white rounded-lg overflow-hidden group cursor-pointer card-3d" style={{transitionDelay:`${i*.15}s`}} onClick={()=>go(c.link)}>
-              <div className="card-inner">
-                <div className="h-56 img-frame"><img src={`images/${c.img}`} alt={c.title}/><div className="absolute inset-0 bg-gradient-to-t from-navy/50 to-transparent"/></div>
-                <div className="p-8">
-                  <h3 className="font-heading text-navy text-xl mb-3">{c.title}</h3>
-                  <p className="font-body text-navy/55 text-sm leading-relaxed mb-4">{c.desc}</p>
-                  <span className="font-body text-green-bottle text-sm font-semibold group-hover:text-gold-dark transition-colors">Explore →</span>
+      </section>
+
+      {/* EXPERIENCE SECTION */}
+      <section className="py-24 bg-navy-dark">
+        <div className="max-w-[1400px] mx-auto px-6">
+          <div className="text-center mb-16 reveal">
+            <h2 className="font-heading text-5xl text-cream mb-4">Not Just a Winery. A Sensory Awakening.</h2>
+            <div className="section-line"></div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div className="reveal-left">
+              <div className="img-frame mb-6">
+                <img src="images/mb-strawbale-barn.jpg" alt="The Strawbale Barn at Monroe Bay Vineyard"/>
+              </div>
+              <h3 className="font-heading text-2xl text-cream mb-3">The Strawbale Barn</h3>
+              <p className="text-cream/80 font-body mb-4">
+                Breathe in the scent of sun-dried straw and aged oak. Walls built from the earth and illuminated by ten thousand reclaimed bottles tell a story of light, grit, and grace. When the afternoon sun finds the glass, the barn becomes a cathedral.
+              </p>
+              <button onClick={()=>openModal('weddings')} className="btn-gold">Plan a Wedding</button>
+            </div>
+            <div className="reveal-right">
+              <div className="img-frame mb-6">
+                <img src="images/adirondack-sunset.jpg" alt="Waterfront Tasting"/>
+              </div>
+              <h3 className="font-heading text-2xl text-cream mb-3">Waterfront Tastings</h3>
+              <p className="text-cream/80 font-body mb-4">
+                Sink into weathered Adirondack chairs as the salt breeze curls off Monroe Creek. The Blue Heron wines catch the last light. Your dog at your feet. Nowhere to be but here.
+              </p>
+              <button onClick={()=>openModal('reserve')} className="btn-outline">Book Your Tasting</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* WINES GALLERY */}
+      <section className="py-24 bg-cream">
+        <div className="max-w-[1400px] mx-auto px-6">
+          <div className="text-center mb-16 reveal">
+            <h2 className="font-heading text-5xl text-navy mb-4">The Collection</h2>
+            <p className="text-navy/60 font-body max-w-2xl mx-auto">Handcrafted wines and ciders that carry the essence of Monroe Creek.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {ALL_WINES.slice(0,8).map((w,i)=>(
+              <div key={i} className="wine-card reveal bg-white rounded-lg overflow-hidden depth">
+                <div className="h-40 relative" style={{background:w.color}}>
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/20"/>
                 </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    {/* ── BLUE HERON COLLECTION ── */}
-    <section className="py-24 bg-navy relative overflow-hidden glass-glow">
-      <img src="images/wine-bottles.jpg" alt="" className="absolute inset-0 w-full h-full object-cover opacity-8"/>
-      <div className="absolute inset-0 bg-navy/88"/>
-      <div className="max-w-[1400px] mx-auto px-6 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-16">
-          <div className="lg:w-1/2 reveal-left">
-            <p className="font-body text-gold text-sm tracking-[4px] uppercase mb-4">From Our Cellar</p>
-            <h2 className="font-heading text-cream text-4xl md:text-5xl mb-6">The Blue Heron<br/><span className="italic text-gold">Collection</span></h2>
-            <p className="font-body text-cream/55 text-base leading-relaxed mb-4">Every label carries the Blue Heron — the patient sentinel of Monroe Creek. Designed by local artist Barbara Brennan in vivid blues and greens, they're as much art as the wines inside are craft.</p>
-            <p className="font-body text-cream/55 text-base leading-relaxed mb-8">From the structured depth of our estate Petit Verdot to the Provence-inspired grace of the Blue Heron Rosé, each bottle tells the story of this land, this water, this moment.</p>
-            <div className="flex gap-4">
-              <button onClick={()=>go('wines')} className="btn-primary">View All Wines</button>
-              <button onClick={()=>openModal('reserve')} className="btn-outline">Book a Tasting</button>
-            </div>
-          </div>
-          <div className="lg:w-1/2 reveal-right">
-            <div className="grid grid-cols-2 gap-4">
-              {BLUE_HERON_COLLECTION.concat(HERITAGE_WINES[0]).map((w,i)=>(
-                <div key={i} className="glass rounded-lg p-6 text-center wine-card">
-                  <div className="w-12 h-12 rounded-full mx-auto mb-4 shadow-lg" style={{background:w.color,boxShadow:`0 4px 15px ${w.color}40`}}/>
-                  <h4 className="font-heading text-cream text-lg mb-1">{w.name}</h4>
-                  <p className="font-body text-gold text-xs tracking-wide uppercase">{w.type} · {w.body}</p>
-                  <p className="font-body text-cream/35 text-xs mt-2 leading-relaxed">{w.notes.slice(0,65)}...</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    {/* ── LIGHT THROUGH GLASS (immersive story section) ── */}
-    <section className="py-28 bg-cream-warm depth texture-straw relative">
-      <div className="absolute inset-0 glass-glow"/>
-      <div className="max-w-[1400px] mx-auto px-6 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-16">
-          <div className="lg:w-1/2 reveal-left">
-            <div className="relative rounded-xl overflow-hidden img-frame" style={{height:'420px'}}>
-              <img src="images/barn-interior.jpg" alt="Stained glass wine bottle walls inside the Strawbale Barn" className="w-full h-full object-cover"/>
-              <div className="absolute inset-0 bg-gradient-to-t from-navy/40 to-transparent"/>
-              <div className="absolute bottom-6 left-6 right-6">
-                <p className="font-heading text-cream text-xl italic">"Like light through a cathedral window."</p>
-              </div>
-            </div>
-          </div>
-          <div className="lg:w-1/2 reveal-right">
-            <p className="font-body text-gold-dark text-sm tracking-[4px] uppercase mb-4">The Icon</p>
-            <h2 className="font-heading text-navy text-4xl mb-6">Light Through Glass</h2>
-            <div className="space-y-5 font-body text-navy/55 text-base leading-relaxed">
-              <p>Over 10,000 wine bottles — cleaned, cut, and mortared into hydraulic lime walls — transform the Strawbale Barn into something between architecture and art. When the late-afternoon sun hits, greens and ambers and deep clarets scatter across the white lime interior.</p>
-              <p>The bottle work was a three-step labor of love: cutting each bottle, laying the mosaic pattern on the floor, taping the pieces together, then setting the design into the wall with plaster. World-famous straw bale specialist Andrew Morrison and 40 volunteers helped raise the walls.</p>
-              <p>Return your empty Monroe Bay bottles and they may become part of the next wall. Every customer is part of the barn's story.</p>
-            </div>
-            <button onClick={()=>go('barn')} className="mt-8 btn-primary">Explore the Barn</button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    {/* ── KIKI'S QUOTE ── */}
-    <section className="py-20 bg-navy relative overflow-hidden">
-      <img src="images/vineyard-rows.jpg" alt="" className="absolute inset-0 w-full h-full object-cover opacity-10"/>
-      <div className="absolute inset-0 bg-navy/85"/>
-      <div className="max-w-3xl mx-auto px-6 text-center relative z-10 reveal">
-        <p className="font-heading text-gold text-5xl italic mb-6">"</p>
-        <p className="font-heading text-cream text-2xl md:text-3xl italic leading-relaxed mb-6">I fell in love with wine in the South of France. I came home to Virginia and built that feeling into every wall of this barn.</p>
-        <div className="section-line mb-4"/>
-        <p className="font-body text-gold text-sm tracking-[3px] uppercase">Kiki Apple — Founder & Winemaker</p>
-      </div>
-    </section>
-
-    {/* ── GALLERY STRIP ── */}
-    <section className="py-4 bg-navy-dark depth-inset overflow-hidden">
-      <div className="flex gap-4 px-4" style={{animation:'scroll 40s linear infinite'}}>
-        {['vineyard-rows.jpg','wine-tasting.jpg','barn-interior.jpg','waterfront-sunset.jpg','wine-bottles.jpg','cheese-board.jpg','wedding-flowers.jpg','paint-class.jpg','adirondack-sunset.jpg','dock-water.jpg','wine-glasses.jpg','vineyard-hero.jpg'].map((img,i)=>
-          <div key={i} className="flex-shrink-0 w-48 h-32 md:w-64 md:h-44 rounded-lg overflow-hidden img-frame" style={{opacity:.8}}>
-            <img src={`images/${img}`} alt="Monroe Bay Vineyard"/>
-          </div>
-        )}
-      </div>
-      <style>{`@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}`}</style>
-    </section>
-
-    {/* ── BOARDWALK CIDERS ── */}
-    <section className="py-24 bg-cream depth texture-straw">
-      <div className="max-w-[1400px] mx-auto px-6 relative z-10">
-        <div className="text-center mb-16 reveal">
-          <p className="font-body text-gold-dark text-sm tracking-[4px] uppercase mb-4">The Boardwalk Ciders</p>
-          <h2 className="font-heading text-navy text-4xl md:text-5xl mb-3">Beyond the Vine</h2>
-          <p className="font-body text-navy/50 max-w-xl mx-auto text-sm">Pressed from Virginia apples — including the Hughes Crab variety that President Monroe himself cultivated on this very farm.</p>
-          <div className="section-line mt-6"/>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {BOARDWALK_CIDERS.map((c,i)=>(
-            <div key={i} className="reveal wine-card bg-white rounded-lg p-8 text-center" style={{transitionDelay:`${i*.1}s`}}>
-              <div className="text-4xl mb-4">{c.icon}</div>
-              <h3 className="font-heading text-navy text-lg mb-2">{c.name}</h3>
-              <div className="flex justify-center gap-3 mb-4">
-                <span className="font-body text-xs bg-green-pale text-green-bottle px-3 py-1 rounded-full">{c.style}</span>
-                <span className="font-body text-xs bg-gold/20 text-gold-dark px-3 py-1 rounded-full">{c.abv}</span>
-              </div>
-              <p className="font-body text-navy/45 text-sm leading-relaxed">{c.notes}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    {/* ── WINE FINDER QUIZ ── */}
-    <section className="py-24 bg-cream-warm depth-inset">
-      <div className="max-w-[1400px] mx-auto px-6">
-        <div className="flex flex-col lg:flex-row items-center gap-16">
-          <div className="lg:w-1/2 reveal-left">
-            <p className="font-body text-gold-dark text-sm tracking-[4px] uppercase mb-4">Interactive</p>
-            <h2 className="font-heading text-navy text-4xl mb-4">Find Your<br/><span className="italic text-green-bottle">Perfect Pour</span></h2>
-            <p className="font-body text-navy/55 text-base leading-relaxed mb-6">Not sure where to start? Three quick questions and we'll match you with the Monroe Bay wine that fits your palate.</p>
-            <div className="flex items-center gap-3 text-navy/35 font-body text-sm"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Takes 30 seconds</div>
-          </div>
-          <div className="lg:w-1/2 reveal-right">
-            <div className="bg-white rounded-xl p-8 shadow-lg border border-navy/5"><WineQuiz/></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    {/* ── CTA ── */}
-    <section className="relative py-24 overflow-hidden">
-      <img src="images/waterfront-sunset.jpg" alt="" className="absolute inset-0 w-full h-full object-cover"/>
-      <div className="absolute inset-0 bg-green-bottle/70"/>
-      <div className="absolute inset-0 bottle-mosaic"/>
-      <div className="relative z-10 max-w-3xl mx-auto px-6 text-center reveal">
-        <h2 className="font-heading text-cream text-4xl md:text-5xl mb-6">Your Table<br/><span className="italic text-gold">is Waiting</span></h2>
-        <p className="font-body text-cream/65 text-lg mb-10">Whether it's a Saturday tasting, a sunset wedding, or a lazy afternoon with nowhere to be — the creek, the barn, and a glass of something beautiful are here for you.</p>
-        <div className="flex flex-wrap justify-center gap-4">
-          <button onClick={()=>openModal('reserve')} className="btn-gold">Reserve a Tasting</button>
-          <button onClick={()=>go('weddings')} className="btn-outline">Plan a Wedding</button>
-        </div>
-      </div>
-    </section>
-  </div>);
-}
-
-/* ═══════════════════════════════════════════════ */
-/*  WINES PAGE (The Cellar)                        */
-/* ═══════════════════════════════════════════════ */
-function WinesPage(){
-  const[filter,setFilter]=useState('all');const[sel,setSel]=useState(null);
-  useReveal();
-  const wines=filter==='all'?ALL_WINES:ALL_WINES.filter(w=>w.type===filter);
-  return(<div>
-    <PageHero img="wine-glasses.jpg" kicker="The Cellar" title='Wines & Ciders' subtitle="Handcrafted on the shores of Monroe Creek. Each bottle carries the Blue Heron — and the soul of Virginia wine country."/>
-    <section className="bg-cream-warm border-b border-navy/8 sticky top-[60px] z-40">
-      <div className="max-w-[1400px] mx-auto px-6 py-4 flex items-center gap-3 overflow-x-auto">
-        {[{id:'all',l:'All'},{id:'red',l:'Reds'},{id:'white',l:'Whites'},{id:'rosé',l:'Rosé'}].map(f=>
-          <button key={f.id} onClick={()=>setFilter(f.id)} className={`font-body text-sm px-5 py-2 rounded-full border transition-all whitespace-nowrap ${filter===f.id?'bg-navy text-cream border-navy':'bg-transparent text-navy/55 border-navy/15 hover:border-navy/30'}`}>{f.l}</button>
-        )}
-      </div>
-    </section>
-    {/* Heritage Collection */}
-    <section className="py-16 bg-cream depth texture-straw">
-      <div className="max-w-[1400px] mx-auto px-6 relative z-10">
-        <div className="mb-10 reveal"><h2 className="font-heading text-navy text-3xl">The Heritage Collection</h2><p className="font-body text-navy/40 text-sm mt-2">Estate-grown varietals from the James Monroe Birthplace Farm. $18–$24 per bottle.</p></div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {wines.map((w,i)=>(
-            <div key={w.name} className="reveal wine-card bg-white rounded-lg overflow-hidden cursor-pointer group card-3d" style={{transitionDelay:`${i*.08}s`}} onClick={()=>setSel(sel===w.name?null:w.name)}>
-              <div className="card-inner">
-                <div className="h-2.5" style={{background:`linear-gradient(90deg,${w.color},${w.color}60)`}}/>
-                <div className="p-7">
-                  <div className="flex items-start justify-between mb-3">
-                    <div><h3 className="font-heading text-navy text-xl mb-1">{w.name}</h3><p className="font-body text-navy/35 text-xs tracking-[2px] uppercase">{w.type} · {w.body}</p></div>
-                    <div className="font-heading text-green-bottle text-xl">${w.price}</div>
+                <div className="p-5">
+                  <h4 className="font-heading text-lg text-navy mb-1">{w.name}</h4>
+                  <p className="text-xs text-gold font-semibold mb-2 uppercase tracking-wide">{w.type}</p>
+                  <p className="text-sm text-navy/60 font-body mb-4">{w.notes}</p>
+                  <div className="flex justify-between items-center text-xs">
+                    <span className="text-navy/40">${w.price}</span>
+                    <span className="text-navy/40">{w.body}</span>
                   </div>
-                  <p className="font-body text-navy/55 text-sm leading-relaxed mb-3">{w.notes}</p>
-                  <div className={`acc ${sel===w.name?'open':''}`}><div className="pt-3 border-t border-navy/8"><p className="font-body text-xs text-gold-dark tracking-[2px] uppercase mb-2">Pairs With</p><p className="font-body text-navy/45 text-sm">{w.pairs}</p></div></div>
-                  <div className="flex items-center justify-between mt-3"><span className="font-body text-green-bottle text-xs font-semibold group-hover:text-gold-dark transition-colors">{sel===w.name?'Less':'View pairings'} →</span><div className="w-7 h-7 rounded-full" style={{background:w.color,opacity:.25}}/></div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* BOTTLE DIVIDER */}
+      <div className="bottle-divider">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none"><path d="M0,50 Q30,20 60,50 T120,50 T180,50 T240,50 T300,50 T360,50 T420,50 T480,50 T540,50 T600,50 T660,50 T720,50 T780,50 T840,50 T900,50 T960,50 T1020,50 T1080,50 T1140,50 T1200,50 L1200,60 L0,60 Z" fill="#2D6A4F" opacity="0.3"/></svg>
+      </div>
+
+      {/* WINE QUIZ */}
+      <section className="py-24 bg-navy-dark">
+        <div className="max-w-[1400px] mx-auto px-6">
+          <div className="text-center mb-16 reveal">
+            <h2 className="font-heading text-5xl text-cream mb-4">Which Wine Are You?</h2>
+            <p className="text-cream/60 font-body">A quick quiz to find your perfect pour.</p>
+          </div>
+          <div className="max-w-2xl mx-auto">
+            <WineQuiz/>
+          </div>
+        </div>
+      </section>
+
+      {/* TESTIMONIALS */}
+      <section className="py-24 bg-cream">
+        <div className="max-w-[1400px] mx-auto px-6">
+          <div className="text-center mb-16 reveal">
+            <h2 className="font-heading text-5xl text-navy mb-4">Stories from Our Guests</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {name:'Sarah M.',text:'"The barn is magical. We got married here last summer and it felt like stepping into a dream."'},
+              {name:'James K.',text:'"The wines are phenomenal, but the real experience is Kiki\'s passion. Every bottle tells a story."'},
+              {name:'Emma L.',text:'"We bring our dog every month. The creek breezes, the sunset, the wine — it\'s perfection."'}
+            ].map((t,i)=>(
+              <div key={i} className="reveal bg-white p-8 rounded-lg glass-cream">
+                <p className="text-navy/70 font-body italic mb-4">"{t.text}"</p>
+                <p className="font-heading text-navy font-semibold">— {t.name}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-24 bg-green-bottle text-cream texture-straw relative overflow-hidden">
+        <div className="absolute inset-0 bottle-mosaic opacity-30"/>
+        <div className="relative z-10 max-w-[1400px] mx-auto px-6 text-center">
+          <h2 className="font-heading text-5xl mb-6 reveal">The creek is patient. The barn glows. A glass of something beautiful waits on a table with your name on it.</h2>
+          <p className="font-body text-lg text-cream/80 max-w-2xl mx-auto mb-12 reveal">
+            Whether it's a Saturday tasting, a sunset wedding, or a lazy afternoon where time dissolves into the water — we saved you a seat.
+          </p>
+          <button onClick={()=>openModal('reserve')} className="btn-gold reveal">Plan Your Visit</button>
+        </div>
+      </section>
+
+      {/* NEWSLETTER */}
+      <section className="py-16 bg-navy-dark border-t border-white/10">
+        <div className="max-w-[1400px] mx-auto px-6 text-center">
+          <h3 className="font-heading text-3xl text-cream mb-3">Stories from the Vineyard</h3>
+          <p className="text-cream/60 font-body mb-6">Seasonal updates, new releases, and behind-the-scenes moments.</p>
+          <form className="flex gap-3 max-w-md mx-auto reveal">
+            <input type="email" placeholder="Your email" className="flex-1 px-4 py-3 rounded bg-white/10 border border-white/20 text-cream placeholder-cream/40 font-body text-sm"/>
+            <button className="btn-gold px-6 py-3 text-sm">Subscribe</button>
+          </form>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+function WinesPage(){
+  useReveal();
+  const [filter,setFilter]=useState('all');
+  const wines=filter==='all'?ALL_WINES:ALL_WINES.filter(w=>w.type===filter);
+  return(
+    <main className="pt-[100px] pb-24 min-h-screen">
+      <div className="max-w-[1400px] mx-auto px-6">
+        <h1 className="font-heading text-6xl text-navy mb-6 reveal">The Cellar</h1>
+        <p className="text-navy/70 font-body max-w-2xl mb-12 reveal">Every wine carries the story of Monroe Bay — of earth, of season, of the patient craft of winemaking.</p>
+        <div className="flex gap-3 mb-12 flex-wrap reveal">
+          {['all','red','white','rosé'].map(f=>(
+            <button key={f} onClick={()=>setFilter(f)} className={`px-6 py-2 rounded font-body text-sm transition-all ${filter===f?'bg-green-bottle text-cream':'border border-navy/20 text-navy hover:border-navy'}`}>
+              {f.charAt(0).toUpperCase()+f.slice(1)}
+            </button>
+          ))}
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {wines.map((w,i)=>(
+            <div key={i} className="wine-card reveal bg-white rounded-lg overflow-hidden depth-luxury">
+              <div className="h-48 relative" style={{background:w.color}}>
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/30"/>
+              </div>
+              <div className="p-6">
+                <h3 className="font-heading text-xl text-navy mb-2">{w.name}</h3>
+                <p className="text-xs text-gold font-semibold mb-3 uppercase tracking-wide">{w.type} • ${w.price}</p>
+                <p className="text-sm text-navy/70 font-body mb-4">{w.notes}</p>
+                <div className="border-t border-navy/10 pt-4">
+                  <p className="text-xs text-navy/50 font-body"><strong>Pairs with:</strong> {w.pairs}</p>
                 </div>
               </div>
             </div>
           ))}
         </div>
       </div>
-    </section>
-    {/* Cider + Sparkling + Quiz sections */}
-    <section className="py-20 bg-navy glass-glow">
-      <div className="max-w-[1400px] mx-auto px-6 relative z-10">
-        <div className="text-center mb-12 reveal"><p className="font-body text-gold text-sm tracking-[4px] uppercase mb-4">The Boardwalk Ciders</p><h2 className="font-heading text-cream text-3xl">From the Orchard</h2><div className="section-line mt-5"/></div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">{BOARDWALK_CIDERS.map((c,i)=><div key={i} className="reveal glass rounded-lg p-7 text-center" style={{transitionDelay:`${i*.1}s`}}><div className="text-3xl mb-3">{c.icon}</div><h4 className="font-heading text-cream text-lg mb-2">{c.name}</h4><p className="font-body text-gold text-xs mb-3">{c.style} · {c.abv}</p><p className="font-body text-cream/45 text-sm leading-relaxed">{c.notes}</p></div>)}</div>
-      </div>
-    </section>
-    <section className="py-16 bg-cream-warm depth">
-      <div className="max-w-[1400px] mx-auto px-6 relative z-10">
-        <div className="text-center mb-10 reveal"><h3 className="font-heading text-navy text-2xl">Sparkling Grape Juices</h3><p className="font-body text-navy/40 text-xs mt-2">All the celebration, none of the alcohol.</p></div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">{SPARKLING.map((s,i)=><div key={i} className="reveal bg-white rounded-lg p-6 shadow-sm text-center wine-card"><h4 className="font-heading text-navy text-lg mb-2">{s.name}</h4><p className="font-body text-navy/45 text-sm">{s.notes}</p></div>)}</div>
-      </div>
-    </section>
-    <section className="py-20 bg-cream">
-      <div className="max-w-xl mx-auto px-6 reveal"><div className="text-center mb-8"><h2 className="font-heading text-navy text-3xl mb-2">Not Sure Where to Start?</h2><p className="font-body text-navy/40 text-sm">Our Wine Finder matches your palate in 30 seconds.</p></div><div className="bg-white rounded-xl p-8 shadow-lg border border-navy/5"><WineQuiz/></div></div>
-    </section>
-  </div>);
+    </main>
+  );
 }
 
-/* ═══════════════════════════════════════════════ */
-/*  BARN PAGE                                      */
-/* ═══════════════════════════════════════════════ */
 function BarnPage(){
-  const{go}=useContext(Ctx);useReveal();
-  return(<div>
-    <PageHero img="barn-interior.jpg" kicker="The Icon" title='The Strawbale Barn' subtitle="3,000 square feet of sustainable architecture, stained-glass wine bottle walls, and waterfront views that make time stand still."/>
-    <section className="py-24 bg-cream depth texture-straw">
-      <div className="max-w-[1400px] mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16 reveal">
-          {[{img:'barn-interior.jpg',span:'col-span-2 row-span-2',h:'h-64 md:h-80'},{img:'wine-bottles.jpg',span:'',h:'h-32 md:h-[152px]'},{img:'wine-tasting.jpg',span:'',h:'h-32 md:h-[152px]'},{img:'waterfront-sunset.jpg',span:'col-span-2',h:'h-32 md:h-[152px]'}].map((p,i)=>
-            <div key={i} className={`${p.span} ${p.h} img-frame card-3d`}><div className="card-inner w-full h-full"><img src={`images/${p.img}`} alt="Monroe Bay Vineyard"/></div></div>
-          )}
-        </div>
-        <div className="flex flex-col lg:flex-row items-start gap-16">
-          <div className="lg:w-1/2 reveal-left">
-            <h2 className="font-heading text-navy text-3xl mb-6">Built From the Earth.<br/><span className="italic text-green-bottle">Lit by Recycled Glass.</span></h2>
-            <div className="space-y-5 font-body text-navy/55 text-base leading-relaxed">
-              <p>When Kiki Apple envisioned the Strawbale Barn, she didn't imagine a building — she imagined a feeling. The feeling of long afternoons in the South of France, where wine and light and conversation fold into each other.</p>
-              <p>The result opened in July 2019: straw bales harvested from local fields for R-30+ natural insulation, finished with hydraulic lime — the same material used in French castles for centuries — in a museum-quality white finish with hand-shaped curves. Over 10,000 recycled wine bottles form stained-glass mosaics throughout the walls.</p>
-              <p>Construction enlisted world-famous straw bale specialist Andrew Morrison and 40 volunteers. The bottle work was a three-step process: cutting each bottle, laying the mosaic on the floor and taping pieces together, then mortaring the design into the wall.</p>
-            </div>
-          </div>
-          <div className="lg:w-1/2 reveal-right">
-            <div className="grid grid-cols-2 gap-4">
-              {[{l:'10,000+',s:'Recycled Bottles',bg:'bg-green-bottle'},{l:'3,000',s:'Square Feet',bg:'bg-navy'},{l:'75',s:'Waterfront Acres',bg:'bg-heron'},{l:'2019',s:'Grand Opening',bg:'bg-gold-dark'}].map((st,i)=>
-                <div key={i} className={`${st.bg} rounded-lg p-8 text-center wine-card`}><div className="font-heading text-cream text-3xl font-bold mb-2">{st.l}</div><div className="font-body text-cream/55 text-sm">{st.s}</div></div>
-              )}
-            </div>
-            <div className="mt-8 bg-navy rounded-lg p-8 relative overflow-hidden">
-              <img src="images/wine-bottles.jpg" alt="" className="absolute inset-0 w-full h-full object-cover opacity-8"/>
-              <div className="absolute inset-0 bg-navy/90"/>
-              <div className="relative z-10"><h4 className="font-heading text-gold text-xl mb-3">The LOVE Sign</h4><p className="font-body text-cream/55 text-sm leading-relaxed">Virginia is for Lovers — and our iconic stained-glass LOVE installation is the most photographed spot on the Northern Neck. Built into the bottle walls, it catches sunset light and transforms the barn into a canvas of color. A popular spot for brides and grooms.</p></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section className="py-20 bg-green-bottle text-center relative overflow-hidden">
-      <img src="images/waterfront-sunset.jpg" alt="" className="absolute inset-0 w-full h-full object-cover opacity-15"/><div className="absolute inset-0 bg-green-bottle/80"/>
-      <div className="relative z-10 max-w-2xl mx-auto px-6 reveal"><h2 className="font-heading text-cream text-3xl mb-6">Experience the Barn</h2><p className="font-body text-cream/60 mb-8">Book a tasting, plan a wedding, or just come see the light.</p><div className="flex flex-wrap justify-center gap-4"><button onClick={()=>go('weddings')} className="btn-gold">Weddings</button><button onClick={()=>go('visit')} className="btn-outline">Plan Your Visit</button></div></div>
-    </section>
-  </div>);
-}
-
-/* ═══════════════════════════════════════════════ */
-/*  WEDDINGS PAGE                                  */
-/* ═══════════════════════════════════════════════ */
-function WeddingsPage(){
-  const{openModal}=useContext(Ctx);useReveal();
-  const[sent,setSent]=useState(false);const[wf,setWf]=useState({name:'',email:'',phone:'',date:'',guests:'',vision:''});
-  const wu=(k,v)=>setWf(p=>({...p,[k]:v}));
-  return(<div>
-    <PageHero img="wedding-flowers.jpg" kicker="Weddings on Water" title='Say "I Do"<br/><span class="italic" style="color:#E0C389">in Stained Glass Light</span>' subtitle="The Strawbale Barn, the waterfront, the LOVE sign — a wedding venue that's as unforgettable as the moment itself."/>
-    <section className="py-24 bg-cream depth texture-straw">
-      <div className="max-w-[1400px] mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-3 gap-4 mb-16 reveal">{['wedding-barn.jpg','wedding-flowers.jpg','adirondack-sunset.jpg'].map((img,i)=>
-          <div key={i} className="h-48 md:h-64 img-frame card-3d"><div className="card-inner w-full h-full"><img src={`images/${img}`} alt="Monroe Bay Weddings"/></div></div>
-        )}</div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+  useReveal();
+  const {openModal}=useContext(Ctx);
+  return(
+    <main className="pt-[100px] pb-24 min-h-screen">
+      <div className="max-w-[1400px] mx-auto px-6">
+        <h1 className="font-heading text-6xl text-navy mb-12 reveal">The Strawbale Barn</h1>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-24">
           <div className="reveal-left">
-            <h2 className="font-heading text-navy text-3xl mb-6">Where Light, Water,<br/>and Love Converge</h2>
-            <div className="space-y-4 font-body text-navy/55 text-base leading-relaxed">
-              <p>Imagine your ceremony bathed in the amber and emerald glow of 10,000 recycled wine bottle walls. Behind you, Monroe Creek stretches to the horizon. The LOVE sign catches the last of the golden hour light.</p>
-              <p>The 3,000-square-foot air-conditioned Strawbale Barn seats 100–200 guests inside, with over 400 feet of secluded waterfront and six manicured acres for outdoor ceremonies, cocktail hours, and receptions under the stars.</p>
-            </div>
-            <div className="mt-6 flex items-center gap-4 bg-gold/10 rounded-lg p-4 border border-gold/20">
-              <div className="text-center"><div className="font-heading text-gold-dark text-2xl font-bold">4.9</div><div className="text-gold-dark text-xs">★★★★★</div></div>
-              <div><p className="font-body text-navy text-sm font-semibold">99% of couples recommend us</p><p className="font-body text-navy/40 text-xs">5.0 in service, flexibility & value — WeddingWire</p></div>
-            </div>
-            <div className="mt-6 space-y-3">
-              {[{t:'The Venue',d:'3,000 sq ft barn with A/C · 100–200 seated · 400+ ft waterfront · 6 manicured acres · lofty wood-paneled ceiling'},{t:'The Experience',d:'Custom wine labels · vineyard tastings for guests · sunset photos at the LOVE sign'},{t:'The Details',d:'Flexible catering · food truck welcome · pet-friendly · on-site parking · April–December'}].map((p,i)=>
-                <div key={i} className="bg-white rounded-lg p-5 shadow-sm border-l-4 border-gold"><h4 className="font-heading text-navy text-lg mb-1">{p.t}</h4><p className="font-body text-navy/45 text-sm">{p.d}</p></div>
-              )}
-            </div>
+            <img src="images/mb-strawbale-barn.jpg" className="rounded-lg img-frame" alt="The Strawbale Barn at Monroe Bay Vineyard"/>
           </div>
           <div className="reveal-right">
-            <div className="bg-navy rounded-lg p-10 relative overflow-hidden">
-              <img src="images/waterfront-sunset.jpg" alt="" className="absolute inset-0 w-full h-full object-cover opacity-10"/><div className="absolute inset-0 bg-navy/90"/>
-              <div className="relative z-10">
-                <h3 className="font-heading text-cream text-2xl mb-2">Start Planning Your Day</h3>
-                <p className="font-body text-cream/50 text-sm mb-6">Tell us about your vision and we'll make it happen on the water.</p>
-                {sent?<div className="text-center py-8"><div className="text-4xl mb-4">💍</div><h4 className="font-heading text-cream text-xl mb-2">We Can't Wait</h4><p className="font-body text-cream/50 text-sm">We'll be in touch within 48 hours.</p></div>:(
-                  <form onSubmit={e=>{e.preventDefault();setSent(true)}} className="space-y-4">
-                    <input type="text" placeholder="Your Name" required value={wf.name} onChange={e=>wu('name',e.target.value)} className="w-full bg-white/10 border border-white/12 text-cream placeholder-cream/25 rounded px-4 py-3 font-body text-sm"/>
-                    <div className="grid grid-cols-2 gap-4">
-                      <input type="email" placeholder="Email" required value={wf.email} onChange={e=>wu('email',e.target.value)} className="w-full bg-white/10 border border-white/12 text-cream placeholder-cream/25 rounded px-4 py-3 font-body text-sm"/>
-                      <input type="tel" placeholder="Phone" value={wf.phone} onChange={e=>wu('phone',e.target.value)} className="w-full bg-white/10 border border-white/12 text-cream placeholder-cream/25 rounded px-4 py-3 font-body text-sm"/>
-                    </div>
-                    <div className="grid grid-cols-2 gap-4">
-                      <input type="date" value={wf.date} onChange={e=>wu('date',e.target.value)} className="w-full bg-white/10 border border-white/12 text-cream rounded px-4 py-3 font-body text-sm"/>
-                      <input type="number" placeholder="Guest Count" value={wf.guests} onChange={e=>wu('guests',e.target.value)} className="w-full bg-white/10 border border-white/12 text-cream placeholder-cream/25 rounded px-4 py-3 font-body text-sm"/>
-                    </div>
-                    <textarea placeholder="Tell us about your dream wedding..." rows={4} value={wf.vision} onChange={e=>wu('vision',e.target.value)} className="w-full bg-white/10 border border-white/12 text-cream placeholder-cream/25 rounded px-4 py-3 font-body text-sm resize-none"/>
-                    <button type="submit" className="btn-gold w-full">Send Wedding Inquiry</button>
-                  </form>
-                )}
+            <h2 className="font-heading text-4xl text-navy mb-6">A Cathedral Built from Dreams</h2>
+            <p className="text-navy/70 font-body mb-4">Breathe in the scent of sun-dried straw and aged oak. Our 3,000 sq ft barn is constructed from straw bales and finished with hydraulic lime — a sustainable, breathable approach that honors both the environment and the craft inside.</p>
+            <p className="text-navy/70 font-body mb-4">The real magic? Ten thousand recycled wine bottles embedded in the walls and ceilings. When the afternoon sun moves across the bay, greens and ambers and deep clarets scatter across the white lime interior. The barn becomes a cathedral.</p>
+            <button onClick={()=>openModal('weddings')} className="btn-primary">Host Your Event</button>
+          </div>
+        </div>
+
+        {/* BARN PHOTO GALLERY */}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-16">
+          {[
+            {src:'mb-strawbale-window.jpg',alt:'Stained glass bottle window'},
+            {src:'mb-bottle-walls.jpg',alt:'Recycled bottle wall construction'},
+            {src:'mb-love-window.jpg',alt:'The LOVE stained-glass window'},
+            {src:'mb-bottle-wall-build.jpg',alt:'Building the bottle mosaics',span:'md:col-span-2'},
+            {src:'mb-tasting-room.jpg',alt:'Monroe Bay tasting room waterfront'},
+          ].map((p,i)=>(
+            <div key={i} className={`${p.span||''} img-frame reveal rounded-lg overflow-hidden h-48 md:h-56`} style={{transitionDelay:`${i*.1}s`}}>
+              <img src={`images/${p.src}`} alt={p.alt} className="w-full h-full object-cover"/>
+            </div>
+          ))}
+        </div>
+
+        {/* BARN STATS */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+          {[{n:'10,000+',l:'Recycled Bottles'},{n:'3,000',l:'Square Feet'},{n:'75',l:'Waterfront Acres'},{n:'R-30+',l:'Natural Insulation'}].map((s,i)=>(
+            <div key={i} className="reveal bg-green-bottle rounded-lg p-6 text-center wine-card" style={{transitionDelay:`${i*.1}s`}}>
+              <div className="font-heading text-cream text-2xl font-bold mb-1">{s.n}</div>
+              <div className="font-body text-cream/55 text-xs">{s.l}</div>
+            </div>
+          ))}
+        </div>
+
+        <div className="bottle-divider"><svg viewBox="0 0 1200 60" preserveAspectRatio="none"><path d="M0,50 Q30,20 60,50 T120,50 T180,50 T240,50 T300,50 T360,50 T420,50 T480,50 T540,50 T600,50 T660,50 T720,50 T780,50 T840,50 T900,50 T960,50 T1020,50 T1080,50 T1140,50 T1200,50 L1200,60 L0,60 Z" fill="#2D6A4F" opacity="0.3"/></svg></div>
+      </div>
+    </main>
+  );
+}
+
+function WeddingsPage(){
+  useReveal();
+  const {openModal}=useContext(Ctx);
+  return(
+    <main className="pt-[100px] pb-24 min-h-screen">
+      <section className="relative h-96 flex items-end pt-[80px]">
+        <img src="images/mb-love-window.jpg" className="absolute inset-0 w-full h-full object-cover z-0" alt="Monroe Bay Vineyard LOVE Window Wedding Venue"/>
+        <div className="absolute inset-0 bg-black/40 z-0"/>
+        <div className="relative z-10 max-w-[1400px] mx-auto px-6 pb-12 w-full">
+          <h1 className="font-heading text-6xl text-cream reveal">Your Sunset Wedding Awaits</h1>
+        </div>
+      </section>
+      <div className="max-w-[1400px] mx-auto px-6 py-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
+          <div className="reveal-left">
+            <img src="images/mb-bottle-walls.jpg" className="rounded-lg img-frame" alt="Monroe Bay Vineyard Recycled Bottle Walls"/>
+          </div>
+          <div className="reveal-right">
+            <h2 className="font-heading text-4xl text-navy mb-6">Memories That Glow Golden</h2>
+            <p className="text-navy/70 font-body mb-4">Imagine exchanging vows in a barn built from ten thousand wine bottles, the afternoon sun turning every surface to gold. Celebrate with 200 of your closest people in a space that feels both intimate and timeless.</p>
+            <ul className="space-y-3 mb-8 text-navy/70 font-body">
+              <li>• 3,000 sq ft climate-controlled barn</li>
+              <li>• 400+ feet of waterfront shoreline</li>
+              <li>• On-site vineyard grounds for ceremony</li>
+              <li>• Full catering kitchen + bar setup</li>
+              <li>• Pet-friendly venue</li>
+            </ul>
+            <button onClick={()=>openModal('weddings')} className="btn-gold">Plan Your Wedding</button>
+          </div>
+        </div>
+
+        {/* REAL VENUE PHOTO GALLERY */}
+        <div className="mb-24">
+          <h2 className="font-heading text-3xl text-navy mb-8 reveal text-center">The Venue in Every Light</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              {src:'mb-strawbale-barn.jpg',alt:'The Strawbale Barn exterior',span:'col-span-2 row-span-2'},
+              {src:'mb-love-window.jpg',alt:'The iconic LOVE stained-glass window',span:''},
+              {src:'mb-bottle-walls.jpg',alt:'Recycled wine bottle walls under construction',span:''},
+              {src:'mb-strawbale-window.jpg',alt:'Stained glass bottle window detail',span:''},
+              {src:'mb-tasting-room.jpg',alt:'Monroe Bay tasting room and waterfront',span:''},
+              {src:'mb-bottle-wall-build.jpg',alt:'Building the bottle wall mosaics',span:'col-span-2'},
+            ].map((p,i)=>(
+              <div key={i} className={`${p.span} img-frame reveal overflow-hidden rounded-lg`} style={{transitionDelay:`${i*.1}s`}}>
+                <img src={`images/${p.src}`} alt={p.alt} className="w-full h-full object-cover" style={{minHeight:p.span?.includes('row-span-2')?'320px':'150px'}}/>
               </div>
+            ))}
+          </div>
+        </div>
+
+        {/* WEDDING PACKAGES */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
+          {[
+            {title:'The Ceremony',icon:'💒',desc:'Exchange vows on 400+ feet of secluded waterfront shoreline, framed by Monroe Creek and the golden light filtering through the bottle walls. Indoor & outdoor options.'},
+            {title:'The Reception',icon:'🥂',desc:'Celebrate in the 3,000 sq ft climate-controlled Strawbale Barn with its lofty wood-paneled ceiling and stained-glass glow. Seats 100–200 guests comfortably.'},
+            {title:'The Details',icon:'✨',desc:'Custom Monroe Bay wine labels for your tables. Vineyard photo sessions at golden hour. The iconic LOVE sign as your backdrop. Pet-friendly, food truck welcome.'}
+          ].map((pkg,i)=>(
+            <div key={i} className="reveal wine-card bg-white rounded-lg p-8 text-center depth-luxury" style={{transitionDelay:`${i*.15}s`}}>
+              <div className="text-4xl mb-4">{pkg.icon}</div>
+              <h3 className="font-heading text-xl text-navy mb-3">{pkg.title}</h3>
+              <p className="font-body text-navy/55 text-sm leading-relaxed">{pkg.desc}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* WEDDING INQUIRY FORM */}
+        <div className="max-w-2xl mx-auto reveal">
+          <div className="bg-navy rounded-xl p-10 text-center relative overflow-hidden">
+            <img src="images/mb-tasting-room.jpg" alt="" className="absolute inset-0 w-full h-full object-cover opacity-10"/>
+            <div className="absolute inset-0 bg-navy/90"/>
+            <div className="relative z-10">
+              <h3 className="font-heading text-3xl text-cream mb-3">Begin Your Love Story Here</h3>
+              <p className="font-body text-cream/50 text-sm mb-8">We respond within 48 hours with availability and a personalized venue tour invitation.</p>
+              <button onClick={()=>openModal('weddings')} className="btn-gold">Request Wedding Information</button>
+              <p className="font-body text-cream/30 text-xs mt-6">4.9/5 stars · 99% of couples recommend Monroe Bay · WeddingWire Rated</p>
             </div>
           </div>
         </div>
       </div>
-    </section>
-  </div>);
+    </main>
+  );
 }
 
-/* ═══════════════════════════════════════════════ */
-/*  OUR STORY PAGE                                 */
-/* ═══════════════════════════════════════════════ */
 function StoryPage(){
   useReveal();
-  const tl=[
-    {yr:'France',title:'The Spark',text:'Kiki Apple falls in love with winemaking at the West Mill House in the South of France. The dream of a Virginia winery takes root in long afternoons and Provençal light.'},
-    {yr:'2010s',title:'The Garage Years',text:'Back in Northern Virginia, Kiki starts crafting wines in her garage. Plantings begin in the Goldvein countryside. The first vintages prove the concept.'},
-    {yr:'2014',title:'The License',text:'Monroe Bay Vineyard receives its farm winery license on November 15. The first crush produces Cabernet Franc, Viognier, and the inaugural Blue Heron Red.'},
-    {yr:'2017',title:'The Tasting Room',text:'The waterfront tasting room opens at 10 Washington Ave in Colonial Beach. Farmers markets give way to a permanent home on Monroe Creek.'},
-    {yr:'2019',title:'The Barn Rises',text:'The Strawbale Barn opens in July — 3,000 sq ft of straw bale insulation, hydraulic lime walls, and 10,000+ recycled wine bottles that glow like stained glass at sunset.'},
-    {yr:'Today',title:'The Destination',text:'Monroe Bay is a Chesapeake Bay Wine Trail jewel — hosting weddings, art classes, concerts, and tastings on 75 waterfront acres of presidential history.'},
-  ];
-  return(<div>
-    <PageHero img="vineyard-rows.jpg" kicker="Our Story" title='From France<br/><span class="italic" style="color:#E0C389">to the Northern Neck</span>'/>
-    <section className="py-24 bg-cream texture-straw depth">
-      <div className="max-w-4xl mx-auto px-6 relative z-10">
-        <div className="reveal mb-20">
-          <p className="font-body text-navy/55 text-lg leading-relaxed mb-6">Monroe Bay Vineyard didn't begin with a business plan. It began with a feeling — the feeling of a late afternoon in the South of France, where a glass of wine is never just a drink. It's a conversation. A moment. A way of living.</p>
-          <p className="font-body text-navy/55 text-lg leading-relaxed">Kiki Apple (Kirsten) carried that feeling home to Virginia and spent years turning it into something you can taste, touch, and walk through. Today, Monroe Bay sits on 75 waterfront acres of the James Monroe Birthplace Farm — the land where America's fifth president took his first breath in 1758, and where a winemaker built her dream from straw, lime, and ten thousand recycled wine bottles.</p>
-        </div>
-        <div className="relative rounded-xl border border-navy/10 bg-white/40 backdrop-blur-sm p-8 md:p-12 shadow-sm">
-          <div className="absolute left-12 md:left-1/2 top-8 bottom-8 w-px bg-navy/10"/>
-          {tl.map((t,i)=>(
-            <div key={i} className={`reveal relative flex flex-col md:flex-row items-start gap-8 mb-16 last:mb-0 ${i%2===1?'md:flex-row-reverse':''}`}>
-              <div className="md:w-1/2 pl-20 md:pl-0"><div className={`${i%2===1?'md:pl-12':'md:pr-12 md:text-right'}`}><span className="font-heading text-gold-dark text-2xl font-bold">{t.yr}</span><h3 className="font-heading text-navy text-xl mt-2 mb-3">{t.title}</h3><p className="font-body text-navy/50 text-sm leading-relaxed">{t.text}</p></div></div>
-              <div className="absolute left-10 md:left-1/2 md:-translate-x-1/2 w-4 h-4 rounded-full bg-gold border-4 border-cream shadow-md mt-2"/>
+  return(
+    <main className="pt-[100px] pb-24 min-h-screen">
+      <div className="max-w-[1400px] mx-auto px-6">
+        <h1 className="font-heading text-6xl text-navy mb-12 reveal">Our Story</h1>
+        <div className="max-w-3xl">
+          <p className="text-lg text-navy/70 font-body mb-6 reveal">
+            Kiki Apple stands in the afternoon light, watching the creek move toward the Chesapeake. This land—75 acres of the James Monroe Birthplace Farm—feels less like a place she chose and more like a place that chose her.
+          </p>
+          <p className="text-lg text-navy/70 font-body mb-6 reveal">
+            Founded in 2014, Monroe Bay Vineyard was born from a simple belief: that wine is better when it carries a story. Every bottle here is an expression of this land—its soil, its salt air, its quiet power.
+          </p>
+          <p className="text-lg text-navy/70 font-body mb-6 reveal">
+            The barn came later, a dream that seemed impossible until Kiki realized that a structure built from 10,000 recycled wine bottles wasn't just architecture—it was a statement. A celebration of everything poured, everything remembered, everything yet to come.
+          </p>
+
+          <div className="glass-cream rounded-lg p-12 my-16 reveal border-2 border-gold/20">
+            <blockquote className="italic text-xl text-navy font-body">
+              "Wine is where I slow down. Where the world stops. That's what Monroe Bay is for—moments that matter, poured into a glass."
+            </blockquote>
+            <p className="font-heading text-navy mt-4">— Kiki Apple, Founder</p>
+          </div>
+
+          <div className="space-y-8">
+            <div className="reveal">
+              <h3 className="font-heading text-2xl text-navy mb-3">2014: The Beginning</h3>
+              <p className="text-navy/70 font-body">Kiki plants her first vines on the James Monroe Birthplace Farm. The vision: to create wines that taste like this specific place, this specific moment in time.</p>
             </div>
-          ))}
-        </div>
-      </div>
-    </section>
-    <section className="py-20 bg-navy glass-glow">
-      <div className="max-w-[1400px] mx-auto px-6 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-12 reveal">
-          <div className="lg:w-1/2">
-            <p className="font-body text-gold text-sm tracking-[4px] uppercase mb-4">Presidential Land</p>
-            <h2 className="font-heading text-cream text-3xl mb-6">The James Monroe<br/><span className="italic text-gold">Birthplace Farm</span></h2>
-            <p className="font-body text-cream/55 text-base leading-relaxed mb-4">James Monroe — the fifth President — was born on this very land in 1758. The farm sits on the Northern Neck peninsula, bounded by the Potomac and Rappahannock Rivers, a region that produced more Founding Fathers per square mile than anywhere in America.</p>
-            <p className="font-body text-cream/55 text-base leading-relaxed">Our Hughes Crab apple cider is pressed from the same variety Monroe cultivated here centuries ago. History isn't a backdrop at Monroe Bay — it's in the soil, the water, and the glass.</p>
-          </div>
-          <div className="lg:w-1/2 grid grid-cols-2 gap-4">
-            {[{l:'1758',s:'James Monroe Born Here'},{l:'5th',s:'President of the United States'},{l:'3',s:'Presidents from the Northern Neck'},{l:'268',s:'Years of History on This Land'}].map((s,i)=>
-              <div key={i} className="glass rounded-lg p-6 text-center"><div className="font-heading text-gold text-3xl font-bold mb-1">{s.l}</div><div className="font-body text-cream/45 text-xs">{s.s}</div></div>
-            )}
+            <div className="reveal">
+              <h3 className="font-heading text-2xl text-navy mb-3">2018: The Barn Rises</h3>
+              <p className="text-navy/70 font-body">The strawbale barn takes shape—a 3,000 sq ft cathedral of recycled wine bottles, hydraulic lime, and sustainable vision. When the sun hits the glass walls, magic happens.</p>
+            </div>
+            <div className="reveal">
+              <h3 className="font-heading text-2xl text-navy mb-3">2020: Weddings & Craft Ciders</h3>
+              <p className="text-navy/70 font-body">Monroe Bay becomes a destination. Weddings happen under golden glass. Hard ciders join the cellar. The Blue Heron Collection launches—wines crafted for the people who understand that the best moments are shared.</p>
+            </div>
+            <div className="reveal">
+              <h3 className="font-heading text-2xl text-navy mb-3">Today: A Growing Legacy</h3>
+              <p className="text-navy/70 font-body">Monroe Bay welcomes hundreds of guests each month. Every pour, every smile, every sunset witnessed from an Adirondack chair is a chapter in an ongoing story.</p>
+            </div>
           </div>
         </div>
       </div>
-    </section>
-  </div>);
+    </main>
+  );
 }
 
-/* ═══════════════════════════════════════════════ */
-/*  CRAFT (SUSTAINABILITY) PAGE                    */
-/* ═══════════════════════════════════════════════ */
 function CraftPage(){
   useReveal();
-  return(<div>
-    <PageHero img="wine-barrel.jpg" kicker="Sustainability & Craft" title='Built From<br/><span class="italic" style="color:#E0C389">What Others Threw Away</span>'/>
-    <section className="py-24 bg-cream texture-straw depth">
-      <div className="max-w-[1400px] mx-auto px-6 relative z-10">
-        <div className="max-w-3xl mx-auto mb-16 reveal">
-          <p className="font-body text-navy/55 text-lg leading-relaxed mb-6">The Strawbale Barn isn't just a beautiful building — it's a statement about what's possible when craft and sustainability converge. Every material was chosen with intention: straw bales harvested from local fields, hydraulic lime for a breathable finish, and over 10,000 recycled wine bottles turned into structural art.</p>
-          <p className="font-body text-navy/55 text-lg leading-relaxed">The bottles aren't decorative. They're load-bearing elements of the wall system, capturing and refracting sunlight into patterns that shift with the hours and seasons. Return your empty Monroe Bay bottles and they may become part of the next wall.</p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {[{title:'Straw Bale Insulation',desc:'Locally harvested straw bales provide R-30+ insulation naturally — keeping the barn cool in Virginia summers and warm during harvest, with zero synthetic materials.',stat:'R-30+',sl:'Natural Insulation'},
-            {title:'Recycled Bottle Walls',desc:'Over 10,000 wine bottles diverted from landfills. Each cleaned, cut, positioned, and mortared into hydraulic lime — becoming both structure and stained-glass art.',stat:'10,000+',sl:'Bottles Recycled'},
-            {title:'Hydraulic Lime Finish',desc:'Museum-quality white lime finish with hand-shaped curves. Hydraulic lime is breathable, flexible, and has a lower carbon footprint than Portland cement. The same material used in French castles for centuries.',stat:'0',sl:'Synthetic Materials'}
-          ].map((item,i)=>(
-            <div key={i} className="reveal bg-white rounded-lg overflow-hidden shadow-md wine-card" style={{transitionDelay:`${i*.15}s`}}>
-              <div className="bg-green-bottle p-6 text-center"><div className="font-heading text-cream text-3xl font-bold">{item.stat}</div><div className="font-body text-cream/55 text-xs tracking-wide">{item.sl}</div></div>
-              <div className="p-8"><h3 className="font-heading text-navy text-xl mb-3">{item.title}</h3><p className="font-body text-navy/50 text-sm leading-relaxed">{item.desc}</p></div>
+  return(
+    <main className="pt-[100px] pb-24 min-h-screen">
+      <div className="max-w-[1400px] mx-auto px-6">
+        <h1 className="font-heading text-6xl text-navy mb-12 reveal">Craft & Ciders</h1>
+        <p className="text-lg text-navy/70 font-body max-w-3xl mb-16 reveal">Beyond wine, Monroe Bay crafts hard ciders that honor Virginia's apple heritage and the innovative spirit of sustainable production.</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-24">
+          {BOARDWALK_CIDERS.map((c,i)=>(
+            <div key={i} className="reveal bg-white rounded-lg p-8 border border-gold/20 depth">
+              <div className="text-4xl mb-4">{c.icon}</div>
+              <h3 className="font-heading text-2xl text-navy mb-2">{c.name}</h3>
+              <p className="text-sm text-gold font-semibold mb-3">{c.style} • {c.abv} ABV</p>
+              <p className="text-navy/70 font-body">{c.notes}</p>
             </div>
           ))}
         </div>
-        <div className="mt-16 bg-navy rounded-lg p-10 text-center reveal bottle-mosaic relative overflow-hidden">
-          <div className="relative z-10"><h3 className="font-heading text-cream text-2xl mb-4">Return Your Bottles</h3><p className="font-body text-cream/55 max-w-xl mx-auto mb-6">When you finish a bottle of Monroe Bay wine, bring it back. We'll clean it, mortar it into the next wall, and your empty bottle becomes a permanent piece of the barn's story.</p><div className="inline-flex items-center gap-2 bg-gold/15 text-gold px-6 py-3 rounded-full font-body text-sm">♻️ Every bottle returned = one more piece of the barn</div></div>
+        <div className="bottle-divider"><svg viewBox="0 0 1200 60" preserveAspectRatio="none"><path d="M0,50 Q30,20 60,50 T120,50 T180,50 T240,50 T300,50 T360,50 T420,50 T480,50 T540,50 T600,50 T660,50 T720,50 T780,50 T840,50 T900,50 T960,50 T1020,50 T1080,50 T1140,50 T1200,50 L1200,60 L0,60 Z" fill="#2D6A4F" opacity="0.3"/></svg></div>
+        <div className="max-w-3xl mx-auto my-24">
+          <h2 className="font-heading text-4xl text-navy mb-8 text-center reveal">Sparkling Non-Alcoholic Options</h2>
+          <div className="space-y-6">
+            {SPARKLING.map((s,i)=>(
+              <div key={i} className="reveal glass-cream p-6 rounded-lg">
+                <h3 className="font-heading text-xl text-navy mb-2">{s.name}</h3>
+                <p className="text-navy/70 font-body">{s.notes}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-    </section>
-  </div>);
+    </main>
+  );
 }
 
-/* ═══════════════════════════════════════════════ */
-/*  EVENTS PAGE                                    */
-/* ═══════════════════════════════════════════════ */
 function EventsPage(){
-  const{openModal}=useContext(Ctx);useReveal();
-  const events=[
-    {title:'A Brush with Wine',type:'Art Class',desc:'Paint, sip, and create with local artists from NNArtists.com. No experience needed — just bring curiosity and we\'ll provide canvas, brushes, and a glass of Blue Heron.',freq:'Monthly',icon:'🎨'},
-    {title:'Stone Room Concerts',type:'Live Music',desc:'Intimate acoustic sessions in the barn. Local and touring musicians against the backdrop of bottle-glass walls and creek breezes.',freq:'Seasonal',icon:'🎵'},
-    {title:'Harvest & Crush',type:'Volunteer',desc:'Get your hands in the grapes. Join us for harvest season and experience the crush firsthand — then taste the fruits of your labor at our spring release.',freq:'Fall',icon:'🍇'},
-    {title:'Christmas Bazaar',type:'Holiday',desc:'Local artisans, mulled cider, and the barn lit up for the holidays. One-of-a-kind gifts and a cup of Pumpkin Spice Cider.',freq:'December',icon:'🎄'},
-    {title:'Swing Dances',type:'Social',desc:'Lindy hop on the waterfront. Live band, open bar, and the kind of evening that turns strangers into friends.',freq:'Seasonal',icon:'💃'},
-    {title:'Food Truck Fridays',type:'Dining',desc:'Summer Friday evenings — rotating food trucks, cold cider, and the best sunset on the Northern Neck.',freq:'Summer Fridays',icon:'🚚'},
-  ];
-  return(<div>
-    <PageHero img="paint-class.jpg" kicker="What's Happening" title='Events &<br/>Experiences' subtitle="More than a winery — it's where the Northern Neck comes alive."/>
-    <section className="py-20 bg-cream depth texture-straw">
-      <div className="max-w-[1400px] mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {events.map((ev,i)=>(
-            <div key={i} className="reveal wine-card bg-white rounded-lg overflow-hidden" style={{transitionDelay:`${i*.1}s`}}>
-              <div className="bg-navy p-6 flex items-center gap-4"><span className="text-3xl">{ev.icon}</span><div><h3 className="font-heading text-cream text-lg">{ev.title}</h3><span className="font-body text-gold text-xs tracking-wider uppercase">{ev.type}</span></div></div>
-              <div className="p-6"><p className="font-body text-navy/55 text-sm leading-relaxed mb-4">{ev.desc}</p><div className="flex items-center justify-between"><span className="font-body text-xs bg-green-pale text-green-bottle px-3 py-1 rounded-full">{ev.freq}</span><button onClick={()=>openModal('event')} className="font-body text-green-bottle text-sm font-semibold hover:text-gold-dark transition-colors">Inquire →</button></div></div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  </div>);
-}
-
-/* ═══════════════════════════════════════════════ */
-/*  VISIT PAGE                                     */
-/* ═══════════════════════════════════════════════ */
-function VisitPage(){
-  const{openModal}=useContext(Ctx);useReveal();
-  return(<div>
-    <PageHero img="dock-water.jpg" kicker="Plan Your Visit" title='Find Us on<br/><span class="italic" style="color:#E0C389">Monroe Creek</span>'/>
-    <section className="py-20 bg-cream depth texture-straw">
-      <div className="max-w-[1400px] mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16 reveal">
-          {['adirondack-sunset.jpg','wine-tasting.jpg','cheese-board.jpg','dock-water.jpg'].map((img,i)=><div key={i} className="h-40 md:h-48 img-frame card-3d"><div className="card-inner w-full h-full"><img src={`images/${img}`} alt="Visit Monroe Bay"/></div></div>)}
-        </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+  useReveal();
+  const {openModal}=useContext(Ctx);
+  return(
+    <main className="pt-[100px] pb-24 min-h-screen">
+      <div className="max-w-[1400px] mx-auto px-6">
+        <h1 className="font-heading text-6xl text-navy mb-12 reveal">Events & Experiences</h1>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-24">
           <div className="reveal-left">
-            <h2 className="font-heading text-navy text-3xl mb-8">Before You Come</h2>
-            <div className="space-y-6">
-              <div className="bg-white rounded-lg p-6 shadow-sm wine-card"><h4 className="font-heading text-navy text-lg mb-3">Hours & Season</h4><div className="space-y-2 font-body text-sm text-navy/55"><div className="flex justify-between"><span>Saturday & Sunday</span><span className="text-navy font-semibold">12 – 5 PM</span></div><div className="flex justify-between"><span>Summer Fridays</span><span className="text-navy font-semibold">5 – 8 PM</span></div><div className="border-t border-navy/8 pt-2 mt-2 text-navy/35 text-xs">Open April through December. Closed January–March.</div></div></div>
-              <div className="bg-white rounded-lg p-6 shadow-sm wine-card"><h4 className="font-heading text-navy text-lg mb-3">Tasting Details</h4><div className="space-y-2 font-body text-sm text-navy/55"><p><span className="text-navy font-semibold">$9 per person</span> — guided tasting of our current wines and ciders.</p><p>Bottles range from <span className="text-navy font-semibold">$18–$24</span>.</p><p>No reservation required for groups under 10. Larger parties, call ahead.</p></div></div>
-              <div className="bg-white rounded-lg p-6 shadow-sm wine-card"><h4 className="font-heading text-navy text-lg mb-3">Good to Know</h4><div className="space-y-2 font-body text-sm text-navy/55"><p>🐾 <span className="text-navy font-semibold">Pets welcome</span> in our shaded outdoor areas with Adirondack seating.</p><p>🧺 <span className="text-navy font-semibold">Bring a picnic</span> — outside food welcome. Food trucks posted on Facebook.</p><p>♻️ <span className="text-navy font-semibold">Bring your empties</span> — we recycle wine bottles into the barn walls.</p><p>🚗 <span className="text-navy font-semibold">Free parking</span> on the grounds.</p></div></div>
-              <button onClick={()=>openModal('reserve')} className="btn-primary w-full">Reserve a Tasting</button>
-            </div>
+            <img src="images/wine-tasting.jpg" className="rounded-lg img-frame" alt="Tasting Event"/>
           </div>
           <div className="reveal-right">
-            <h2 className="font-heading text-navy text-3xl mb-8">Getting Here</h2>
-            <div className="bg-white rounded-lg overflow-hidden shadow-md mb-6 wine-card"><div className="bg-navy p-6"><h4 className="font-heading text-cream text-lg mb-1">The Strawbale Barn</h4><p className="font-body text-cream/55 text-sm">Main Venue & Tasting Room</p></div><div className="p-6"><p className="font-body text-navy/65 text-sm mb-2">4786 James Monroe Highway<br/>Colonial Beach, VA 22443</p><p className="font-body text-navy/65 text-sm mb-4"><a href="tel:8044105628" className="text-green-bottle hover:text-gold-dark transition-colors">(804) 410-5628</a></p><a href="https://www.google.com/maps/search/4786+James+Monroe+Highway+Colonial+Beach+VA" target="_blank" rel="noopener" className="btn-primary inline-block text-center text-xs py-2.5 px-6">Get Directions</a></div></div>
-            <div className="bg-navy rounded-lg p-8 text-center">
-              <h4 className="font-heading text-cream text-lg mb-2">On the Northern Neck</h4>
-              <p className="font-body text-cream/45 text-sm leading-relaxed mb-4">Located between the Potomac and Rappahannock Rivers. About 1.5 hours south of D.C.</p>
-              <div className="grid grid-cols-3 gap-4">
-                {[{l:'90 min',s:'from D.C.'},{l:'60 min',s:'from Fredericksburg'},{l:'2.5 hrs',s:'from Richmond'}].map((d,i)=>
-                  <div key={i} className="glass rounded p-3"><div className="font-heading text-gold text-lg">{d.l}</div><div className="font-body text-cream/35 text-xs">{d.s}</div></div>
-                )}
-              </div>
-            </div>
-            <div className="mt-6 bg-cream-warm rounded-lg p-6 border border-navy/8 wine-card"><h4 className="font-heading text-navy text-lg mb-2">Chesapeake Bay Wine Trail</h4><p className="font-body text-navy/45 text-sm leading-relaxed">Monroe Bay is a proud member. Make us a stop on your Virginia wine country tour.</p></div>
+            <h2 className="font-heading text-4xl text-navy mb-6">Seasonal Tastings</h2>
+            <p className="text-navy/70 font-body mb-6">Join us every Saturday and Sunday from 12 PM to 5 PM for guided tastings of our Heritage wines and Blue Heron Collection. Every experience is tailored to your journey.</p>
+            <button onClick={()=>openModal('reserve')} className="btn-primary">Reserve a Tasting</button>
+          </div>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-24">
+          <div className="reveal-left order-2 md:order-1">
+            <button onClick={()=>openModal('events')} className="btn-gold">Host Your Event</button>
+          </div>
+          <div className="reveal-right order-1 md:order-2">
+            <img src="images/paint-class.jpg" className="rounded-lg img-frame" alt="Paint & Sip"/>
           </div>
         </div>
       </div>
-    </section>
-  </div>);
+    </main>
+  );
+}
+
+function VisitPage(){
+  useReveal();
+  const {openModal}=useContext(Ctx);
+  return(
+    <main className="pt-[100px] pb-24 min-h-screen bg-cream">
+      <div className="max-w-[1400px] mx-auto px-6">
+        <h1 className="font-heading text-6xl text-navy mb-12 reveal">Visit Monroe Bay</h1>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div>
+            <div className="bg-white rounded-lg p-8 glass-cream reveal">
+              <h2 className="font-heading text-3xl text-navy mb-8">Location & Hours</h2>
+              <div className="space-y-6 font-body text-navy/80">
+                <div>
+                  <h3 className="font-semibold mb-2">Address</h3>
+                  <p>4786 James Monroe Highway<br/>Colonial Beach, VA 22443</p>
+                </div>
+                <div>
+                  <h3 className="font-semibold mb-2">Hours</h3>
+                  <p>Saturday & Sunday<br/>12:00 PM - 5:00 PM</p>
+                  <p className="text-sm text-navy/60 mt-2">Weekday visits by appointment</p>
+                </div>
+                <div>
+                  <h3 className="font-semibold mb-2">Contact</h3>
+                  <p>(804) 410-5628<br/>info@monroebaywine.com</p>
+                </div>
+              </div>
+              <button onClick={()=>openModal('reserve')} className="btn-primary w-full mt-8">Reserve Your Tasting</button>
+            </div>
+          </div>
+          <div className="reveal bg-white rounded-lg overflow-hidden depth" style={{height:'500px'}}>
+            <div className="w-full h-full bg-gradient-to-br from-heron-100 to-heron-300 flex items-center justify-center">
+              <p className="text-heron-900 font-body text-center">Interactive map placeholder<br/>(4786 James Monroe Hwy, Colonial Beach, VA 22443)</p>
+            </div>
+          </div>
+        </div>
+        <div className="mt-24 reveal">
+          <h2 className="font-heading text-3xl text-navy mb-8 text-center">What to Expect</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {icon:'🍷',title:'Guided Tastings',desc:'Expert guidance through Heritage wines, Blue Heron Collection, and craft ciders.'},
+              {icon:'🌊',title:'Waterfront Grounds',desc:'Adirondack chairs, creek breezes, and endless views of Monroe Creek.'},
+              {icon:'🐕',title:'Pet Friendly',desc:'Bring your dog. Our grounds are made for four-legged guests.'}
+            ].map((i,idx)=>(
+              <div key={idx} className="text-center p-6 bg-white rounded-lg">
+                <div className="text-4xl mb-3">{i.icon}</div>
+                <h3 className="font-heading text-xl text-navy mb-2">{i.title}</h3>
+                <p className="text-navy/70 font-body text-sm">{i.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </main>
+  );
 }
 
 /* ═══════════════════════════════════════════════ */
 /*  ROUTER & APP                                   */
 /* ═══════════════════════════════════════════════ */
 function Router(){
-  const{page}=useContext(Ctx);
-  switch(page){
-    case 'home':return<HomePage/>;case 'wines':return<WinesPage/>;case 'barn':return<BarnPage/>;
-    case 'weddings':return<WeddingsPage/>;case 'story':return<StoryPage/>;case 'craft':return<CraftPage/>;
-    case 'events':return<EventsPage/>;case 'visit':return<VisitPage/>;default:return<HomePage/>;
-  }
+  const {page}=useContext(Ctx);
+  return(
+    <>
+      {page==='home'&&<HomePage/>}
+      {page==='wines'&&<WinesPage/>}
+      {page==='barn'&&<BarnPage/>}
+      {page==='weddings'&&<WeddingsPage/>}
+      {page==='story'&&<StoryPage/>}
+      {page==='craft'&&<CraftPage/>}
+      {page==='events'&&<EventsPage/>}
+      {page==='visit'&&<VisitPage/>}
+    </>
+  );
 }
 
 function App(){
+  useEffect(()=>{
+    const l=document.getElementById('loader');
+    setTimeout(()=>{l.classList.add('out')},700);
+  },[]);
+
   return(
     <Provider>
-      <Navbar/><Router/><Footer/><Modal/><FloatingCTA/><WineClubInvite/>
+      <Navbar/>
+      <Router/>
+      <Modal/>
+      <FloatingCTA/>
+      <WineClubInvite/>
+      <Footer/>
     </Provider>
   );
 }
 
-ReactDOM.createRoot(document.getElementById('app')).render(<App/>);
-setTimeout(()=>{const l=document.getElementById('loader');if(l){l.classList.add('out');setTimeout(()=>l.remove(),500)}},900);
+const root=ReactDOM.createRoot(document.getElementById('app'));
+root.render(<App/>);
 </script>
+
 </body>
 </html>
