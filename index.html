@@ -74,6 +74,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+<!-- Leaflet.js Map -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+
+<!-- OpenGraph Image -->
+<meta property="og:image" content="images/vineyard-hero.jpg">
+
 <!-- Tailwind CDN -->
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
@@ -411,7 +418,7 @@ function Footer(){
           <div><h3 className="font-heading text-2xl text-cream mb-1">Join the Monroe Bay Family</h3><p className="font-body text-sm text-cream/60">First pour on new releases, event invites, and seasonal stories from the Creek.</p></div>
           {sub?<div className="text-gold font-body font-semibold">Welcome to the family.</div>:(
             <form onSubmit={e=>{e.preventDefault();if(email)setSub(true)}} className="flex gap-3 w-full md:w-auto">
-              <input type="email" value={email} onChange={e=>setEmail(e.target.value)} placeholder="Your email" className="bg-white/10 border border-white/20 text-cream placeholder-cream/40 px-4 py-3 rounded font-body text-sm w-full md:w-72"/>
+              <input type="email" value={email} onChange={e=>setEmail(e.target.value)} placeholder="Your email" className="bg-white/10 border border-white/20 text-cream placeholder-cream/40 px-4 py-3 rounded font-body text-sm w-full md:w-72 focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/30 transition-all" required/>
               <button type="submit" className="btn-gold text-xs whitespace-nowrap py-3 px-6">Subscribe</button>
             </form>
           )}
@@ -440,7 +447,7 @@ function Footer(){
           </div>
         </div>
         <div className="border-t border-white/10 mt-12 pt-8 text-center text-sm text-cream/40">
-          <p>© 2024 Monroe Bay Vineyard. All rights reserved. | Sitemap | Privacy Policy</p>
+          <p>© 2026 Monroe Bay Vineyard. All rights reserved. | Sitemap | Privacy Policy</p>
         </div>
       </div>
     </footer>
@@ -475,16 +482,19 @@ function Modal(){
               {modal==='reserve'&&'Reserve a Tasting'}
               {modal==='weddings'&&'Plan Your Wedding'}
               {modal==='events'&&'Host an Event'}
+              {modal==='wineclub'&&'Join the Wine Club'}
             </h2>
             <p className="text-navy/60 font-body text-sm mb-6">
               {modal==='reserve'&&'Join us for an unforgettable tasting experience.'}
               {modal==='weddings'&&'Let\'s talk about your special day.'}
               {modal==='events'&&'We\'d love to host your event.'}
+              {modal==='wineclub'&&'Tell us about your wine preferences and join our exclusive community.'}
             </p>
             <form onSubmit={handleSubmit} className="space-y-4">
               <input type="text" placeholder="Your Name" value={form.name} onChange={e=>setForm({...form,name:e.target.value})} className="w-full px-4 py-3 border border-navy/20 rounded bg-white font-body text-sm" required/>
               <input type="email" placeholder="Email" value={form.email} onChange={e=>setForm({...form,email:e.target.value})} className="w-full px-4 py-3 border border-navy/20 rounded bg-white font-body text-sm" required/>
-              <input type="tel" placeholder="Phone" value={form.phone} onChange={e=>setForm({...form,phone:e.target.value})} className="w-full px-4 py-3 border border-navy/20 rounded bg-white font-body text-sm" required/>
+              {modal!=='wineclub'&&<input type="tel" placeholder="Phone" value={form.phone} onChange={e=>setForm({...form,phone:e.target.value})} className="w-full px-4 py-3 border border-navy/20 rounded bg-white font-body text-sm" required/>}
+              {modal==='wineclub'&&<textarea placeholder="What wines do you love?" value={form.wine_prefs} onChange={e=>setForm({...form,wine_prefs:e.target.value})} className="w-full px-4 py-3 border border-navy/20 rounded bg-white font-body text-sm resize-none" rows="3" required/>}
               <button type="submit" className="w-full btn-primary text-white py-3 mt-6">Submit</button>
             </form>
           </>
@@ -517,13 +527,13 @@ function FloatingCTA(){
 }
 
 function WineClubInvite(){
-  const {clubShow,setClubShow}=useContext(Ctx);
+  const {clubShow,setClubShow,openModal}=useContext(Ctx);
   return(
     <div className={`club-invite ${clubShow?'show':''}`}>
       <div className="bg-gradient-to-r from-green-bottle to-green-sage px-6 py-8 max-w-md mx-auto glass-cream">
         <h3 className="font-heading text-gold text-2xl mb-2">Join the Wine Club</h3>
         <p className="text-navy/80 font-body text-sm mb-6">Exclusive access to new releases and member events.</p>
-        <button onClick={()=>setClubShow(false)} className="btn-gold w-full py-3 text-sm">Learn More</button>
+        <button onClick={()=>{openModal('wineclub');setClubShow(false)}} className="btn-gold w-full py-3 text-sm">Learn More</button>
       </div>
     </div>
   );
@@ -599,11 +609,7 @@ function HomePage(){
           </p>
           <button onClick={()=>openModal('reserve')} className="btn-primary">Reserve Your Tasting</button>
         </div>
-        <!-- FUTURE: Replace static image with slow-motion video loop:
-             Scene 1: Wine being poured into a glass on the waterfront, golden hour
-             Scene 2: Wind rolling through vineyard rows, late afternoon light
-             Scene 3: Sunset reflecting off Monroe Creek through the barn's bottle walls
-             Duration: 15-20 seconds, seamless loop, muted autoplay -->
+        {/* FUTURE: Replace with slow-motion video loop of waterfront, vineyard rows, and bottle wall sunsets */}
       </section>
 
       {/* LIGHT THROUGH GLASS */}
@@ -719,12 +725,12 @@ function HomePage(){
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              {name:'Sarah M.',text:'"The barn is magical. We got married here last summer and it felt like stepping into a dream."'},
-              {name:'James K.',text:'"The wines are phenomenal, but the real experience is Kiki\'s passion. Every bottle tells a story."'},
-              {name:'Emma L.',text:'"We bring our dog every month. The creek breezes, the sunset, the wine — it\'s perfection."'}
+              {name:'Sarah M.',text:'The barn is magical. We got married here last summer and it felt like stepping into a dream.'},
+              {name:'James K.',text:'The wines are phenomenal, but the real experience is Kiki\'s passion. Every bottle tells a story.'},
+              {name:'Emma L.',text:'We bring our dog every month. The creek breezes, the sunset, the wine — it\'s perfection.'}
             ].map((t,i)=>(
               <div key={i} className="reveal bg-white p-8 rounded-lg glass-cream">
-                <p className="text-navy/70 font-body italic mb-4">"{t.text}"</p>
+                <p className="text-navy/70 font-body italic mb-4">&ldquo;{t.text}&rdquo;</p>
                 <p className="font-heading text-navy font-semibold">— {t.name}</p>
               </div>
             ))}
@@ -852,11 +858,12 @@ function WeddingsPage(){
   const {openModal}=useContext(Ctx);
   return(
     <main className="pt-[100px] pb-24 min-h-screen">
-      <section className="relative h-96 flex items-end pt-[80px]">
-        <img src="images/mb-love-window.jpg" className="absolute inset-0 w-full h-full object-cover z-0" alt="Monroe Bay Vineyard LOVE Window Wedding Venue"/>
-        <div className="absolute inset-0 bg-black/40 z-0"/>
+      <section className="relative h-[500px] flex items-end pt-[80px] overflow-hidden">
+        <img src="images/wedding-barn-night.jpg" className="absolute inset-0 w-full h-full object-cover z-0 animate-ken-burns" alt="Monroe Bay Vineyard Barn at Night — Bottle Walls Glowing"/>
+        <div className="hero-grad absolute inset-0 z-[1]"/>
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 pb-12 w-full">
-          <h1 className="font-heading text-6xl text-cream reveal">Your Sunset Wedding Awaits</h1>
+          <h1 className="font-display text-5xl md:text-6xl text-cream reveal"><span className="text-clip-vineyard">Your Sunset</span> Wedding Awaits</h1>
+          <p className="font-body text-cream/70 mt-4 max-w-xl reveal">Where bottle walls glow golden and the creek carries your vows out to the Chesapeake.</p>
         </div>
       </section>
       <div className="max-w-[1400px] mx-auto px-6 py-24">
@@ -878,17 +885,18 @@ function WeddingsPage(){
           </div>
         </div>
 
-        {/* REAL VENUE PHOTO GALLERY */}
+        {/* REAL WEDDING PHOTO GALLERY */}
         <div className="mb-24">
-          <h2 className="font-heading text-3xl text-navy mb-8 reveal text-center">The Venue in Every Light</h2>
+          <h2 className="font-heading text-3xl text-navy mb-8 reveal text-center">Real Weddings at Monroe Bay</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              {src:'mb-strawbale-barn.jpg',alt:'The Strawbale Barn exterior',span:'col-span-2 row-span-2'},
-              {src:'mb-love-window.jpg',alt:'The iconic LOVE stained-glass window',span:''},
-              {src:'mb-bottle-walls.jpg',alt:'Recycled wine bottle walls under construction',span:''},
-              {src:'mb-strawbale-window.jpg',alt:'Stained glass bottle window detail',span:''},
-              {src:'mb-tasting-room.jpg',alt:'Monroe Bay tasting room and waterfront',span:''},
-              {src:'mb-bottle-wall-build.jpg',alt:'Building the bottle wall mosaics',span:'col-span-2'},
+              {src:'wedding-reception-barn.jpg',alt:'Wedding reception inside the Strawbale Barn with chandelier and guests',span:'col-span-2 row-span-2'},
+              {src:'wedding-waterfront-couple.jpg',alt:'Bride and groom waterfront portrait at golden hour',span:''},
+              {src:'wedding-outdoor-ceremony.jpg',alt:'Outdoor ceremony in the vineyard woods',span:''},
+              {src:'wedding-party-bottles.jpg',alt:'Wedding party group photo in front of bottle walls',span:''},
+              {src:'wedding-bouquet-toss.jpg',alt:'Bouquet toss inside the Strawbale Barn',span:''},
+              {src:'wedding-family-barn.jpg',alt:'Bride with family in front of the barn',span:'col-span-2'},
+              {src:'wedding-couple-trees.jpg',alt:'Bride and groom portrait under the oaks',span:'col-span-2'},
             ].map((p,i)=>(
               <div key={i} className={`${p.span} img-frame reveal overflow-hidden rounded-lg`} style={{transitionDelay:`${i*.1}s`}}>
                 <img src={`images/${p.src}`} alt={p.alt} className="w-full h-full object-cover" style={{minHeight:p.span?.includes('row-span-2')?'320px':'150px'}}/>
@@ -1031,15 +1039,51 @@ function EventsPage(){
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-24">
           <div className="reveal-left order-2 md:order-1">
+            <h2 className="font-heading text-4xl text-navy mb-6">Private Events & Art Classes</h2>
+            <p className="text-navy/70 font-body mb-6">Monroe Bay hosts unforgettable private events on our waterfront grounds. From intimate dinners to lively celebrations, our Strawbale Barn and grounds are tailored for your vision. We also offer seasonal art classes including "A Brush with Wine," Stone Room Concerts, Christmas Bazaar gatherings, and Food Truck Fridays.</p>
             <button onClick={()=>openModal('events')} className="btn-gold">Host Your Event</button>
           </div>
           <div className="reveal-right order-1 md:order-2">
             <img src="images/paint-class.jpg" className="rounded-lg img-frame" alt="Paint & Sip"/>
           </div>
         </div>
+
+        <div className="reveal mt-16">
+          <h3 className="font-heading text-3xl text-navy mb-8 text-center">Event Types</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {icon:'💍',title:'Weddings',desc:'Celebrate your love with 75 waterfront acres and the iconic Strawbale Barn. Capacity up to 200 guests.'},
+              {icon:'🎨',title:'A Brush with Wine',desc:'Create art while tasting wine. Local artists guide the experience on our sunlit grounds.'},
+              {icon:'🎵',title:'Stone Room Concerts',desc:'Live music in our intimate Stone Room. Jazz, folk, and classical performances paired with wines.'},
+              {icon:'🎄',title:'Christmas Bazaar',desc:'Holiday shopping, seasonal wines, and festive cheer. A Monroe Bay tradition since 2014.'},
+              {icon:'🍔',title:'Food Truck Fridays',desc:'Local vendors, craft food, and Monroe Bay wines. Community gatherings every Friday in season.'},
+              {icon:'🎉',title:'Private Celebrations',desc:'Birthdays, anniversaries, corporate events. Customized experiences for groups of any size.'}
+            ].map((e,i)=>(
+              <div key={i} className="p-6 bg-white rounded-lg wine-card text-center">
+                <div className="text-4xl mb-3">{e.icon}</div>
+                <h4 className="font-heading text-lg text-navy mb-2">{e.title}</h4>
+                <p className="text-navy/70 font-body text-sm">{e.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </main>
   );
+}
+
+function MapComponent(){
+  const mapRef=useRef(null);
+  useEffect(()=>{
+    if(!mapRef.current)return;
+    const map=L.map(mapRef.current).setView([38.24,-76.88],13);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+      attribution:'© OpenStreetMap contributors',
+      maxZoom:19
+    }).addTo(map);
+    L.marker([38.24,-76.88]).addTo(map).bindPopup('<b>Monroe Bay Vineyard</b><br/>4786 James Monroe Hwy<br/>Colonial Beach, VA 22443<br/>(804) 410-5628');
+  },[]);
+  return <div ref={mapRef} className="reveal bg-white rounded-lg overflow-hidden depth" style={{height:'500px'}}/>;
 }
 
 function VisitPage(){
@@ -1071,11 +1115,8 @@ function VisitPage(){
               <button onClick={()=>openModal('reserve')} className="btn-primary w-full mt-8">Reserve Your Tasting</button>
             </div>
           </div>
-          <div className="reveal bg-white rounded-lg overflow-hidden depth" style={{height:'500px'}}>
-            <div className="w-full h-full bg-gradient-to-br from-heron-100 to-heron-300 flex items-center justify-center">
-              <p className="text-heron-900 font-body text-center">Interactive map placeholder<br/>(4786 James Monroe Hwy, Colonial Beach, VA 22443)</p>
-            </div>
-          </div>
+          <MapComponent/>
+
         </div>
         <div className="mt-24 reveal">
           <h2 className="font-heading text-3xl text-navy mb-8 text-center">What to Expect</h2>
