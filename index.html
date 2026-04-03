@@ -452,7 +452,7 @@
         <>
           {showLoading && (
             <div className="loading-screen">
-              <div className="loading-logo text-4xl">🍇</div>
+              <div className="loading-logo text-4xl font-bold text-yellow-600" style={{fontFamily: 'Playfair Display'}}>MB</div>
               <div className="h-1 w-48 bg-gray-300 rounded-full overflow-hidden">
                 <div className="h-full bg-gradient-to-r from-yellow-600 to-yellow-500" style={{width: '100%'}}></div>
               </div>
@@ -468,7 +468,7 @@
                 onClick={() => setPage('home')}
                 className="text-xl font-bold text-yellow-500 hover:text-yellow-400 transition"
               >
-                🍇 MONROE BAY
+                MONROE BAY
               </button>
 
               <div className="hidden md:flex items-center gap-8">
@@ -583,21 +583,21 @@
                     </p>
                     <div className="grid md:grid-cols-3 gap-8">
                       <div className="text-center">
-                        <div className="text-5xl mb-4">🍇</div>
+                        <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-blue-900 flex items-center justify-center"><span className="text-yellow-400 text-2xl font-bold" style={{fontFamily:'Playfair Display'}}>V</span></div>
                         <h3 className="text-2xl font-bold mb-3 text-blue-900">The Vineyard</h3>
                         <p className="text-gray-700">
                           Virginia's flagship Viognier alongside bold Cab Francs and elegant Petit Verdots. Every bottle tells the story of our terroir.
                         </p>
                       </div>
                       <div className="text-center">
-                        <div className="text-5xl mb-4">🏠</div>
+                        <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-blue-900 flex items-center justify-center"><span className="text-yellow-400 text-2xl font-bold" style={{fontFamily:'Playfair Display'}}>B</span></div>
                         <h3 className="text-2xl font-bold mb-3 text-blue-900">The Barn</h3>
                         <p className="text-gray-700">
                           A 3,000 sq ft masterpiece of straw bales and recycled bottles. Built by Amish craftsmen and 40 volunteers. Seats 200. Unforgettable.
                         </p>
                       </div>
                       <div className="text-center">
-                        <div className="text-5xl mb-4">🌊</div>
+                        <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-blue-900 flex items-center justify-center"><span className="text-yellow-400 text-2xl font-bold" style={{fontFamily:'Playfair Display'}}>C</span></div>
                         <h3 className="text-2xl font-bold mb-3 text-blue-900">The Creek</h3>
                         <p className="text-gray-700">
                           75 acres of waterfront shoreline on Monroe Creek. Adirondack chairs, sunset views, and the taste of something truly special.
@@ -743,6 +743,8 @@
                       <img src="images/pro-bride-field.jpg" alt="Outdoor Ceremony in the Woods" />
                       <img src="images/pro-barn-love-sign.jpg" alt="First Dance in the Barn" />
                       <img src="images/pro-couple-portrait-autumn.jpg" alt="Couple in Front of Barn Entrance" />
+                      <img src="images/flickr-sparkler-couple.jpg" alt="Dramatic Sparkler Exit" />
+                      <img src="images/flickr-couple-waterfront.jpg" alt="Intimate Waterfront Couple Portrait" />
                     </div>
                     <div className="text-center mt-12">
                       <button
@@ -761,21 +763,21 @@
                     <h2 className="text-4xl font-bold text-center mb-16">Moments from Our Community</h2>
                     <div className="grid md:grid-cols-3 gap-8">
                       <div className="bg-white bg-opacity-10 backdrop-blur rounded-lg p-6">
-                        <div className="text-yellow-400 mb-4">⭐⭐⭐⭐⭐</div>
+                        <div className="text-yellow-400 mb-4 text-lg tracking-widest">★ ★ ★ ★ ★</div>
                         <p className="mb-4 italic">
                           "The most magical tasting room experience. The bottle walls catch the light perfectly, and the Viognier is divine."
                         </p>
                         <p className="font-bold">Sarah M., Virginia</p>
                       </div>
                       <div className="bg-white bg-opacity-10 backdrop-blur rounded-lg p-6">
-                        <div className="text-yellow-400 mb-4">⭐⭐⭐⭐⭐</div>
+                        <div className="text-yellow-400 mb-4 text-lg tracking-widest">★ ★ ★ ★ ★</div>
                         <p className="mb-4 italic">
                           "Our wedding here was perfection. The barn, the light, the wine—every detail was exactly what we imagined."
                         </p>
                         <p className="font-bold">James & Victoria, Couple</p>
                       </div>
                       <div className="bg-white bg-opacity-10 backdrop-blur rounded-lg p-6">
-                        <div className="text-yellow-400 mb-4">⭐⭐⭐⭐⭐</div>
+                        <div className="text-yellow-400 mb-4 text-lg tracking-widest">★ ★ ★ ★ ★</div>
                         <p className="mb-4 italic">
                           "I brought my family for a summer afternoon. The ciders are fantastic, the grounds are pristine, and the sunset was unforgettable."
                         </p>
@@ -908,8 +910,8 @@
               <div className="bg-white min-h-screen">
                 <section className="relative w-full h-96 flex items-center justify-center overflow-hidden">
                   <img
-                    src="images/mb-strawbale-barn.jpg"
-                    alt="Monroe Bay Strawbale Barn"
+                    src="images/pro-barn-entrance-bride.jpg"
+                    alt="Monroe Bay Strawbale Barn Interior with Cathedral Ceiling"
                     className="absolute inset-0 w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-black bg-opacity-40"></div>
@@ -936,32 +938,32 @@
                     <h2 className="text-4xl font-bold text-center mb-12 text-blue-900">The Details That Matter</h2>
                     <div className="grid md:grid-cols-3 gap-8">
                       <div className="text-center">
-                        <div className="text-5xl mb-4">🍾</div>
+                        <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-yellow-600 flex items-center justify-center"><span className="text-white text-xl font-bold">10K+</span></div>
                         <h3 className="text-2xl font-bold mb-3 text-blue-900">10,000+ Bottles</h3>
                         <p className="text-gray-700">Recycled wine bottles create stained glass throughout the barn.</p>
                       </div>
                       <div className="text-center">
-                        <div className="text-5xl mb-4">📏</div>
+                        <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-yellow-600 flex items-center justify-center"><span className="text-white text-xl font-bold">3K</span></div>
                         <h3 className="text-2xl font-bold mb-3 text-blue-900">3,000 Sq Ft</h3>
                         <p className="text-gray-700">Expansive interior seats up to 200 guests comfortably.</p>
                       </div>
                       <div className="text-center">
-                        <div className="text-5xl mb-4">🌊</div>
+                        <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-yellow-600 flex items-center justify-center"><span className="text-white text-xl font-bold">75</span></div>
                         <h3 className="text-2xl font-bold mb-3 text-blue-900">75 Acres</h3>
                         <p className="text-gray-700">400+ feet of waterfront shoreline on Monroe Creek.</p>
                       </div>
                       <div className="text-center">
-                        <div className="text-5xl mb-4">❄️</div>
+                        <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-yellow-600 flex items-center justify-center"><span className="text-white text-lg font-bold">R-30</span></div>
                         <h3 className="text-2xl font-bold mb-3 text-blue-900">R-30+ Insulation</h3>
                         <p className="text-gray-700">Straw bale walls provide superior thermal performance.</p>
                       </div>
                       <div className="text-center">
-                        <div className="text-5xl mb-4">💒</div>
+                        <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-yellow-600 flex items-center justify-center"><span className="text-white text-xl font-bold">200</span></div>
                         <h3 className="text-2xl font-bold mb-3 text-blue-900">200 Guest Capacity</h3>
                         <p className="text-gray-700">Perfect for celebrations large and intimate.</p>
                       </div>
                       <div className="text-center">
-                        <div className="text-5xl mb-4">📅</div>
+                        <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-yellow-600 flex items-center justify-center"><span className="text-white text-lg font-bold">2019</span></div>
                         <h3 className="text-2xl font-bold mb-3 text-blue-900">Opened July 2019</h3>
                         <p className="text-gray-700">Years of vision realized in one unforgettable space.</p>
                       </div>
@@ -970,13 +972,15 @@
                 </section>
 
                 <section className="py-20 px-6">
-                  <div className="max-w-4xl mx-auto">
+                  <div className="max-w-6xl mx-auto">
                     <h2 className="text-4xl font-bold text-center mb-12 text-blue-900">Gallery</h2>
-                    <div className="grid md:grid-cols-2 gap-6">
+                    <div className="grid md:grid-cols-3 gap-6">
                       <img src="images/mb-bottle-walls.jpg" alt="Barn Bottle Walls" className="w-full rounded-lg shadow-lg h-80 object-cover" />
-                      <img src="images/mb-love-window.jpg" alt="The LOVE Window" className="w-full rounded-lg shadow-lg h-80 object-cover" />
+                      <img src="images/pro-couple-love-window.jpg" alt="Couple at LOVE Window" className="w-full rounded-lg shadow-lg h-80 object-cover" />
                       <img src="images/mb-strawbale-window.jpg" alt="Bottle Window Detail" className="w-full rounded-lg shadow-lg h-80 object-cover" />
                       <img src="images/mb-bottle-wall-build.jpg" alt="Building the Bottle Walls" className="w-full rounded-lg shadow-lg h-80 object-cover" />
+                      <img src="images/pro-barn-interior-full.jpg" alt="Full Barn Interior" className="w-full rounded-lg shadow-lg h-80 object-cover" />
+                      <img src="images/pro-love-window-closeup.jpg" alt="LOVE Window Closeup" className="w-full rounded-lg shadow-lg h-80 object-cover" />
                     </div>
                   </div>
                 </section>
@@ -1019,28 +1023,28 @@
                     <h2 className="text-4xl font-bold text-center mb-12 text-blue-900">What's Included</h2>
                     <div className="grid md:grid-cols-2 gap-8">
                       <div className="flex gap-4">
-                        <div className="text-3xl">🏠</div>
+                        <div className="w-12 h-12 rounded-full bg-blue-900 flex items-center justify-center flex-shrink-0"><span className="text-yellow-400 font-bold" style={{fontFamily:'Playfair Display'}}>IB</span></div>
                         <div>
                           <h3 className="text-xl font-bold mb-2 text-blue-900">Indoor Barn Venue</h3>
                           <p className="text-gray-700">3,000 sq ft with soaring wood ceilings, stained-glass bottle walls, and elegant lighting.</p>
                         </div>
                       </div>
                       <div className="flex gap-4">
-                        <div className="text-3xl">🌳</div>
+                        <div className="w-12 h-12 rounded-full bg-blue-900 flex items-center justify-center flex-shrink-0"><span className="text-yellow-400 font-bold" style={{fontFamily:'Playfair Display'}}>CG</span></div>
                         <div>
                           <h3 className="text-xl font-bold mb-2 text-blue-900">Ceremony Grounds</h3>
                           <p className="text-gray-700">Woodland setting with pine trees, natural arch options, and flexibility for your vision.</p>
                         </div>
                       </div>
                       <div className="flex gap-4">
-                        <div className="text-3xl">🌊</div>
+                        <div className="w-12 h-12 rounded-full bg-blue-900 flex items-center justify-center flex-shrink-0"><span className="text-yellow-400 font-bold" style={{fontFamily:'Playfair Display'}}>WA</span></div>
                         <div>
                           <h3 className="text-xl font-bold mb-2 text-blue-900">Waterfront Access</h3>
                           <p className="text-gray-700">400+ feet of Monroe Creek shoreline for photos, cocktail hour, or intimate moments.</p>
                         </div>
                       </div>
                       <div className="flex gap-4">
-                        <div className="text-3xl">🍷</div>
+                        <div className="w-12 h-12 rounded-full bg-blue-900 flex items-center justify-center flex-shrink-0"><span className="text-yellow-400 font-bold" style={{fontFamily:'Playfair Display'}}>OW</span></div>
                         <div>
                           <h3 className="text-xl font-bold mb-2 text-blue-900">Our Wines</h3>
                           <p className="text-gray-700">Serve Monroe Bay wines at your reception. Premium selection at special pricing.</p>
@@ -1089,16 +1093,26 @@
 
             {/* OUR STORY PAGE */}
             {page === 'story' && (
-              <div className="bg-white min-h-screen py-20 px-6">
-                <div className="max-w-4xl mx-auto">
-                  <h1 className="text-5xl font-bold text-center mb-4 text-blue-900">Our Story</h1>
-                  <p className="text-center text-gray-700 mb-16 text-lg">
-                    From a French watermill to Virginia wine country. This is the story of passion, terroir, and stained glass.
-                  </p>
+              <div className="bg-white min-h-screen">
+                <section className="relative w-full h-96 flex items-center justify-center overflow-hidden">
+                  <img
+                    src="images/pro-couple-74.jpg"
+                    alt="Kiki Apple and Partner with Vintage Car and Bottle Walls"
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+                  <h1 className="relative text-5xl font-bold text-white text-center">Our Story</h1>
+                </section>
 
-                  <div className="space-y-12">
-                    <div>
-                      <h2 className="text-3xl font-bold mb-4 text-blue-900">Kiki Apple's Journey</h2>
+                <div className="py-20 px-6">
+                  <div className="max-w-4xl mx-auto">
+                    <p className="text-center text-gray-700 mb-16 text-lg">
+                      From a French watermill to Virginia wine country. This is the story of passion, terroir, and stained glass.
+                    </p>
+
+                    <div className="space-y-12">
+                      <div>
+                        <h2 className="text-3xl font-bold mb-4 text-blue-900">Kiki Apple's Journey</h2>
                       <p className="text-lg text-gray-700 mb-4">
                         Kirsten "Kiki" Apple spent years living in southern France's wine country, where she developed a passion for winemaking. She owned West Mill House, a beautiful stone watermill nestled in the heart of France's renowned wine region. Living surrounded by vineyards and vintage cellars, Kiki learned the craft of winemaking the traditional way—by tasting, experimenting, and understanding terroir.
                       </p>
@@ -1109,6 +1123,8 @@
                         In November 2014, Monroe Bay Vineyard received its farm winery license. Today, it stands as a testament to her journey—from French châteaux to Virginia terroir.
                       </p>
                     </div>
+
+                    <img src="images/pro-barn-interior-full.jpg" alt="Monroe Bay Barn Interior" className="w-full rounded-lg shadow-lg h-96 object-cover my-8" />
 
                     <div className="bg-gradient-to-br from-blue-50 to-teal-50 rounded-lg p-8">
                       <h2 className="text-3xl font-bold mb-4 text-blue-900">The James Monroe Connection</h2>
@@ -1133,6 +1149,8 @@
                       </p>
                     </div>
 
+                    <img src="images/pro-love-window-closeup.jpg" alt="LOVE Window Detail" className="w-full rounded-lg shadow-lg h-96 object-cover my-8" />
+
                     <div className="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-lg p-8">
                       <h2 className="text-3xl font-bold mb-4 text-blue-900">The Wine Label Art Competition</h2>
                       <p className="text-lg text-gray-700 mb-4">
@@ -1156,14 +1174,24 @@
 
             {/* EVENTS PAGE */}
             {page === 'events' && (
-              <div className="bg-white min-h-screen py-20 px-6">
-                <div className="max-w-4xl mx-auto">
-                  <h1 className="text-5xl font-bold text-center mb-4 text-blue-900">Events & Experiences</h1>
-                  <p className="text-center text-gray-700 mb-16 text-lg">
-                    More than just wine. Monroe Bay is a gathering place for connection, creativity, and celebration.
-                  </p>
+              <div className="bg-white min-h-screen">
+                <section className="relative w-full h-96 flex items-center justify-center overflow-hidden">
+                  <img
+                    src="images/pro-sunflowers-bottles.jpg"
+                    alt="Monroe Bay Blue Heron Bottles with Sunflowers"
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+                  <h1 className="relative text-5xl font-bold text-white text-center">Events & Experiences</h1>
+                </section>
 
-                  <div className="space-y-8">
+                <div className="py-20 px-6">
+                  <div className="max-w-4xl mx-auto">
+                    <p className="text-center text-gray-700 mb-16 text-lg">
+                      More than just wine. Monroe Bay is a gathering place for connection, creativity, and celebration.
+                    </p>
+
+                    <div className="space-y-8">
                     <div className="border-l-4 border-yellow-600 pl-6 py-4">
                       <h2 className="text-2xl font-bold mb-2 text-blue-900">A Brush with Wine</h2>
                       <p className="text-gray-700">Guided painting classes paired with wine tastings. Create art, sip wine, make memories. Perfect for groups and special occasions.</p>
@@ -1215,14 +1243,24 @@
 
             {/* VISIT PAGE */}
             {page === 'visit' && (
-              <div className="bg-white min-h-screen py-20 px-6">
-                <div className="max-w-4xl mx-auto">
-                  <h1 className="text-5xl font-bold text-center mb-4 text-blue-900">Visit Us</h1>
-                  <p className="text-center text-gray-700 mb-16 text-lg">
-                    Two locations. One unforgettable experience.
-                  </p>
+              <div className="bg-white min-h-screen">
+                <section className="relative w-full h-96 flex items-center justify-center overflow-hidden">
+                  <img
+                    src="images/mb-strawbale-barn.jpg"
+                    alt="Monroe Bay Strawbale Barn with Adirondack Chairs"
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+                  <h1 className="relative text-5xl font-bold text-white text-center">Visit Us</h1>
+                </section>
 
-                  <div className="grid md:grid-cols-2 gap-12 mb-16">
+                <div className="py-20 px-6">
+                  <div className="max-w-4xl mx-auto">
+                    <p className="text-center text-gray-700 mb-16 text-lg">
+                      Two locations. One unforgettable experience.
+                    </p>
+
+                    <div className="grid md:grid-cols-2 gap-12 mb-16">
                     <div className="bg-gradient-to-br from-blue-50 to-teal-50 rounded-lg p-8">
                       <h2 className="text-3xl font-bold mb-4 text-blue-900">The Strawbale Barn</h2>
                       <div className="space-y-4 text-gray-700">
@@ -1293,6 +1331,12 @@
                     </div>
                   </div>
 
+                  <div className="grid md:grid-cols-3 gap-6 mb-16">
+                    <img src="images/pro-wine-dock-creek.jpg" alt="Wine at the Dock by Monroe Creek" className="w-full rounded-lg shadow-lg h-64 object-cover" />
+                    <img src="images/flickr-sparkler-couple.jpg" alt="Couple with Sparklers" className="w-full rounded-lg shadow-lg h-64 object-cover" />
+                    <img src="images/flickr-couple-waterfront.jpg" alt="Couple at Waterfront" className="w-full rounded-lg shadow-lg h-64 object-cover" />
+                  </div>
+
                   <div className="bg-white border-2 border-blue-900 rounded-lg p-8 text-center">
                     <h2 className="text-3xl font-bold mb-4 text-blue-900">Ready to Visit?</h2>
                     <p className="text-lg text-gray-700 mb-6">
@@ -1325,7 +1369,7 @@
               onClick={() => openModal('tasting')}
               className="floating-cta bg-yellow-600 hover:bg-yellow-500 text-white rounded-full w-16 h-16 flex items-center justify-center shadow-lg text-2xl transition"
             >
-              🍷
+              <span className="font-bold text-lg" style={{fontFamily:'Playfair Display'}}>MB</span>
             </button>
           )}
 
