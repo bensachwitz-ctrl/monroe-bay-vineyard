@@ -465,18 +465,19 @@
         );
         const reveals = document.querySelectorAll('.reveal');
         reveals.forEach(el => observer.observe(el));
-        // Immediately reveal elements already in viewport on page change
-        requestAnimationFrame(() => {
-          reveals.forEach(el => {
+        // Reveal elements in viewport after React paint settles
+        const revealVisible = () => {
+          document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
             const rect = el.getBoundingClientRect();
-            if (rect.top < window.innerHeight + 100) el.classList.add('visible');
+            if (rect.top < window.innerHeight + 200) el.classList.add('visible');
           });
-        });
-        // Safety fallback for any stragglers
-        const fallback = setTimeout(() => {
+        };
+        const t1 = setTimeout(revealVisible, 50);
+        const t2 = setTimeout(revealVisible, 300);
+        const t3 = setTimeout(() => {
           document.querySelectorAll('.reveal:not(.visible)').forEach(el => el.classList.add('visible'));
-        }, 1500);
-        return () => { observer.disconnect(); clearTimeout(fallback); };
+        }, 1200);
+        return () => { observer.disconnect(); clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
       }, [page]);
 
       {/* Parallax scroll effect */}
