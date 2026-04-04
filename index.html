@@ -463,11 +463,19 @@
           },
           { threshold: 0.01, rootMargin: '0px 0px 50px 0px' }
         );
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-        // Safety fallback: force all reveals visible after 2.5s
+        const reveals = document.querySelectorAll('.reveal');
+        reveals.forEach(el => observer.observe(el));
+        // Immediately reveal elements already in viewport on page change
+        requestAnimationFrame(() => {
+          reveals.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight + 100) el.classList.add('visible');
+          });
+        });
+        // Safety fallback for any stragglers
         const fallback = setTimeout(() => {
           document.querySelectorAll('.reveal:not(.visible)').forEach(el => el.classList.add('visible'));
-        }, 2500);
+        }, 1500);
         return () => { observer.disconnect(); clearTimeout(fallback); };
       }, [page]);
 
