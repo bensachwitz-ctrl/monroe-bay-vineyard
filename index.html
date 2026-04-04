@@ -41,6 +41,7 @@
 
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    ::selection { background: rgba(224,195,137,0.35); color: var(--river); }
 
     :root {
       --river: #1B263B;
@@ -62,7 +63,13 @@
       color: var(--text-dark);
       line-height: 1.7;
       overflow-x: hidden;
+      scroll-behavior: smooth;
     }
+
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--cream); }
+    ::-webkit-scrollbar-thumb { background: var(--sand); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--straw); }
 
     h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
 
@@ -252,6 +259,7 @@
       color: var(--text-light);
       transition: all 0.3s ease;
       position: relative;
+      cursor: pointer;
     }
 
     .nav-link:hover { color: var(--straw); }
@@ -379,6 +387,10 @@
 
     @keyframes fadeOut { to { opacity: 0; visibility: hidden; } }
 
+    /* Page transition */
+    main > div { animation: pageIn 0.4s ease-out; }
+    @keyframes pageIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
     .loading-logo { animation: pulse 1.2s ease-in-out infinite; }
 
     @keyframes pulse {
@@ -405,10 +417,18 @@
     }
 
     /* Responsive */
+    @media (max-width: 1024px) {
+      .wine-grid { grid-template-columns: repeat(2, 1fr); }
+    }
     @media (max-width: 768px) {
       .wine-grid { grid-template-columns: 1fr; }
       .wedding-gallery { grid-template-columns: 1fr; }
       .wedding-gallery img { height: 260px; }
+    }
+    @media (max-width: 480px) {
+      h1 { font-size: 2rem !important; }
+      .glass-nav { padding-left: 1rem; padding-right: 1rem; }
+      .floating-cta { bottom: 1rem; right: 1rem; }
     }
   </style>
 </head>
@@ -896,17 +916,7 @@
                   </div>
                 </section>
 
-                {/* NEWSLETTER */}
-                <section className="py-14 px-6" style={{background:'#f0ece4'}}>
-                  <div className="max-w-2xl mx-auto text-center reveal">
-                    <h3 className="text-2xl font-bold mb-3" style={{color:'var(--river)'}}>Stay in the Loop</h3>
-                    <p className="text-gray-600 mb-6">Wine releases, event dates, and insider access—straight to your inbox.</p>
-                    <div className="flex gap-2 max-w-md mx-auto">
-                      <input type="email" placeholder="Your email" className="form-input flex-1 px-4 py-3 rounded" />
-                      <button className="btn-gold px-6 py-3 rounded font-semibold text-sm">Subscribe</button>
-                    </div>
-                  </div>
-                </section>
+
               </div>
             )}
 
@@ -981,12 +991,14 @@
                     <div className="bottle-divider" style={{margin:'0 0 2rem'}}></div>
                     <div className="grid md:grid-cols-2 gap-6">
                       <div className="glass-card rounded-xl p-6">
-                        <h4 className="text-xl font-bold mb-2" style={{color:'var(--river)'}}>Sparkling Red</h4>
-                        <p className="text-gray-600">Crisp, refreshing, and delicious. No alcohol—all celebration.</p>
+                        <h4 className="text-xl font-bold mb-2" style={{color:'var(--river)'}}>Sparkling Red Grape Juice</h4>
+                        <p className="text-sm font-semibold mb-2" style={{color:'var(--bottle)'}}>Non-Alcoholic</p>
+                        <p className="text-gray-600">Made from our Virginia grapes. Crisp, refreshing, and delicious. No alcohol—all celebration. Perfect for designated drivers and non-drinking guests.</p>
                       </div>
                       <div className="glass-card rounded-xl p-6">
-                        <h4 className="text-xl font-bold mb-2" style={{color:'var(--river)'}}>Sparkling White</h4>
-                        <p className="text-gray-600">Light, fruity, and perfect for toasts. Everyone deserves a pour.</p>
+                        <h4 className="text-xl font-bold mb-2" style={{color:'var(--river)'}}>Sparkling White Grape Juice</h4>
+                        <p className="text-sm font-semibold mb-2" style={{color:'var(--bottle)'}}>Non-Alcoholic</p>
+                        <p className="text-gray-600">Light, fruity, and perfect for toasts. Celebratory bubbles without the buzz. Because everyone at the table deserves a pour.</p>
                       </div>
                     </div>
                   </div>
@@ -1032,7 +1044,7 @@
                     <h2 className="text-4xl font-bold text-center mb-14 reveal" style={{color:'var(--river)'}}>The Details That Matter</h2>
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
                       {[
-                        { num: '10K+', label: '10,000+ Bottles', desc: 'Recycled wine bottles create stained glass throughout the barn.' },
+                        { num: '10K+', label: 'Recycled Bottles', desc: 'Recycled wine bottles create stained glass throughout the barn.' },
                         { num: '3K', label: '3,000 Sq Ft', desc: 'Expansive interior seats up to 200 guests comfortably.' },
                         { num: '75', label: '75 Acres', desc: '400+ feet of waterfront shoreline on Monroe Creek.' },
                         { num: 'R-30', label: 'R-30+ Insulation', desc: 'Straw bale walls provide superior thermal performance.' },
@@ -1411,7 +1423,10 @@
               <p className="text-gray-600 mb-4 text-sm" style={{lineHeight:1.7}}>
                 Exclusive wines, special pricing, and first access to new releases. 4 selections per quarter plus members-only events.
               </p>
-              <button onClick={() => { setShowWineClub(false); openModal('tasting'); }} className="btn-gold w-full py-2 rounded text-sm font-semibold">Learn More</button>
+              <div className="flex gap-2">
+                <input type="email" placeholder="Your email" className="form-input flex-1 px-3 py-2 rounded text-sm" />
+                <button onClick={() => { setShowWineClub(false); alert('Welcome to the Monroe Bay Family! Check your inbox for details.'); }} className="btn-gold px-4 py-2 rounded text-sm font-semibold whitespace-nowrap">Join</button>
+              </div>
             </div>
           )}
 
@@ -1432,7 +1447,7 @@
                       <input type="tel" placeholder="Your Phone" name="phone" value={formData.phone} onChange={handleFormChange} className="form-input w-full px-4 py-3 rounded-lg" />
                       <input type="date" name="date" value={formData.date} onChange={handleFormChange} className="form-input w-full px-4 py-3 rounded-lg" />
                       <input type="number" placeholder="Party Size" name="partySize" value={formData.partySize} onChange={handleFormChange} className="form-input w-full px-4 py-3 rounded-lg" />
-                      <button className="btn-gold w-full py-3 rounded-lg font-bold text-sm uppercase tracking-wider">Reserve Now</button>
+                      <button onClick={() => { alert('Thank you! We will confirm your reservation at ' + formData.email + ' within 24 hours.'); closeModal(); setFormData({name:'',email:'',phone:'',date:'',partySize:'',message:''}); }} className="btn-gold w-full py-3 rounded-lg font-bold text-sm uppercase tracking-wider">Reserve Now</button>
                       <p className="text-xs text-gray-500 text-center">We'll confirm your reservation by phone or email.</p>
                     </div>
                   </div>
@@ -1450,7 +1465,7 @@
                       <input type="date" name="date" value={formData.date} onChange={handleFormChange} className="form-input w-full px-4 py-3 rounded-lg" />
                       <input type="number" placeholder="Guest Count" name="partySize" value={formData.partySize} onChange={handleFormChange} className="form-input w-full px-4 py-3 rounded-lg" />
                       <textarea placeholder="Tell us about your vision..." name="message" value={formData.message} onChange={handleFormChange} className="form-input w-full px-4 py-3 rounded-lg h-24 resize-none"></textarea>
-                      <button className="btn-gold w-full py-3 rounded-lg font-bold text-sm uppercase tracking-wider">Send Inquiry</button>
+                      <button onClick={() => { alert('Thank you for your wedding inquiry! We will be in touch at ' + formData.email + ' within 48 hours.'); closeModal(); setFormData({name:'',email:'',phone:'',date:'',partySize:'',message:''}); }} className="btn-gold w-full py-3 rounded-lg font-bold text-sm uppercase tracking-wider">Send Inquiry</button>
                     </div>
                   </div>
                 )}
@@ -1505,6 +1520,13 @@
                     <p className="mt-2 font-semibold">Summer Sat 5–8pm</p>
                   </div>
                 </div>
+              </div>
+
+              {/* Social */}
+              <div className="flex justify-center gap-6 mb-10">
+                <a href="https://www.facebook.com/monroebayvineyard" target="_blank" rel="noopener noreferrer" className="text-sm opacity-60 hover:opacity-100 transition" style={{color:'var(--straw)'}}>Facebook</a>
+                <a href="https://www.instagram.com/monroebayvineyard" target="_blank" rel="noopener noreferrer" className="text-sm opacity-60 hover:opacity-100 transition" style={{color:'var(--straw)'}}>Instagram</a>
+                <a href="mailto:info@monroebaywine.com" className="text-sm opacity-60 hover:opacity-100 transition" style={{color:'var(--straw)'}}>Email</a>
               </div>
 
               {/* Bottom */}
