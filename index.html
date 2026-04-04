@@ -332,12 +332,106 @@
       filter: brightness(1.02);
     }
 
-    /* Wine Card Color Swatch */
+    /* Wine Card Color Swatch (legacy) */
     .color-swatch {
       width: 100%;
       height: 3px;
       border-radius: 2px;
       margin-bottom: 1rem;
+    }
+
+    /* --- Magazine Wine Card with Bottle Artwork --- */
+    .wine-card {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      border-radius: 14px;
+      background: #fff;
+      box-shadow: 0 10px 30px rgba(27,38,59,0.10), 0 2px 6px rgba(27,38,59,0.06);
+      transition: transform .45s cubic-bezier(.4,0,.2,1), box-shadow .45s cubic-bezier(.4,0,.2,1);
+      position: relative;
+      border: 1px solid rgba(224,195,137,0.18);
+    }
+    .wine-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 35px 70px rgba(27,38,59,0.28), 0 8px 20px rgba(27,38,59,0.12);
+    }
+    .wine-bottle-stage {
+      background:
+        radial-gradient(ellipse 70% 55% at 50% 42%, rgba(224,195,137,.22), rgba(224,195,137,0) 65%),
+        linear-gradient(180deg, #1B263B 0%, #24384c 55%, #2D6A4F 100%);
+      padding: 1.75rem 1rem 0.5rem;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      height: 320px;
+      position: relative;
+      overflow: hidden;
+    }
+    .wine-bottle-stage::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 18% 22%, rgba(255,255,255,0.06), transparent 30%),
+        radial-gradient(circle at 82% 78%, rgba(224,195,137,0.10), transparent 35%);
+      pointer-events: none;
+    }
+    .wine-bottle-stage::after {
+      content: '';
+      position: absolute;
+      bottom: 4px;
+      left: 22%;
+      right: 22%;
+      height: 14px;
+      background: radial-gradient(ellipse at center, rgba(0,0,0,0.55), transparent 70%);
+      filter: blur(4px);
+      z-index: 1;
+    }
+    .wine-bottle-stage svg {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      width: auto;
+      max-width: 78%;
+      filter: drop-shadow(0 18px 24px rgba(0,0,0,0.45));
+      transition: transform .6s cubic-bezier(.34,1.56,.64,1);
+    }
+    .wine-card:hover .wine-bottle-stage svg {
+      transform: translateY(-8px) rotate(-1.2deg);
+    }
+    .wine-info {
+      padding: 1.4rem 1.4rem 1.4rem;
+      background: #FDFBF7;
+      position: relative;
+    }
+    .wine-info::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 1.4rem; right: 1.4rem;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #C49A3C, transparent);
+    }
+    .wine-type-badge {
+      display: inline-block;
+      padding: 3px 11px;
+      border-radius: 20px;
+      font-size: 0.62rem;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      background: rgba(45,106,79,0.08);
+      color: var(--bottle);
+      font-weight: 700;
+      border: 1px solid rgba(45,106,79,0.18);
+    }
+    .wine-type-badge.rose { background: rgba(232,168,168,0.18); color: #a14a4a; border-color: rgba(232,168,168,0.35); }
+    .wine-type-badge.white { background: rgba(224,195,137,0.14); color: #8a6a2a; border-color: rgba(224,195,137,0.38); }
+    .wine-price-tag {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--bottle);
+      line-height: 1;
     }
 
     /* Quiz */
@@ -735,6 +829,101 @@
 
       const navItems = ['home', 'cellar', 'barn', 'weddings', 'story', 'events', 'visit'];
 
+      // --- Magazine-quality SVG bottle illustration, uniquely colored per wine ---
+      const WineBottle = ({ wine }) => {
+        const isRed = wine.type === 'Red';
+        const isRose = wine.type === 'Rosé';
+        const glassDark = isRed ? '#0a1f12' : isRose ? '#6b7f88' : '#3a5a3f';
+        const glassMid  = isRed ? '#16361f' : isRose ? '#a7bfc4' : '#6d8f6a';
+        const glassLite = isRed ? '#2a5030' : isRose ? '#d4e2e4' : '#9cbd95';
+        const capsule   = isRed ? '#1B263B' : isRose ? '#C49A3C' : '#2D6A4F';
+        const capsuleHi = isRed ? '#2f4562' : isRose ? '#e3b860' : '#3d8a66';
+        const labelAccent = '#C49A3C';
+        const gId = `g${wine.id}`;
+        const lId = `l${wine.id}`;
+        const cId = `c${wine.id}`;
+        const nameSize = wine.name.length > 13 ? 7.8 : wine.name.length > 10 ? 9 : 10;
+        return (
+          <svg viewBox="0 0 120 430" xmlns="http://www.w3.org/2000/svg" role="img" aria-label={`${wine.name} bottle`}>
+            <defs>
+              <linearGradient id={gId} x1="0" x2="1" y1="0" y2="0">
+                <stop offset="0%" stopColor={glassDark}/>
+                <stop offset="18%" stopColor={glassMid}/>
+                <stop offset="42%" stopColor={glassLite}/>
+                <stop offset="70%" stopColor={glassMid}/>
+                <stop offset="100%" stopColor="#000"/>
+              </linearGradient>
+              <linearGradient id={lId} x1="0" x2="0" y1="0" y2="1">
+                <stop offset="0%" stopColor={wine.color} stopOpacity="0.0"/>
+                <stop offset="12%" stopColor={wine.color} stopOpacity="0.55"/>
+                <stop offset="100%" stopColor={wine.color} stopOpacity="0.85"/>
+              </linearGradient>
+              <linearGradient id={cId} x1="0" x2="1">
+                <stop offset="0%" stopColor={capsule}/>
+                <stop offset="45%" stopColor={capsuleHi}/>
+                <stop offset="100%" stopColor={capsule}/>
+              </linearGradient>
+              <clipPath id={`clip${wine.id}`}>
+                <path d="M48 52 L72 52 L72 108 Q82 118 90 138 Q96 155 96 175 L96 395 Q96 418 75 418 L45 418 Q24 418 24 395 L24 175 Q24 155 30 138 Q38 118 48 108 Z"/>
+              </clipPath>
+            </defs>
+
+            {/* Capsule / foil */}
+            <rect x="46" y="8" width="28" height="44" fill={`url(#${cId})`} rx="1"/>
+            <rect x="46" y="8" width="28" height="3" fill="rgba(255,255,255,0.35)"/>
+            <rect x="44" y="48" width="32" height="6" fill={capsule} rx="1"/>
+            <rect x="44" y="48" width="32" height="1.5" fill={capsuleHi} opacity="0.8"/>
+
+            {/* Bottle body (neck + shoulders + body) */}
+            <path d="M48 52 L72 52 L72 108 Q82 118 90 138 Q96 155 96 175 L96 395 Q96 418 75 418 L45 418 Q24 418 24 395 L24 175 Q24 155 30 138 Q38 118 48 108 Z" fill={`url(#${gId})`}/>
+
+            {/* Liquid color tint through glass */}
+            <path d="M48 55 L72 55 L72 108 Q82 118 90 138 Q96 155 96 175 L96 395 Q96 418 75 418 L45 418 Q24 418 24 395 L24 175 Q24 155 30 138 Q38 118 48 108 Z" fill={`url(#${lId})`} clipPath={`url(#clip${wine.id})`}/>
+
+            {/* Glass highlights */}
+            <path d="M34 120 Q30 150 30 200 L30 380" stroke="rgba(255,255,255,0.32)" strokeWidth="3" fill="none" strokeLinecap="round"/>
+            <path d="M86 180 Q88 260 86 360" stroke="rgba(255,255,255,0.15)" strokeWidth="2" fill="none" strokeLinecap="round"/>
+            <ellipse cx="58" cy="72" rx="4" ry="10" fill="rgba(255,255,255,0.35)"/>
+
+            {/* Label */}
+            <g>
+              <rect x="22" y="225" width="76" height="135" fill="#FDFBF7" stroke="#1B263B" strokeWidth="0.4"/>
+              <rect x="22" y="225" width="76" height="4" fill={labelAccent}/>
+              <rect x="22" y="356" width="76" height="4" fill={labelAccent}/>
+              <line x1="26" y1="231" x2="94" y2="231" stroke={labelAccent} strokeWidth="0.3" opacity="0.6"/>
+
+              {/* Top label text */}
+              <text x="60" y="244" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="6.2" fill="#1B263B" fontWeight="800" letterSpacing="1.6">MONROE BAY</text>
+              <text x="60" y="252" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="3.4" fill="#2D6A4F" letterSpacing="1">VINEYARD · CIDERY</text>
+
+              {/* Heron silhouette */}
+              <g transform="translate(60,272)">
+                <path d="M-14,4 Q-14,-2 -9,-4 Q-4,-5 1,-3 L6,-6 Q9,-9 12,-7 L10,-3 L13,-1 L16,-3 L14,1 L10,2 L6,0 Q2,2 -3,3 Q-9,4 -14,4 Z M10,-3 Q13,-10 18,-11" stroke="#1B263B" strokeWidth="0.6" fill="#1B263B"/>
+                <line x1="-2" y1="4" x2="-3" y2="10" stroke="#1B263B" strokeWidth="0.8"/>
+                <line x1="2" y1="4" x2="1" y2="10" stroke="#1B263B" strokeWidth="0.8"/>
+              </g>
+
+              {/* Wine name */}
+              <text x="60" y="298" textAnchor="middle" fontFamily="'Playfair Display', Georgia, serif" fontSize={nameSize} fill="#1B263B" fontWeight="700" fontStyle="italic">{wine.name}</text>
+
+              {/* Divider */}
+              <line x1="38" y1="306" x2="82" y2="306" stroke={labelAccent} strokeWidth="0.5"/>
+
+              {/* Type + vintage */}
+              <text x="60" y="317" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="4.4" fill="#2D6A4F" letterSpacing="1.4" fontWeight="600">{wine.type.toUpperCase()}</text>
+              <text x="60" y="328" textAnchor="middle" fontFamily="'Playfair Display', Georgia, serif" fontSize="6" fill="#1B263B" fontWeight="700">2023</text>
+
+              {/* Bottom */}
+              <text x="60" y="344" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="3.4" fill="#666" letterSpacing="1.2">COLONIAL BEACH</text>
+              <text x="60" y="352" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="3.2" fill="#999" letterSpacing="1">VIRGINIA · USA</text>
+            </g>
+
+            {/* Bottle bottom curve shadow */}
+            <ellipse cx="60" cy="415" rx="34" ry="3" fill="rgba(0,0,0,0.3)"/>
+          </svg>
+        );
+      };
+
       return (
         <>
           {/* LOADING SCREEN */}
@@ -940,12 +1129,18 @@
                     </div>
                     <div className="wine-grid stagger-in">
                       {wines.slice(0, 8).map(wine => (
-                        <div key={wine.id} className="glass-card rounded-xl p-6 reveal">
-                          <div className="color-swatch" style={{background: wine.color}}></div>
-                          <h4 className="text-xl font-bold mb-2" style={{color:'var(--river)'}}>{wine.name}</h4>
-                          <p className="text-sm text-gray-500 mb-2">{wine.type}</p>
-                          <p className="text-xl font-bold mb-3" style={{color:'var(--straw-dark, #C49A3C)'}}>{wine.price}</p>
-                          <p className="text-sm text-gray-600">{wine.notes}</p>
+                        <div key={wine.id} className="wine-card reveal">
+                          <div className="wine-bottle-stage">
+                            <WineBottle wine={wine} />
+                          </div>
+                          <div className="wine-info">
+                            <div className="flex justify-between items-start mb-2" style={{gap:'0.5rem'}}>
+                              <h4 className="text-lg font-bold leading-tight" style={{color:'var(--river)', fontFamily:"'Playfair Display', serif"}}>{wine.name}</h4>
+                              <span className="wine-price-tag" style={{fontSize:'1.3rem'}}>{wine.price}</span>
+                            </div>
+                            <span className={`wine-type-badge ${wine.type === 'Rosé' ? 'rose' : wine.type === 'White' ? 'white' : ''}`}>{wine.type}</span>
+                            <p className="text-sm text-gray-600 mt-3 italic">"{wine.notes}"</p>
+                          </div>
                         </div>
                       ))}
                     </div>
@@ -1142,17 +1337,25 @@
                     ))}
                   </div>
 
-                  {/* Wine Grid */}
+                  {/* Wine Grid — each variety as a collectible bottle card */}
                   <div className="wine-grid stagger-in mb-24">
                     {filteredWines.map(wine => (
-                      <div key={wine.id} className="glass-card rounded-xl p-6 reveal">
-                        <div className="color-swatch" style={{background: wine.color}}></div>
-                        <h4 className="text-2xl font-bold mb-2" style={{color:'var(--river)'}}>{wine.name}</h4>
-                        <p className="text-sm text-gray-500 mb-1">{wine.type}</p>
-                        <p className="text-2xl font-bold mb-4" style={{color:'var(--straw-dark, #C49A3C)'}}>{wine.price}</p>
-                        <p className="text-sm text-gray-700 mb-2 font-medium">{wine.notes}</p>
-                        <p className="text-xs text-gray-500 mb-5">Pairs with: {wine.pairing}</p>
-                        <button onClick={() => openModal('tasting')} className="w-full btn-outline py-2 rounded text-xs uppercase tracking-wider">Taste It</button>
+                      <div key={wine.id} className="wine-card reveal">
+                        <div className="wine-bottle-stage">
+                          <WineBottle wine={wine} />
+                        </div>
+                        <div className="wine-info">
+                          <div className="flex justify-between items-start mb-2" style={{gap:'0.75rem'}}>
+                            <h4 className="text-xl font-bold leading-tight" style={{color:'var(--river)', fontFamily:"'Playfair Display', serif"}}>{wine.name}</h4>
+                            <span className="wine-price-tag">{wine.price}</span>
+                          </div>
+                          <span className={`wine-type-badge ${wine.type === 'Rosé' ? 'rose' : wine.type === 'White' ? 'white' : ''}`}>{wine.type}</span>
+                          <p className="text-sm text-gray-700 mt-3 mb-2 leading-relaxed italic">"{wine.notes}"</p>
+                          <p className="text-xs text-gray-500 mb-4">
+                            <span className="font-semibold" style={{color:'var(--bottle)'}}>Pairs with:</span> {wine.pairing}
+                          </p>
+                          <button onClick={() => openModal('tasting')} className="w-full btn-outline py-2 rounded text-xs uppercase tracking-wider font-semibold">Reserve a Tasting</button>
+                        </div>
                       </div>
                     ))}
                   </div>
