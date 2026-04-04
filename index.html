@@ -430,6 +430,176 @@
       .glass-nav { padding-left: 1rem; padding-right: 1rem; }
       .floating-cta { bottom: 1rem; right: 1rem; }
     }
+
+    /* Enhanced Glass Card Glow */
+    .glass-card {
+      transition: all 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .glass-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 20px 50px rgba(45, 106, 79, 0.15), 0 0 30px rgba(224, 195, 137, 0.08);
+      border-color: rgba(224, 195, 137, 0.4);
+    }
+
+    /* Stagger Children Animation */
+    .stagger-in > * {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: staggerFadeIn 0.6s ease forwards;
+    }
+    .stagger-in > *:nth-child(1) { animation-delay: 0.05s; }
+    .stagger-in > *:nth-child(2) { animation-delay: 0.12s; }
+    .stagger-in > *:nth-child(3) { animation-delay: 0.19s; }
+    .stagger-in > *:nth-child(4) { animation-delay: 0.26s; }
+    .stagger-in > *:nth-child(5) { animation-delay: 0.33s; }
+    .stagger-in > *:nth-child(6) { animation-delay: 0.40s; }
+    .stagger-in > *:nth-child(7) { animation-delay: 0.47s; }
+    .stagger-in > *:nth-child(8) { animation-delay: 0.54s; }
+    @keyframes staggerFadeIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Modal entrance */
+    .modal-panel {
+      animation: modalSlideIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    @keyframes modalSlideIn {
+      from { opacity: 0; transform: translateY(30px) scale(0.95); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* Event card hover */
+    .event-card {
+      cursor: default;
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: 8px;
+      background: transparent;
+    }
+    .event-card:hover {
+      background: rgba(224, 195, 137, 0.06);
+      transform: translateX(8px);
+      box-shadow: -4px 0 20px rgba(224, 195, 137, 0.12);
+    }
+
+    /* Image hover zoom for galleries */
+    .img-hover-zoom {
+      overflow: hidden;
+      border-radius: 12px;
+    }
+    .img-hover-zoom img {
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), filter 0.4s ease;
+    }
+    .img-hover-zoom:hover img {
+      transform: scale(1.08);
+      filter: brightness(1.05);
+    }
+
+    /* Subtle page hero text reveal */
+    .hero-text-reveal {
+      animation: heroTextIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+    @keyframes heroTextIn {
+      from { opacity: 0; transform: translateY(20px); letter-spacing: 0.3em; }
+      to { opacity: 1; transform: translateY(0); letter-spacing: 0.15em; }
+    }
+
+    /* Animated counter pulse */
+    .stat-circle {
+      transition: all 0.4s ease;
+    }
+    .stat-circle:hover {
+      transform: scale(1.12);
+      box-shadow: 0 8px 25px rgba(224, 195, 137, 0.3);
+    }
+
+    /* Cellar hero mini */
+    .page-hero-mini {
+      position: relative;
+      height: 280px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .page-hero-mini img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    @media (max-width: 768px) {
+      .page-hero-mini { height: 220px; }
+    }
+
+    /* Wine card pairing chip */
+    .pairing-chip {
+      display: inline-block;
+      background: rgba(45, 106, 79, 0.08);
+      padding: 2px 10px;
+      border-radius: 12px;
+      font-size: 0.7rem;
+      color: var(--bottle);
+      margin-top: 0.5rem;
+    }
+
+    /* Floating particles subtle */
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      animation: particleFloat linear infinite;
+      opacity: 0.12;
+    }
+    @keyframes particleFloat {
+      0% { transform: translateY(0) translateX(0); opacity: 0; }
+      10% { opacity: 0.12; }
+      90% { opacity: 0.12; }
+      100% { transform: translateY(-100vh) translateX(30px); opacity: 0; }
+    }
+
+    /* Testimonial quote accent */
+    .testimonial-card::before {
+      content: '\201C';
+      position: absolute;
+      top: -8px;
+      left: 16px;
+      font-size: 4rem;
+      font-family: 'Cormorant Garamond', serif;
+      color: rgba(224, 195, 137, 0.3);
+      line-height: 1;
+    }
+
+    /* Newsletter subscribe success */
+    .subscribe-success {
+      animation: successPulse 0.4s ease;
+    }
+    @keyframes successPulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    /* Footer links hover underline */
+    footer button:hover, footer a:hover {
+      text-decoration: none;
+    }
+    footer li button {
+      position: relative;
+    }
+    footer li button::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--straw);
+      transition: width 0.3s ease;
+    }
+    footer li button:hover::after {
+      width: 100%;
+    }
   </style>
 </head>
 <body>
@@ -636,6 +806,17 @@
                   <img src="images/pro-barn-cathedral.jpg" alt="Monroe Bay Vineyard Strawbale Barn Cathedral Interior" className="absolute inset-0 w-full h-full object-cover ken-burns" />
                   <div className="absolute inset-0 hero-overlay"></div>
                   <div className="hero-shimmer"></div>
+                  {/* Floating particles */}
+                  {[...Array(8)].map((_, i) => (
+                    <div key={i} className="particle" style={{
+                      left: `${10 + i * 12}%`,
+                      width: `${3 + (i % 3) * 2}px`,
+                      height: `${3 + (i % 3) * 2}px`,
+                      background: i % 2 === 0 ? 'var(--straw)' : 'rgba(255,255,255,0.6)',
+                      animationDuration: `${8 + i * 2}s`,
+                      animationDelay: `${i * 1.2}s`,
+                    }}></div>
+                  ))}
                   <div className="relative z-10 text-center px-6 max-w-3xl">
                     <p className="text-sm uppercase tracking-widest mb-4 font-medium" style={{color:'var(--straw)',fontFamily:'Montserrat'}}>Colonial Beach, Virginia</p>
                     <h1 className="font-bold text-white mb-2" style={{fontFamily:'Cormorant Garamond',fontSize:'clamp(2.8rem,7vw,5rem)',lineHeight:1.1}}>
@@ -757,7 +938,7 @@
                         From Virginia's flagship Viognier to age-worthy Cabernet Francs, each bottle reflects the character of our Northern Neck terroir.
                       </p>
                     </div>
-                    <div className="wine-grid">
+                    <div className="wine-grid stagger-in">
                       {wines.slice(0, 8).map(wine => (
                         <div key={wine.id} className="glass-card rounded-xl p-6 reveal">
                           <div className="color-swatch" style={{background: wine.color}}></div>
@@ -878,21 +1059,21 @@
                       <h2 className="text-4xl font-bold text-white">Moments That Matter</h2>
                     </div>
                     <div className="grid md:grid-cols-3 gap-8">
-                      <div className="glass-bottle rounded-xl p-6 reveal reveal-delay-1" style={{background:'rgba(255,255,255,0.07)',border:'1px solid rgba(224,195,137,0.1)'}}>
+                      <div className="testimonial-card glass-bottle rounded-xl p-6 reveal reveal-delay-1 relative" style={{background:'rgba(255,255,255,0.07)',border:'1px solid rgba(224,195,137,0.1)'}}>
                         <div className="mb-4 text-lg tracking-widest" style={{color:'var(--straw)'}}>&#9733; &#9733; &#9733; &#9733; &#9733;</div>
                         <p className="mb-5 italic text-white" style={{opacity:0.9,lineHeight:1.8}}>
                           "The most magical tasting room I've ever visited. The bottle walls catch the light perfectly, and the Viognier is divine."
                         </p>
                         <p className="font-bold text-sm" style={{color:'var(--straw)'}}>Sarah M., Virginia</p>
                       </div>
-                      <div className="glass-bottle rounded-xl p-6 reveal reveal-delay-2" style={{background:'rgba(255,255,255,0.07)',border:'1px solid rgba(224,195,137,0.1)'}}>
+                      <div className="testimonial-card glass-bottle rounded-xl p-6 reveal reveal-delay-2 relative" style={{background:'rgba(255,255,255,0.07)',border:'1px solid rgba(224,195,137,0.1)'}}>
                         <div className="mb-4 text-lg tracking-widest" style={{color:'var(--straw)'}}>&#9733; &#9733; &#9733; &#9733; &#9733;</div>
                         <p className="mb-5 italic text-white" style={{opacity:0.9,lineHeight:1.8}}>
                           "Our wedding here was perfection. The barn, the light through the bottles, the wine—every detail was exactly what we dreamed."
                         </p>
                         <p className="font-bold text-sm" style={{color:'var(--straw)'}}>James & Victoria, Couple</p>
                       </div>
-                      <div className="glass-bottle rounded-xl p-6 reveal reveal-delay-3" style={{background:'rgba(255,255,255,0.07)',border:'1px solid rgba(224,195,137,0.1)'}}>
+                      <div className="testimonial-card glass-bottle rounded-xl p-6 reveal reveal-delay-3 relative" style={{background:'rgba(255,255,255,0.07)',border:'1px solid rgba(224,195,137,0.1)'}}>
                         <div className="mb-4 text-lg tracking-widest" style={{color:'var(--straw)'}}>&#9733; &#9733; &#9733; &#9733; &#9733;</div>
                         <p className="mb-5 italic text-white" style={{opacity:0.9,lineHeight:1.8}}>
                           "Brought my family for a summer afternoon. The ciders are fantastic, the grounds are pristine, and that sunset—unforgettable."
@@ -915,18 +1096,26 @@
                     </button>
                   </div>
                 </section>
-
-
               </div>
             )}
 
             {/* ========== CELLAR ========== */}
             {page === 'cellar' && (
-              <div className="pt-20 pb-20 px-6 texture-parchment min-h-screen">
+              <div className="min-h-screen" style={{background:'var(--cream)'}}>
+                {/* Cellar Hero */}
+                <section className="page-hero-mini">
+                  <img src="images/mb-wine-product.jpg" alt="Monroe Bay Wine Collection" />
+                  <div className="absolute inset-0" style={{background:'linear-gradient(180deg, rgba(27,38,59,0.35) 0%, rgba(27,38,59,0.6) 100%)'}}></div>
+                  <div className="hero-shimmer"></div>
+                  <div className="relative z-10 text-center px-6">
+                    <p className="text-xs uppercase tracking-widest mb-2 font-medium hero-text-reveal" style={{color:'var(--straw)'}}>The Collection</p>
+                    <h1 className="text-5xl md:text-6xl font-bold text-white">The Cellar</h1>
+                  </div>
+                </section>
+
+                <div className="pb-20 px-6 texture-parchment">
                 <div className="max-w-6xl mx-auto">
-                  <div className="text-center mb-16 reveal">
-                    <p className="text-xs uppercase tracking-widest mb-3 font-semibold pt-8" style={{color:'var(--bottle)'}}>The Collection</p>
-                    <h1 className="text-5xl font-bold mb-4" style={{color:'var(--river)'}}>The Cellar</h1>
+                  <div className="text-center mb-16 mt-16 reveal">
                     <div className="bottle-divider"></div>
                     <p className="text-gray-600 max-w-2xl mx-auto text-lg">
                       Every bottle here tells a story of Virginia terroir, French inspiration, and a president's birthplace farm. Taste history.
@@ -951,7 +1140,7 @@
                   </div>
 
                   {/* Wine Grid */}
-                  <div className="wine-grid mb-24">
+                  <div className="wine-grid stagger-in mb-24">
                     {filteredWines.map(wine => (
                       <div key={wine.id} className="glass-card rounded-xl p-6 reveal">
                         <div className="color-swatch" style={{background: wine.color}}></div>
@@ -1003,6 +1192,7 @@
                     </div>
                   </div>
                 </div>
+                </div>
               </div>
             )}
 
@@ -1052,7 +1242,7 @@
                         { num: '2019', label: 'Est. July 2019', desc: 'Years of vision realized in one unforgettable space.' },
                       ].map((stat, i) => (
                         <div key={i} className="text-center reveal" style={{transitionDelay:`${i*0.08}s`}}>
-                          <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style={{background:'var(--straw)'}}>
+                          <div className="stat-circle w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style={{background:'var(--straw)'}}>
                             <span className="font-bold text-sm" style={{color:'var(--river)'}}>{stat.num}</span>
                           </div>
                           <h3 className="text-lg font-bold mb-2" style={{color:'var(--river)'}}>{stat.label}</h3>
@@ -1068,12 +1258,12 @@
                   <div className="max-w-5xl mx-auto">
                     <h2 className="text-4xl font-bold text-center mb-14 reveal" style={{color:'var(--river)'}}>Gallery</h2>
                     <div className="grid md:grid-cols-2 gap-6 reveal">
-                      <img src="images/pro-barn-interior-full.jpg" alt="Full Barn Interior" className="w-full rounded-xl shadow-lg h-80 object-cover" />
-                      <img src="images/pro-love-window-closeup.jpg" alt="LOVE Window Close-Up" className="w-full rounded-xl shadow-lg h-80 object-cover" />
-                      <img src="images/mb-bottle-walls.jpg" alt="Barn Bottle Walls" className="w-full rounded-xl shadow-lg h-80 object-cover" />
-                      <img src="images/pro-couple-love-window.jpg" alt="Couple at LOVE Window" className="w-full rounded-xl shadow-lg h-80 object-cover" />
-                      <img src="images/mb-strawbale-window.jpg" alt="Bottle Window Detail" className="w-full rounded-xl shadow-lg h-80 object-cover" />
-                      <img src="images/pro-bridal-love-window.jpg" alt="Bride at LOVE Window" className="w-full rounded-xl shadow-lg h-80 object-cover" />
+                      <div className="img-hover-zoom shadow-lg"><img src="images/pro-barn-interior-full.jpg" alt="Full Barn Interior" className="w-full h-80 object-cover" /></div>
+                      <div className="img-hover-zoom shadow-lg"><img src="images/pro-love-window-closeup.jpg" alt="LOVE Window Close-Up" className="w-full h-80 object-cover" /></div>
+                      <div className="img-hover-zoom shadow-lg"><img src="images/mb-bottle-walls.jpg" alt="Barn Bottle Walls" className="w-full h-80 object-cover" /></div>
+                      <div className="img-hover-zoom shadow-lg"><img src="images/pro-couple-love-window.jpg" alt="Couple at LOVE Window" className="w-full h-80 object-cover" /></div>
+                      <div className="img-hover-zoom shadow-lg"><img src="images/mb-strawbale-window.jpg" alt="Bottle Window Detail" className="w-full h-80 object-cover" /></div>
+                      <div className="img-hover-zoom shadow-lg"><img src="images/pro-bridal-love-window.jpg" alt="Bride at LOVE Window" className="w-full h-80 object-cover" /></div>
                     </div>
                   </div>
                 </section>
@@ -1177,11 +1367,21 @@
 
             {/* ========== STORY ========== */}
             {page === 'story' && (
-              <div className="min-h-screen pt-20 pb-20 px-6 texture-parchment">
+              <div className="min-h-screen" style={{background:'var(--cream)'}}>
+                {/* Story Hero */}
+                <section className="page-hero-mini">
+                  <img src="images/pro-couple-74.jpg" alt="Monroe Bay Vineyard Founders" className="ken-burns" />
+                  <div className="absolute inset-0" style={{background:'linear-gradient(180deg, rgba(27,38,59,0.3) 0%, rgba(27,38,59,0.6) 100%)'}}></div>
+                  <div className="hero-shimmer"></div>
+                  <div className="relative z-10 text-center px-6">
+                    <p className="text-xs uppercase tracking-widest mb-2 font-medium hero-text-reveal" style={{color:'var(--straw)'}}>Est. 2014</p>
+                    <h1 className="text-5xl md:text-6xl font-bold text-white">Our Story</h1>
+                  </div>
+                </section>
+
+                <div className="pb-20 px-6 texture-parchment">
                 <div className="max-w-4xl mx-auto">
-                  <div className="text-center mb-12 reveal pt-8">
-                    <p className="text-xs uppercase tracking-widest mb-3 font-semibold" style={{color:'var(--bottle)'}}>Est. 2014</p>
-                    <h1 className="text-5xl font-bold mb-4" style={{color:'var(--river)'}}>Our Story</h1>
+                  <div className="text-center mb-12 reveal mt-16">
                     <div className="bottle-divider"></div>
                     <p className="text-gray-600 text-lg">
                       From a French watermill to Virginia wine country. A story of passion, terroir, and ten thousand recycled bottles.
@@ -1189,7 +1389,7 @@
                   </div>
 
                   {/* Founders Photo */}
-                  <div className="rounded-xl overflow-hidden mb-16 shadow-xl reveal">
+                  <div className="img-hover-zoom shadow-xl mb-16 reveal">
                     <img src="images/pro-couple-74.jpg" alt="Monroe Bay Vineyard Founders" className="w-full h-80 object-cover" />
                   </div>
 
@@ -1232,8 +1432,8 @@
 
                     {/* Mid-story photos */}
                     <div className="grid grid-cols-2 gap-4 reveal">
-                      <img src="images/pro-love-window-closeup.jpg" alt="LOVE Window stained glass" className="w-full h-64 object-cover rounded-xl shadow-lg" />
-                      <img src="images/pro-sunflowers-bottles.jpg" alt="Sunflowers and wine bottle wall" className="w-full h-64 object-cover rounded-xl shadow-lg" />
+                      <div className="img-hover-zoom shadow-lg"><img src="images/pro-love-window-closeup.jpg" alt="LOVE Window stained glass" className="w-full h-64 object-cover" /></div>
+                      <div className="img-hover-zoom shadow-lg"><img src="images/pro-sunflowers-bottles.jpg" alt="Sunflowers and wine bottle wall" className="w-full h-64 object-cover" /></div>
                     </div>
 
                     <div className="rounded-xl p-8 reveal" style={{background:'linear-gradient(135deg, rgba(224,195,137,0.08), rgba(196,154,60,0.04))'}}>
@@ -1254,25 +1454,31 @@
                     </div>
                   </div>
                 </div>
+                </div>
               </div>
             )}
 
             {/* ========== EVENTS ========== */}
             {page === 'events' && (
-              <div className="min-h-screen pt-20 pb-20 px-6 texture-parchment">
+              <div className="min-h-screen" style={{background:'var(--cream)'}}>
+                {/* Events Hero */}
+                <section className="page-hero-mini">
+                  <img src="images/flickr-barn-reception.jpg" alt="Barn reception event at Monroe Bay" />
+                  <div className="absolute inset-0" style={{background:'linear-gradient(180deg, rgba(27,38,59,0.3) 0%, rgba(27,38,59,0.6) 100%)'}}></div>
+                  <div className="hero-shimmer"></div>
+                  <div className="relative z-10 text-center px-6">
+                    <p className="text-xs uppercase tracking-widest mb-2 font-medium hero-text-reveal" style={{color:'var(--straw)'}}>Year-Round</p>
+                    <h1 className="text-5xl md:text-6xl font-bold text-white">Events & Experiences</h1>
+                  </div>
+                </section>
+
+                <div className="pb-20 px-6 texture-parchment">
                 <div className="max-w-4xl mx-auto">
-                  <div className="text-center mb-12 reveal pt-8">
-                    <p className="text-xs uppercase tracking-widest mb-3 font-semibold" style={{color:'var(--bottle)'}}>Year-Round</p>
-                    <h1 className="text-5xl font-bold mb-4" style={{color:'var(--river)'}}>Events & Experiences</h1>
+                  <div className="text-center mb-12 reveal mt-16">
                     <div className="bottle-divider"></div>
                     <p className="text-gray-600 text-lg">
                       More than wine. Monroe Bay is a gathering place for connection, creativity, and celebration.
                     </p>
-                  </div>
-
-                  {/* Events Hero */}
-                  <div className="rounded-xl overflow-hidden mb-14 shadow-xl reveal">
-                    <img src="images/flickr-barn-reception.jpg" alt="Barn reception event at Monroe Bay" className="w-full h-80 object-cover" />
                   </div>
 
                   <div className="space-y-6">
@@ -1284,7 +1490,7 @@
                       { title: 'Wine & Oyster Festival', desc: 'Held at nearby Stratford Hall. Fresh oysters, our wines, and the best of the Chesapeake Bay.' },
                       { title: 'Second Friday ArtWalks', desc: `Join Colonial Beach's vibrant art community. Galleries, studios, and wine on the second Friday of each month.` },
                     ].map((event, i) => (
-                      <div key={i} className="py-5 pl-6 reveal" style={{borderLeft:'4px solid var(--straw)',transitionDelay:`${i*0.06}s`}}>
+                      <div key={i} className="event-card py-5 pl-6 reveal" style={{borderLeft:'4px solid var(--straw)',transitionDelay:`${i*0.06}s`}}>
                         <h3 className="text-xl font-bold mb-2" style={{color:'var(--river)'}}>{event.title}</h3>
                         <p className="text-gray-600">{event.desc}</p>
                       </div>
@@ -1313,23 +1519,29 @@
                     </div>
                   </div>
                 </div>
+                </div>
               </div>
             )}
 
             {/* ========== VISIT ========== */}
             {page === 'visit' && (
-              <div className="min-h-screen pt-20 pb-20 px-6 texture-parchment">
+              <div className="min-h-screen" style={{background:'var(--cream)'}}>
+                {/* Visit Hero */}
+                <section className="page-hero-mini">
+                  <img src="images/pro-wine-dock-creek.jpg" alt="Wine glasses on dock overlooking Monroe Creek" className="ken-burns" />
+                  <div className="absolute inset-0" style={{background:'linear-gradient(180deg, rgba(27,38,59,0.3) 0%, rgba(27,38,59,0.6) 100%)'}}></div>
+                  <div className="hero-shimmer"></div>
+                  <div className="relative z-10 text-center px-6">
+                    <p className="text-xs uppercase tracking-widest mb-2 font-medium hero-text-reveal" style={{color:'var(--straw)'}}>Plan Your Visit</p>
+                    <h1 className="text-5xl md:text-6xl font-bold text-white">Visit Us</h1>
+                  </div>
+                </section>
+
+                <div className="pb-20 px-6 texture-parchment">
                 <div className="max-w-4xl mx-auto">
-                  <div className="text-center mb-12 reveal pt-8">
-                    <p className="text-xs uppercase tracking-widest mb-3 font-semibold" style={{color:'var(--bottle)'}}>Plan Your Visit</p>
-                    <h1 className="text-5xl font-bold mb-4" style={{color:'var(--river)'}}>Visit Us</h1>
+                  <div className="text-center mb-12 reveal mt-16">
                     <div className="bottle-divider"></div>
                     <p className="text-gray-600 text-lg">Two locations. One unforgettable experience.</p>
-                  </div>
-
-                  {/* Visit Hero */}
-                  <div className="rounded-xl overflow-hidden mb-14 shadow-xl reveal">
-                    <img src="images/pro-wine-dock-creek.jpg" alt="Wine glasses on dock overlooking Monroe Creek" className="w-full h-80 object-cover" />
                   </div>
 
                   <div className="grid md:grid-cols-2 gap-8 mb-16">
@@ -1376,8 +1588,8 @@
 
                   {/* Visit photos */}
                   <div className="grid grid-cols-2 gap-4 mb-16 reveal">
-                    <img src="images/pro-barn-cathedral.jpg" alt="Cathedral ceiling of the Strawbale Barn" className="w-full h-64 object-cover rounded-xl shadow-lg" />
-                    <img src="images/pro-couple-tree-water.jpg" alt="Waterfront setting at Monroe Bay" className="w-full h-64 object-cover rounded-xl shadow-lg" />
+                    <div className="img-hover-zoom shadow-lg"><img src="images/pro-barn-cathedral.jpg" alt="Cathedral ceiling of the Strawbale Barn" className="w-full h-64 object-cover" /></div>
+                    <div className="img-hover-zoom shadow-lg"><img src="images/pro-couple-tree-water.jpg" alt="Waterfront setting at Monroe Bay" className="w-full h-64 object-cover" /></div>
                   </div>
 
                   <div className="rounded-xl p-8 mb-16 reveal" style={{background:'linear-gradient(135deg, rgba(74,124,138,0.06), rgba(45,106,79,0.04))'}}>
@@ -1403,6 +1615,7 @@
                       Reserve a Tasting
                     </button>
                   </div>
+                </div>
                 </div>
               </div>
             )}
@@ -1482,7 +1695,7 @@
                 <p className="text-sm opacity-70 mb-4">Wine releases, event dates, and insider access.</p>
                 <div className="flex gap-2 max-w-md">
                   <input type="email" placeholder="Your email" className="form-input flex-1 px-4 py-2 rounded text-gray-900" />
-                  <button className="px-6 py-2 rounded font-bold text-sm transition-all hover:opacity-90" style={{background:'var(--straw)',color:'var(--river)'}}>Subscribe</button>
+                  <button onClick={() => alert('Welcome! You will receive our next wine release update.')} className="px-6 py-2 rounded font-bold text-sm transition-all hover:opacity-90 hover:shadow-lg" style={{background:'var(--straw)',color:'var(--river)'}}>Subscribe</button>
                 </div>
               </div>
 
