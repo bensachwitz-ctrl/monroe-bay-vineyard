@@ -741,8 +741,7 @@
           {showLoading && (
             <div className="loading-screen">
               <div className="loading-logo mb-6">
-                <div className="text-4xl font-bold" style={{fontFamily:'Playfair Display',color:'var(--straw)'}}>MONROE BAY</div>
-                <div className="text-sm tracking-widest text-center mt-1" style={{color:'var(--bottle)',fontFamily:'Montserrat'}}>VINEYARD & CIDERY</div>
+                <img src="images/mb-heron-label.jpg" alt="Monroe Bay Vineyard Logo" style={{width:'160px',height:'auto',borderRadius:'8px'}} />
               </div>
               <div className="h-0.5 w-48 rounded-full overflow-hidden" style={{background:'rgba(45,106,79,0.15)'}}>
                 <div className="h-full rounded-full" style={{width:'100%',background:'linear-gradient(90deg, var(--straw), var(--bottle), var(--straw))'}}></div>
@@ -756,8 +755,9 @@
           {/* NAVBAR */}
           <nav className={`fixed w-full z-50 ${scrolled ? 'glass-nav scrolled' : 'glass-nav'}`}>
             <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-              <button onClick={() => setPage('home')} className="flex items-center gap-2 group">
-                <span className="text-xl font-bold transition-colors" style={{fontFamily:'Playfair Display',color:'var(--straw)'}}>MONROE BAY</span>
+              <button onClick={() => setPage('home')} className="flex items-center gap-3 group">
+                <img src="images/mb-logo-green.jpg" alt="Monroe Bay" style={{height:'40px',width:'auto',borderRadius:'4px'}} />
+                <span className="text-lg font-bold transition-colors hidden sm:inline" style={{fontFamily:'Playfair Display',color:'var(--straw)'}}>MONROE BAY</span>
               </button>
 
               <div className="hidden md:flex items-center gap-8">
@@ -1120,6 +1120,9 @@
                     <p className="text-gray-600 max-w-2xl mx-auto text-lg">
                       Every bottle here tells a story of Virginia terroir, French inspiration, and a president's birthplace farm. Taste history.
                     </p>
+                    <div className="mt-8 flex justify-center">
+                      <img src="images/mb-wine-bottle.jpg" alt="Monroe Bay Cabernet Franc with Blue Heron Label" className="h-64 object-contain rounded-lg shadow-xl" style={{filter:'brightness(1.05)'}} />
+                    </div>
                   </div>
 
                   {/* Filters */}
@@ -1437,6 +1440,9 @@
                     </div>
 
                     <div className="rounded-xl p-8 reveal" style={{background:'linear-gradient(135deg, rgba(224,195,137,0.08), rgba(196,154,60,0.04))'}}>
+                      <div className="flex flex-col md:flex-row gap-8 items-center">
+                      <img src="images/mb-heron-label.jpg" alt="Monroe Bay Blue Heron Wine Label" className="w-48 h-auto rounded-xl shadow-lg flex-shrink-0" />
+                      <div>
                       <h2 className="text-3xl font-bold mb-5" style={{color:'var(--river)'}}>The Wine Label Art Competition</h2>
                       <p className="text-lg text-gray-600 mb-4" style={{lineHeight:1.9}}>
                         Our wine labels represent more than just a bottle. They showcase local artistry. The inaugural wine label art competition was organized by local business owner Shirley Rush, and the winning design by Barbara Brennan now graces our bottles.
@@ -1444,6 +1450,8 @@
                       <p className="text-lg text-gray-600" style={{lineHeight:1.9}}>
                         This is wine country rooted in community, crafted with intention, and celebrated together.
                       </p>
+                      </div>
+                      </div>
                     </div>
 
                     <div className="pl-6 py-4 reveal" style={{borderLeft:'4px solid var(--straw)'}}>
@@ -1689,7 +1697,14 @@
           {/* FOOTER */}
           <footer className="py-16 px-6" style={{background:'var(--river)'}}>
             <div className="max-w-6xl mx-auto text-white">
-              {/* Newsletter */}
+              {/* Footer Logo + Newsletter */}
+              <div className="flex items-center gap-5 mb-10">
+                <img src="images/mb-heron-label.jpg" alt="Monroe Bay Vineyard" style={{width:'80px',height:'auto',borderRadius:'8px'}} />
+                <div>
+                  <div className="text-2xl font-bold" style={{fontFamily:'Playfair Display',color:'var(--straw)'}}>Monroe Bay</div>
+                  <div className="text-xs uppercase tracking-widest opacity-60">Vineyard & Cidery</div>
+                </div>
+              </div>
               <div className="mb-14 reveal">
                 <h3 className="text-2xl font-bold mb-4" style={{color:'var(--straw)'}}>Stay Updated</h3>
                 <p className="text-sm opacity-70 mb-4">Wine releases, event dates, and insider access.</p>
