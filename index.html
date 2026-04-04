@@ -498,12 +498,12 @@
         { id: 8, name: 'Pinot Grigio', type: 'White', price: '$20', color: '#F5E6D3', notes: 'Crisp, clean, refreshing', pairing: 'Summer salads, light fare' },
         { id: 9, name: 'Blue Heron Red', type: 'Red', price: '$20', color: '#6B3E3E', notes: 'Approachable, fruit-forward', pairing: 'Backyard barbecue, pizza' },
         { id: 10, name: 'Blue Heron White', type: 'White', price: '$18', color: '#E8D4A0', notes: 'Soft, easy-drinking, bright', pairing: 'Brunch, casual afternoons' },
-        { id: 11, name: 'Blue Heron Ros\u00e9', type: 'Ros\u00e9', price: '$20', color: '#E8A8A8', notes: 'Dry, elegant, sunset-pink', pairing: 'Salads, seafood, golden hours' },
+        { id: 11, name: 'Blue Heron Rosé', type: 'Rosé', price: '$20', color: '#E8A8A8', notes: 'Dry, elegant, sunset-pink', pairing: 'Salads, seafood, golden hours' },
       ];
 
       const ciders = [
-        { name: 'Boardwalk Cider', notes: 'Semi-Sweet', detail: 'Light, approachable, perfect for newcomers. Named for Colonial Beach\u2019s iconic boardwalk.' },
-        { name: 'Hard Apple Cider', notes: 'Dry', detail: 'Virginia Hughes Crab apples\u2014the same cultivar President Monroe grew on this very land.' },
+        { name: 'Boardwalk Cider', notes: 'Semi-Sweet', detail: 'Light, approachable, perfect for newcomers. Named for Colonial Beach’s iconic boardwalk.' },
+        { name: 'Hard Apple Cider', notes: 'Dry', detail: 'Virginia Hughes Crab apples—the same cultivar President Monroe grew on this very land.' },
         { name: 'Hopped Cider', notes: 'Dry-Bitter', detail: 'Bold, craft-forward. For those who believe cider should have edge.' },
         { name: 'Pumpkin Spice Cider', notes: 'Seasonal', detail: 'Autumn in a glass. Spiced, warming, and available only when the leaves turn.' },
       ];
@@ -524,10 +524,10 @@
 
       const getQuizResult = () => {
         const answers = Object.values(quizAnswers).join('');
-        if (answers.includes('bold')) return { wine: 'Cabernet Franc', desc: 'A wine of depth and distinction\u2014structured, earthy, unforgettable. Like the Virginia soil it comes from.' };
-        if (answers.includes('light')) return { wine: 'Viognier', desc: 'Virginia\u2019s signature white. Honeysuckle, stone fruit, and the feeling of a warm afternoon on the creek.' };
-        if (answers.includes('smooth')) return { wine: 'Chardonnay', desc: 'Golden, smooth, and comforting\u2014like sunset light filtering through ten thousand recycled bottles.' };
-        return { wine: 'Blue Heron Ros\u00e9', desc: 'Dry, elegant, and effortlessly joyful. For those who believe every hour is golden hour.' };
+        if (answers.includes('bold')) return { wine: 'Cabernet Franc', desc: 'A wine of depth and distinction—structured, earthy, unforgettable. Like the Virginia soil it comes from.' };
+        if (answers.includes('light')) return { wine: 'Viognier', desc: 'Virginia’s signature white. Honeysuckle, stone fruit, and the feeling of a warm afternoon on the creek.' };
+        if (answers.includes('smooth')) return { wine: 'Chardonnay', desc: 'Golden, smooth, and comforting—like sunset light filtering through ten thousand recycled bottles.' };
+        return { wine: 'Blue Heron Rosé', desc: 'Dry, elegant, and effortlessly joyful. For those who believe every hour is golden hour.' };
       };
 
       const navItems = ['home', 'cellar', 'barn', 'weddings', 'story', 'events', 'visit'];
@@ -574,7 +574,7 @@
               </button>
 
               <button onClick={() => setMenuOpen(!menuOpen)} className="md:hidden text-2xl" style={{color:'var(--straw)'}}>
-                {menuOpen ? '\u2715' : '\u2630'}
+                {menuOpen ? '✕' : '☰'}
               </button>
             </div>
 
@@ -627,7 +627,7 @@
                   <div className="max-w-6xl mx-auto px-6 py-5 grid grid-cols-2 md:grid-cols-4 gap-4 text-center text-white">
                     <div>
                       <div className="text-xs uppercase tracking-widest opacity-60 mb-1">Hours</div>
-                      <div className="text-base font-bold">Sat & Sun 12\u20135pm</div>
+                      <div className="text-base font-bold">Sat & Sun 12–5pm</div>
                       <div className="text-xs opacity-50">April through December</div>
                     </div>
                     <div>
@@ -643,7 +643,7 @@
                     <div>
                       <div className="text-xs uppercase tracking-widest opacity-60 mb-1">Call Us</div>
                       <div className="text-base font-bold">(804) 410-5628</div>
-                      <div className="text-xs opacity-50">We\u2019d love to hear from you</div>
+                      <div className="text-xs opacity-50">We’d love to hear from you</div>
                     </div>
                   </div>
                 </section>
@@ -666,7 +666,7 @@
                         </div>
                         <h3 className="text-2xl font-bold mb-3" style={{color:'var(--river)'}}>The Vineyard</h3>
                         <p className="text-gray-600" style={{lineHeight:1.8}}>
-                          Virginia\u2019s flagship Viognier alongside bold Cab Francs and elegant Petit Verdots. Every bottle carries the character of our Northern Neck terroir.
+                          Virginia’s flagship Viognier alongside bold Cab Francs and elegant Petit Verdots. Every bottle carries the character of our Northern Neck terroir.
                         </p>
                       </div>
                       <div className="text-center reveal reveal-delay-2">
@@ -684,7 +684,7 @@
                         </div>
                         <h3 className="text-2xl font-bold mb-3" style={{color:'var(--river)'}}>The Creek</h3>
                         <p className="text-gray-600" style={{lineHeight:1.8}}>
-                          75 acres on Monroe Creek. Adirondack chairs, heron sightings, and the kind of sunset you won\u2019t find on any screen. Bring a picnic. Stay a while.
+                          75 acres on Monroe Creek. Adirondack chairs, heron sightings, and the kind of sunset you won’t find on any screen. Bring a picnic. Stay a while.
                         </p>
                       </div>
                     </div>
@@ -698,10 +698,10 @@
                       <p className="text-xs uppercase tracking-widest mb-3 font-semibold" style={{color:'var(--bottle)'}}>Sustainability Meets Art</p>
                       <h2 className="text-4xl font-bold mb-6" style={{color:'var(--river)'}}>The Strawbale Barn</h2>
                       <p className="text-gray-600 mb-5 text-lg" style={{lineHeight:1.8}}>
-                        Built in 2019 by an Amish crew from Pennsylvania and 40 volunteers, our barn is a living testament to what happens when French-inspired vision meets Virginia craftsmanship. The walls are recycled straw covered in hydraulic lime\u2014the same material protecting French castle walls for centuries.
+                        Built in 2019 by an Amish crew from Pennsylvania and 40 volunteers, our barn is a living testament to what happens when French-inspired vision meets Virginia craftsmanship. The walls are recycled straw covered in hydraulic lime—the same material protecting French castle walls for centuries.
                       </p>
                       <p className="text-gray-600 mb-8 text-lg" style={{lineHeight:1.8}}>
-                        Thousands of recycled wine bottles embedded throughout create stained-glass windows that shift with the sun. The famous \u201cLove Window\u201d\u2014bottles arranged to spell LOVE\u2014has become the most-photographed spot in Colonial Beach.
+                        Thousands of recycled wine bottles embedded throughout create stained-glass windows that shift with the sun. The famous “Love Window”—bottles arranged to spell LOVE—has become the most-photographed spot in Colonial Beach.
                       </p>
                       <button onClick={() => setPage('barn')} className="btn-outline px-6 py-3 rounded text-sm uppercase tracking-wider">
                         Explore the Barn
@@ -721,7 +721,7 @@
                       <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{color:'var(--river)'}}>Our Wines</h2>
                       <div className="bottle-divider"></div>
                       <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-                        From Virginia\u2019s flagship Viognier to age-worthy Cabernet Francs, each bottle reflects the character of our Northern Neck terroir.
+                        From Virginia’s flagship Viognier to age-worthy Cabernet Francs, each bottle reflects the character of our Northern Neck terroir.
                       </p>
                     </div>
                     <div className="wine-grid">
@@ -762,9 +762,9 @@
                         </div>
                         {quizStep === 1 && (
                           <div>
-                            <h3 className="text-xl font-bold mb-6" style={{color:'var(--river)'}}>What\u2019s your ideal afternoon?</h3>
+                            <h3 className="text-xl font-bold mb-6" style={{color:'var(--river)'}}>What’s your ideal afternoon?</h3>
                             <div className="space-y-3">
-                              <button onClick={() => handleQuizAnswer('bold')} className="quiz-option w-full">Hiking through Virginia\u2019s forests</button>
+                              <button onClick={() => handleQuizAnswer('bold')} className="quiz-option w-full">Hiking through Virginia’s forests</button>
                               <button onClick={() => handleQuizAnswer('light')} className="quiz-option w-full">Picnicking by the water</button>
                               <button onClick={() => handleQuizAnswer('smooth')} className="quiz-option w-full">Relaxing at home with friends</button>
                               <button onClick={() => handleQuizAnswer('fun')} className="quiz-option w-full">Celebrating a special moment</button>
@@ -848,21 +848,21 @@
                       <div className="rounded-xl p-6 reveal reveal-delay-1" style={{background:'rgba(255,255,255,0.07)',backdropFilter:'blur(8px)',border:'1px solid rgba(224,195,137,0.1)'}}>
                         <div className="mb-4 text-lg tracking-widest" style={{color:'var(--straw)'}}>&#9733; &#9733; &#9733; &#9733; &#9733;</div>
                         <p className="mb-5 italic text-white" style={{opacity:0.9,lineHeight:1.8}}>
-                          "The most magical tasting room I\u2019ve ever visited. The bottle walls catch the light perfectly, and the Viognier is divine."
+                          "The most magical tasting room I’ve ever visited. The bottle walls catch the light perfectly, and the Viognier is divine."
                         </p>
                         <p className="font-bold text-sm" style={{color:'var(--straw)'}}>Sarah M., Virginia</p>
                       </div>
                       <div className="rounded-xl p-6 reveal reveal-delay-2" style={{background:'rgba(255,255,255,0.07)',backdropFilter:'blur(8px)',border:'1px solid rgba(224,195,137,0.1)'}}>
                         <div className="mb-4 text-lg tracking-widest" style={{color:'var(--straw)'}}>&#9733; &#9733; &#9733; &#9733; &#9733;</div>
                         <p className="mb-5 italic text-white" style={{opacity:0.9,lineHeight:1.8}}>
-                          "Our wedding here was perfection. The barn, the light through the bottles, the wine\u2014every detail was exactly what we dreamed."
+                          "Our wedding here was perfection. The barn, the light through the bottles, the wine—every detail was exactly what we dreamed."
                         </p>
                         <p className="font-bold text-sm" style={{color:'var(--straw)'}}>James & Victoria, Couple</p>
                       </div>
                       <div className="rounded-xl p-6 reveal reveal-delay-3" style={{background:'rgba(255,255,255,0.07)',backdropFilter:'blur(8px)',border:'1px solid rgba(224,195,137,0.1)'}}>
                         <div className="mb-4 text-lg tracking-widest" style={{color:'var(--straw)'}}>&#9733; &#9733; &#9733; &#9733; &#9733;</div>
                         <p className="mb-5 italic text-white" style={{opacity:0.9,lineHeight:1.8}}>
-                          "Brought my family for a summer afternoon. The ciders are fantastic, the grounds are pristine, and that sunset\u2014unforgettable."
+                          "Brought my family for a summer afternoon. The ciders are fantastic, the grounds are pristine, and that sunset—unforgettable."
                         </p>
                         <p className="font-bold text-sm" style={{color:'var(--straw)'}}>Michael R., Washington D.C.</p>
                       </div>
@@ -875,7 +875,7 @@
                   <div className="max-w-4xl mx-auto text-center reveal">
                     <h2 className="text-4xl font-bold mb-6" style={{color:'var(--river)'}}>Reserve Your Tasting</h2>
                     <p className="text-xl mb-8" style={{color:'var(--river)',opacity:0.8}}>
-                      $9 per person. Saturdays & Sundays, 12\u20135pm. April through December. Colonial Beach, Virginia.
+                      $9 per person. Saturdays & Sundays, 12–5pm. April through December. Colonial Beach, Virginia.
                     </p>
                     <button onClick={() => openModal('tasting')} className="px-10 py-4 rounded-lg font-bold text-lg transition-all hover:shadow-xl" style={{background:'var(--river)',color:'var(--straw)'}}>
                       Reserve a Tasting
@@ -887,7 +887,7 @@
                 <section className="py-14 px-6" style={{background:'#f0ece4'}}>
                   <div className="max-w-2xl mx-auto text-center reveal">
                     <h3 className="text-2xl font-bold mb-3" style={{color:'var(--river)'}}>Stay in the Loop</h3>
-                    <p className="text-gray-600 mb-6">Wine releases, event dates, and insider access\u2014straight to your inbox.</p>
+                    <p className="text-gray-600 mb-6">Wine releases, event dates, and insider access—straight to your inbox.</p>
                     <div className="flex gap-2 max-w-md mx-auto">
                       <input type="email" placeholder="Your email" className="form-input flex-1 px-4 py-3 rounded" />
                       <button className="btn-gold px-6 py-3 rounded font-semibold text-sm">Subscribe</button>
@@ -906,13 +906,13 @@
                     <h1 className="text-5xl font-bold mb-4" style={{color:'var(--river)'}}>The Cellar</h1>
                     <div className="bottle-divider"></div>
                     <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-                      Every bottle here tells a story of Virginia terroir, French inspiration, and a president\u2019s birthplace farm. Taste history.
+                      Every bottle here tells a story of Virginia terroir, French inspiration, and a president’s birthplace farm. Taste history.
                     </p>
                   </div>
 
                   {/* Filters */}
                   <div className="flex justify-center gap-3 mb-14 flex-wrap reveal">
-                    {['All', 'Red', 'White', 'Ros\u00e9'].map(f => (
+                    {['All', 'Red', 'White', 'Rosé'].map(f => (
                       <button
                         key={f}
                         onClick={() => setActiveWineFilter(f === 'All' ? 'all' : f)}
@@ -948,7 +948,7 @@
                     <h2 className="text-4xl font-bold mb-4" style={{color:'var(--river)'}}>Hard Ciders</h2>
                     <div className="bottle-divider" style={{margin:'0 0 2rem'}}></div>
                     <p className="text-gray-600 mb-8 text-lg max-w-2xl">
-                      Virginia\u2019s finest apples, pressed and fermented here. Our Hughes Crab apples are the same cultivar President Monroe grew on this very land over two centuries ago.
+                      Virginia’s finest apples, pressed and fermented here. Our Hughes Crab apples are the same cultivar President Monroe grew on this very land over two centuries ago.
                     </p>
                     <div className="grid md:grid-cols-2 gap-6">
                       {ciders.map((cider, i) => (
@@ -969,7 +969,7 @@
                     <div className="grid md:grid-cols-2 gap-6">
                       <div className="glass-card rounded-xl p-6">
                         <h4 className="text-xl font-bold mb-2" style={{color:'var(--river)'}}>Sparkling Red</h4>
-                        <p className="text-gray-600">Crisp, refreshing, and delicious. No alcohol\u2014all celebration.</p>
+                        <p className="text-gray-600">Crisp, refreshing, and delicious. No alcohol—all celebration.</p>
                       </div>
                       <div className="glass-card rounded-xl p-6">
                         <h4 className="text-xl font-bold mb-2" style={{color:'var(--river)'}}>Sparkling White</h4>
@@ -1001,13 +1001,13 @@
                     <div className="reveal">
                       <h2 className="text-4xl font-bold mb-6" style={{color:'var(--river)'}}>Built by Vision & Volunteer Hands</h2>
                       <p className="text-lg text-gray-600 mb-5" style={{lineHeight:1.9}}>
-                        In July 2019, something extraordinary happened on 75 acres of Virginia waterfront. An Amish crew from Pennsylvania raised the roof in an open pavilion style. Straw bale specialist Andrew Morrison partnered with 40 local volunteers to construct the walls using recycled straw bales covered in hydraulic lime\u2014the same material that has protected French castle walls for centuries.
+                        In July 2019, something extraordinary happened on 75 acres of Virginia waterfront. An Amish crew from Pennsylvania raised the roof in an open pavilion style. Straw bale specialist Andrew Morrison partnered with 40 local volunteers to construct the walls using recycled straw bales covered in hydraulic lime—the same material that has protected French castle walls for centuries.
                       </p>
                       <p className="text-lg text-gray-600 mb-5" style={{lineHeight:1.9}}>
-                        But the true magic lies in what\u2019s embedded within those walls: over ten thousand recycled wine bottles. They catch the sunlight differently throughout each day, creating a stained-glass effect that shifts from emerald to amber to rose. The \u201cLove Window\u201d\u2014bottles arranged to spell LOVE\u2014has become the most photographed backdrop in Colonial Beach.
+                        But the true magic lies in what’s embedded within those walls: over ten thousand recycled wine bottles. They catch the sunlight differently throughout each day, creating a stained-glass effect that shifts from emerald to amber to rose. The “Love Window”—bottles arranged to spell LOVE—has become the most photographed backdrop in Colonial Beach.
                       </p>
                       <p className="text-lg text-gray-600" style={{lineHeight:1.9}}>
-                        3,000 square feet. Seats 200 guests. Pet-friendly outdoor shaded area with Adirondack chairs overlooking the creek. Bring your own picnic\u2014we post food truck schedules on Facebook. This is wine country the way it should be.
+                        3,000 square feet. Seats 200 guests. Pet-friendly outdoor shaded area with Adirondack chairs overlooking the creek. Bring your own picnic—we post food truck schedules on Facebook. This is wine country the way it should be.
                       </p>
                     </div>
                   </div>
@@ -1074,10 +1074,10 @@
                   <div className="max-w-4xl mx-auto reveal">
                     <h2 className="text-4xl font-bold mb-6" style={{color:'var(--river)'}}>Your Unforgettable Moment</h2>
                     <p className="text-lg text-gray-600 mb-5" style={{lineHeight:1.9}}>
-                      Monroe Bay Vineyard is where golden hour lasts a little longer, where stained-glass bottle walls paint your first dance in emerald and amber, and where 400 feet of waterfront shoreline becomes the backdrop to the rest of your life. Our barn seats 200. The woodland ceremony grounds are yours to shape. The wine is ours\u2014poured for your guests at special pricing.
+                      Monroe Bay Vineyard is where golden hour lasts a little longer, where stained-glass bottle walls paint your first dance in emerald and amber, and where 400 feet of waterfront shoreline becomes the backdrop to the rest of your life. Our barn seats 200. The woodland ceremony grounds are yours to shape. The wine is ours—poured for your guests at special pricing.
                     </p>
                     <p className="text-lg text-gray-600 mb-8" style={{lineHeight:1.9}}>
-                      Weddings are held in the evenings\u2014our daytime hours are reserved for tastings. Virtual and in-person tours available by appointment.
+                      Weddings are held in the evenings—our daytime hours are reserved for tastings. Virtual and in-person tours available by appointment.
                     </p>
                     <button onClick={() => openModal('wedding')} className="btn-gold px-8 py-3 rounded-lg text-sm uppercase tracking-wider">Plan Your Wedding</button>
                   </div>
@@ -1086,7 +1086,7 @@
                 {/* What's Included */}
                 <section className="py-20 px-6" style={{background:'#f0ece4'}}>
                   <div className="max-w-4xl mx-auto">
-                    <h2 className="text-4xl font-bold text-center mb-14 reveal" style={{color:'var(--river)'}}>What\u2019s Included</h2>
+                    <h2 className="text-4xl font-bold text-center mb-14 reveal" style={{color:'var(--river)'}}>What’s Included</h2>
                     <div className="grid md:grid-cols-2 gap-8">
                       {[
                         { code: 'IB', title: 'Indoor Barn Venue', desc: '3,000 sq ft with soaring wood ceilings, stained-glass bottle walls, and elegant lighting.' },
@@ -1138,7 +1138,7 @@
                 {/* Wedding CTA */}
                 <section className="py-20 px-6" style={{background:'var(--straw)'}}>
                   <div className="max-w-4xl mx-auto text-center reveal">
-                    <h2 className="text-4xl font-bold mb-6" style={{color:'var(--river)'}}>Let\u2019s Talk About Your Wedding</h2>
+                    <h2 className="text-4xl font-bold mb-6" style={{color:'var(--river)'}}>Let’s Talk About Your Wedding</h2>
                     <p className="text-xl mb-8" style={{color:'var(--river)',opacity:0.8}}>
                       Contact us for availability, custom packages, and to schedule your venue tour.
                     </p>
@@ -1170,35 +1170,35 @@
 
                   <div className="space-y-14">
                     <div className="reveal">
-                      <h2 className="text-3xl font-bold mb-5" style={{color:'var(--river)'}}>Kiki Apple\u2019s Journey</h2>
+                      <h2 className="text-3xl font-bold mb-5" style={{color:'var(--river)'}}>Kiki Apple’s Journey</h2>
                       <p className="text-lg text-gray-600 mb-4" style={{lineHeight:1.9}}>
-                        Kirsten \u201cKiki\u201d Apple spent years living in southern France\u2019s wine country, where she developed a passion for winemaking. She owned West Mill House, a stone watermill nestled in the heart of France\u2019s renowned wine region. Living surrounded by vineyards and vintage cellars, Kiki learned the craft the traditional way\u2014by tasting, experimenting, and understanding terroir.
+                        Kirsten “Kiki” Apple spent years living in southern France’s wine country, where she developed a passion for winemaking. She owned West Mill House, a stone watermill nestled in the heart of France’s renowned wine region. Living surrounded by vineyards and vintage cellars, Kiki learned the craft the traditional way—by tasting, experimenting, and understanding terroir.
                       </p>
                       <p className="text-lg text-gray-600 mb-4" style={{lineHeight:1.9}}>
-                        When life brought her to Virginia, the dream wouldn\u2019t let go. She found herself on part of the original James Monroe Birthplace Farm\u2014the home of America\u2019s 5th President, a man whose influence shaped the nation. On 75 acres of waterfront, Monroe Creek flowing nearby, Kiki saw her vision becoming real.
+                        When life brought her to Virginia, the dream wouldn’t let go. She found herself on part of the original James Monroe Birthplace Farm—the home of America’s 5th President, a man whose influence shaped the nation. On 75 acres of waterfront, Monroe Creek flowing nearby, Kiki saw her vision becoming real.
                       </p>
                       <p className="text-lg text-gray-600" style={{lineHeight:1.9}}>
-                        In November 2014, Monroe Bay Vineyard received its farm winery license. Today, it stands as a testament to her journey\u2014from French ch\u00e2teaux to Virginia terroir.
+                        In November 2014, Monroe Bay Vineyard received its farm winery license. Today, it stands as a testament to her journey—from French châteaux to Virginia terroir.
                       </p>
                     </div>
 
                     <div className="rounded-xl p-8 reveal" style={{background:'linear-gradient(135deg, rgba(74,124,138,0.06), rgba(45,106,79,0.04))'}}>
                       <h2 className="text-3xl font-bold mb-5" style={{color:'var(--river)'}}>The James Monroe Connection</h2>
                       <p className="text-lg text-gray-600 mb-4" style={{lineHeight:1.9}}>
-                        Monroe Bay sits on part of the original James Monroe Birthplace Farm. The 5th President of the United States was born here in 1758. This is hallowed ground\u2014part of Virginia\u2019s Colonial history, part of America\u2019s founding story.
+                        Monroe Bay sits on part of the original James Monroe Birthplace Farm. The 5th President of the United States was born here in 1758. This is hallowed ground—part of Virginia’s Colonial history, part of America’s founding story.
                       </p>
                       <p className="text-lg text-gray-600" style={{lineHeight:1.9}}>
-                        The Northern Neck region has been called the \u201cAthens of the New World\u201d for good reason. Three U.S. Presidents were born here. When you taste our wines, you\u2019re tasting history.
+                        The Northern Neck region has been called the “Athens of the New World” for good reason. Three U.S. Presidents were born here. When you taste our wines, you’re tasting history.
                       </p>
                     </div>
 
                     <div className="reveal">
                       <h2 className="text-3xl font-bold mb-5" style={{color:'var(--river)'}}>Building the Dream</h2>
                       <p className="text-lg text-gray-600 mb-4" style={{lineHeight:1.9}}>
-                        <strong>2014:</strong> Monroe Bay Vineyard receives its farm winery license. The vineyard is planted. Kiki\u2019s dream becomes official.
+                        <strong>2014:</strong> Monroe Bay Vineyard receives its farm winery license. The vineyard is planted. Kiki’s dream becomes official.
                       </p>
                       <p className="text-lg text-gray-600 mb-4" style={{lineHeight:1.9}}>
-                        <strong>2019:</strong> The Strawbale Barn opens. An Amish crew from Pennsylvania builds the roof. Straw bale specialist Andrew Morrison and 40 volunteers construct the walls from recycled straw covered in hydraulic lime. Thousands of recycled wine bottles are embedded throughout, creating stained-glass magic. The \u201cLove Window\u201d becomes an instant icon.
+                        <strong>2019:</strong> The Strawbale Barn opens. An Amish crew from Pennsylvania builds the roof. Straw bale specialist Andrew Morrison and 40 volunteers construct the walls from recycled straw covered in hydraulic lime. Thousands of recycled wine bottles are embedded throughout, creating stained-glass magic. The “Love Window” becomes an instant icon.
                       </p>
                       <p className="text-lg text-gray-600" style={{lineHeight:1.9}}>
                         <strong>Today:</strong> Monroe Bay is the premier destination for wine lovers, wedding celebrations, and unforgettable moments on the Chesapeake Bay Wine Trail.
@@ -1223,7 +1223,7 @@
 
                     <div className="pl-6 py-4 reveal" style={{borderLeft:'4px solid var(--straw)'}}>
                       <p className="text-2xl italic text-gray-700" style={{fontFamily:'Cormorant Garamond',lineHeight:1.6}}>
-                        "When light filters through a thousand wine bottles, when friends gather on waterfront acres, when a barn built by Amish craftsmen and local volunteers stands against a sunset\u2014that\u2019s when you understand what Monroe Bay is really about."
+                        "When light filters through a thousand wine bottles, when friends gather on waterfront acres, when a barn built by Amish craftsmen and local volunteers stands against a sunset—that’s when you understand what Monroe Bay is really about."
                       </p>
                       <p className="text-lg font-bold mt-4" style={{color:'var(--river)'}}>Kiki Apple, Founder</p>
                     </div>
@@ -1257,7 +1257,7 @@
                       { title: 'Stone Room Concerts', desc: 'Live music in our signature space. Local and visiting artists. Check Facebook for seasonal lineups.' },
                       { title: 'Christmas Bazaar', desc: 'Holiday shopping, local vendors, seasonal wines, and festive cheer. A Colonial Beach tradition.' },
                       { title: 'Wine & Oyster Festival', desc: 'Held at nearby Stratford Hall. Fresh oysters, our wines, and the best of the Chesapeake Bay.' },
-                      { title: 'Second Friday ArtWalks', desc: 'Join Colonial Beach\u2019s vibrant art community. Galleries, studios, and wine on the second Friday of each month.' },
+                      { title: 'Second Friday ArtWalks', desc: 'Join Colonial Beach’s vibrant art community. Galleries, studios, and wine on the second Friday of each month.' },
                     ].map((event, i) => (
                       <div key={i} className="py-5 pl-6 reveal" style={{borderLeft:'4px solid var(--straw)',transitionDelay:`${i*0.06}s`}}>
                         <h3 className="text-xl font-bold mb-2" style={{color:'var(--river)'}}>{event.title}</h3>
@@ -1318,12 +1318,12 @@
                         </div>
                         <div>
                           <p className="font-bold text-sm uppercase tracking-wider" style={{color:'var(--bottle)'}}>Hours</p>
-                          <p>Saturday & Sunday: 12\u20135pm</p>
+                          <p>Saturday & Sunday: 12–5pm</p>
                           <p className="text-sm opacity-75">April through December</p>
                         </div>
                         <div>
                           <p className="font-bold text-sm uppercase tracking-wider mb-2" style={{color:'var(--bottle)'}}>What to Expect</p>
-                          <p>$9 tasting fee \u00b7 Guided or self-guided \u00b7 Pet-friendly grounds \u00b7 Bring your own picnic \u00b7 Food trucks on Facebook \u00b7 Adirondack chairs & waterfront</p>
+                          <p>$9 tasting fee · Guided or self-guided · Pet-friendly grounds · Bring your own picnic · Food trucks on Facebook · Adirondack chairs & waterfront</p>
                         </div>
                       </div>
                     </div>
@@ -1338,12 +1338,12 @@
                         </div>
                         <div>
                           <p className="font-bold text-sm uppercase tracking-wider" style={{color:'var(--bottle)'}}>Hours</p>
-                          <p>Summer Season (Memorial Day\u2013Labor Day)</p>
-                          <p>Saturday: 5\u20138pm at Monroe Market</p>
+                          <p>Summer Season (Memorial Day–Labor Day)</p>
+                          <p>Saturday: 5–8pm at Monroe Market</p>
                         </div>
                         <div>
                           <p className="font-bold text-sm uppercase tracking-wider mb-2" style={{color:'var(--bottle)'}}>What to Expect</p>
-                          <p>Evening tastings & wine sales \u00b7 Downtown location \u00b7 Perfect for sunset wine \u00b7 Close to local dining</p>
+                          <p>Evening tastings & wine sales · Downtown location · Perfect for sunset wine · Close to local dining</p>
                         </div>
                       </div>
                     </div>
@@ -1359,10 +1359,10 @@
                     <h2 className="text-2xl font-bold mb-4" style={{color:'var(--river)'}}>Location Info</h2>
                     <div className="space-y-4 text-gray-600 text-lg" style={{lineHeight:1.8}}>
                       <p>
-                        <strong>Colonial Beach, Virginia</strong> is Virginia\u2019s second-largest beach, located one hour from both Washington, D.C. and Richmond. The perfect weekend destination.
+                        <strong>Colonial Beach, Virginia</strong> is Virginia’s second-largest beach, located one hour from both Washington, D.C. and Richmond. The perfect weekend destination.
                       </p>
                       <p>
-                        Monroe Bay is part of the <strong>Chesapeake Bay Wine Trail</strong>\u2014ranked #1 Wine Trail in Virginia (2020, Savor Virginia Magazine). The Northern Neck is rich with colonial history, natural beauty, and world-class wines.
+                        Monroe Bay is part of the <strong>Chesapeake Bay Wine Trail</strong>—ranked #1 Wine Trail in Virginia (2020, Savor Virginia Magazine). The Northern Neck is rich with colonial history, natural beauty, and world-class wines.
                       </p>
                     </div>
                   </div>
@@ -1393,7 +1393,7 @@
           {/* WINE CLUB POPUP */}
           {showWineClub && (
             <div className="fixed bottom-8 left-8 rounded-xl p-6 shadow-2xl max-w-sm z-30" style={{background:'var(--cream)',border:'2px solid var(--straw)'}}>
-              <button onClick={() => setShowWineClub(false)} className="absolute top-3 right-3 text-gray-400 hover:text-gray-600 text-lg">{'\u2715'}</button>
+              <button onClick={() => setShowWineClub(false)} className="absolute top-3 right-3 text-gray-400 hover:text-gray-600 text-lg">{'✕'}</button>
               <h3 className="text-xl font-bold mb-2" style={{color:'var(--river)'}}>Join the Monroe Bay Family</h3>
               <p className="text-gray-600 mb-4 text-sm" style={{lineHeight:1.7}}>
                 Exclusive wines, special pricing, and first access to new releases. 4 selections per quarter plus members-only events.
@@ -1406,13 +1406,13 @@
           {showModal && (
             <div className="fixed inset-0 modal-backdrop flex items-center justify-center p-6 z-50" onClick={(e) => { if (e.target === e.currentTarget) closeModal(); }}>
               <div className="modal-panel rounded-xl max-w-lg w-full p-8 relative">
-                <button onClick={closeModal} className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-xl">{'\u2715'}</button>
+                <button onClick={closeModal} className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-xl">{'✕'}</button>
 
                 {modalType === 'tasting' && (
                   <div>
                     <p className="text-xs uppercase tracking-widest mb-2 font-semibold" style={{color:'var(--bottle)'}}>Reservation</p>
                     <h2 className="text-3xl font-bold mb-2" style={{color:'var(--river)'}}>Reserve a Tasting</h2>
-                    <p className="text-gray-600 mb-6">$9 per person. Saturday & Sunday, 12\u20135pm (April\u2013December).</p>
+                    <p className="text-gray-600 mb-6">$9 per person. Saturday & Sunday, 12–5pm (April–December).</p>
                     <div className="space-y-3">
                       <input type="text" placeholder="Your Name" name="name" value={formData.name} onChange={handleFormChange} className="form-input w-full px-4 py-3 rounded-lg" />
                       <input type="email" placeholder="Your Email" name="email" value={formData.email} onChange={handleFormChange} className="form-input w-full px-4 py-3 rounded-lg" />
@@ -1420,7 +1420,7 @@
                       <input type="date" name="date" value={formData.date} onChange={handleFormChange} className="form-input w-full px-4 py-3 rounded-lg" />
                       <input type="number" placeholder="Party Size" name="partySize" value={formData.partySize} onChange={handleFormChange} className="form-input w-full px-4 py-3 rounded-lg" />
                       <button className="btn-gold w-full py-3 rounded-lg font-bold text-sm uppercase tracking-wider">Reserve Now</button>
-                      <p className="text-xs text-gray-500 text-center">We\u2019ll confirm your reservation by phone or email.</p>
+                      <p className="text-xs text-gray-500 text-center">We’ll confirm your reservation by phone or email.</p>
                     </div>
                   </div>
                 )}
@@ -1429,7 +1429,7 @@
                   <div>
                     <p className="text-xs uppercase tracking-widest mb-2 font-semibold" style={{color:'var(--bottle)'}}>Weddings</p>
                     <h2 className="text-3xl font-bold mb-2" style={{color:'var(--river)'}}>Wedding Inquiry</h2>
-                    <p className="text-gray-600 mb-6">Tell us about your special day. We\u2019ll be in touch within 48 hours.</p>
+                    <p className="text-gray-600 mb-6">Tell us about your special day. We’ll be in touch within 48 hours.</p>
                     <div className="space-y-3">
                       <input type="text" placeholder="Your Name" name="name" value={formData.name} onChange={handleFormChange} className="form-input w-full px-4 py-3 rounded-lg" />
                       <input type="email" placeholder="Your Email" name="email" value={formData.email} onChange={handleFormChange} className="form-input w-full px-4 py-3 rounded-lg" />
@@ -1489,7 +1489,7 @@
                   <div className="text-sm opacity-80 space-y-1">
                     <p>10 Washington Ave.</p>
                     <p>Colonial Beach, VA 22443</p>
-                    <p className="mt-2 font-semibold">Summer Sat 5\u20138pm</p>
+                    <p className="mt-2 font-semibold">Summer Sat 5–8pm</p>
                   </div>
                 </div>
               </div>
@@ -1497,7 +1497,7 @@
               {/* Bottom */}
               <div className="pt-8 text-center text-sm opacity-60" style={{borderTop:'1px solid rgba(224,195,137,0.2)'}}>
                 <p>&copy; 2026 Monroe Bay Vineyard & Cidery. All rights reserved.</p>
-                <p className="mt-1">Chesapeake Bay Wine Trail \u00b7 #1 Wine Trail in Virginia (2020) \u00b7 Colonial Beach, VA</p>
+                <p className="mt-1">Chesapeake Bay Wine Trail · #1 Wine Trail in Virginia (2020) · Colonial Beach, VA</p>
               </div>
             </div>
           </footer>
