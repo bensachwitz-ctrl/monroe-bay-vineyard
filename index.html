@@ -502,7 +502,7 @@
       ];
 
       const ciders = [
-        { name: 'Boardwalk Cider', notes: 'Semi-Sweet', detail: 'Light, approachable, perfect for newcomers. Named for Colonial Beach's iconic boardwalk.' },
+        { name: 'Boardwalk Cider', notes: 'Semi-Sweet', detail: `Light, approachable, perfect for newcomers. Named for Colonial Beach's iconic boardwalk.` },
         { name: 'Hard Apple Cider', notes: 'Dry', detail: 'Virginia Hughes Crab apples—the same cultivar President Monroe grew on this very land.' },
         { name: 'Hopped Cider', notes: 'Dry-Bitter', detail: 'Bold, craft-forward. For those who believe cider should have edge.' },
         { name: 'Pumpkin Spice Cider', notes: 'Seasonal', detail: 'Autumn in a glass. Spiced, warming, and available only when the leaves turn.' },
@@ -525,7 +525,7 @@
       const getQuizResult = () => {
         const answers = Object.values(quizAnswers).join('');
         if (answers.includes('bold')) return { wine: 'Cabernet Franc', desc: 'A wine of depth and distinction—structured, earthy, unforgettable. Like the Virginia soil it comes from.' };
-        if (answers.includes('light')) return { wine: 'Viognier', desc: 'Virginia's signature white. Honeysuckle, stone fruit, and the feeling of a warm afternoon on the creek.' };
+        if (answers.includes('light')) return { wine: 'Viognier', desc: `Virginia's signature white. Honeysuckle, stone fruit, and the feeling of a warm afternoon on the creek.` };
         if (answers.includes('smooth')) return { wine: 'Chardonnay', desc: 'Golden, smooth, and comforting—like sunset light filtering through ten thousand recycled bottles.' };
         return { wine: 'Blue Heron Rosé', desc: 'Dry, elegant, and effortlessly joyful. For those who believe every hour is golden hour.' };
       };
@@ -1257,7 +1257,7 @@
                       { title: 'Stone Room Concerts', desc: 'Live music in our signature space. Local and visiting artists. Check Facebook for seasonal lineups.' },
                       { title: 'Christmas Bazaar', desc: 'Holiday shopping, local vendors, seasonal wines, and festive cheer. A Colonial Beach tradition.' },
                       { title: 'Wine & Oyster Festival', desc: 'Held at nearby Stratford Hall. Fresh oysters, our wines, and the best of the Chesapeake Bay.' },
-                      { title: 'Second Friday ArtWalks', desc: 'Join Colonial Beach's vibrant art community. Galleries, studios, and wine on the second Friday of each month.' },
+                      { title: 'Second Friday ArtWalks', desc: `Join Colonial Beach's vibrant art community. Galleries, studios, and wine on the second Friday of each month.` },
                     ].map((event, i) => (
                       <div key={i} className="py-5 pl-6 reveal" style={{borderLeft:'4px solid var(--straw)',transitionDelay:`${i*0.06}s`}}>
                         <h3 className="text-xl font-bold mb-2" style={{color:'var(--river)'}}>{event.title}</h3>
