@@ -434,6 +434,168 @@
       font-weight: 700;
       color: var(--bottle);
       line-height: 1;
+      white-space: nowrap;
+    }
+
+    .wine-bottle-badge {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      z-index: 3;
+      background: rgba(27,38,59,0.92);
+      color: var(--straw);
+      padding: 0.4rem 0.85rem;
+      font-size: 0.62rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 700;
+      border-radius: 3px;
+      border: 1px solid rgba(224,195,137,0.4);
+      backdrop-filter: blur(6px);
+    }
+
+    /* Featured 4-up grid (desktop) → 2-up → 1-up */
+    .featured-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.75rem;
+    }
+    @media (max-width: 1100px) { .featured-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 620px)  { .featured-grid { grid-template-columns: 1fr; } }
+
+    /* Cellar signature band — full-bleed group shot */
+    .cellar-signature-band {
+      background: linear-gradient(180deg, rgba(27,38,59,0.03), rgba(224,195,137,0.08));
+      padding: 4rem 0 2rem;
+      position: relative;
+    }
+    .cellar-signature-frame {
+      position: relative;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow:
+        0 30px 60px rgba(27,38,59,0.22),
+        0 12px 24px rgba(27,38,59,0.14),
+        inset 0 0 0 1px rgba(224,195,137,0.4);
+      aspect-ratio: 16/10;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .cellar-signature-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transition: transform 12s ease-out;
+    }
+    .cellar-signature-frame:hover img { transform: scale(1.04); }
+    .cellar-signature-frame::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 60%, rgba(27,38,59,0.35));
+      pointer-events: none;
+    }
+    .cellar-signature-caption {
+      text-align: center;
+      margin: 1.5rem auto 0;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      color: var(--mid, #4A6070);
+      font-size: 1.05rem;
+      max-width: 680px;
+    }
+
+    /* Tasting menu — printed-menu typography */
+    .tasting-menu {
+      background: #FDFBF7;
+      border: 1px solid rgba(196,154,60,0.25);
+      border-radius: 6px;
+      padding: 3rem 3rem 2.5rem;
+      box-shadow: 0 20px 50px rgba(27,38,59,0.08), inset 0 0 0 1px rgba(196,154,60,0.12);
+      position: relative;
+    }
+    .tasting-menu::before, .tasting-menu::after {
+      content: '';
+      position: absolute;
+      left: 1rem; right: 1rem;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(196,154,60,0.6), transparent);
+    }
+    .tasting-menu::before { top: 0.6rem; }
+    .tasting-menu::after  { bottom: 0.6rem; }
+    @media (max-width: 640px) { .tasting-menu { padding: 2rem 1.25rem; } }
+
+    .menu-section { margin-bottom: 2.5rem; }
+    .menu-section:last-child { margin-bottom: 0; }
+    .menu-header {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    .menu-header-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--straw, #E0C389));
+    }
+    .menu-header-line:last-child {
+      background: linear-gradient(90deg, var(--straw, #E0C389), transparent);
+    }
+    .menu-header-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--river);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .menu-list { display: flex; flex-direction: column; gap: 1.1rem; }
+    .menu-row {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px dashed rgba(196,154,60,0.25);
+    }
+    .menu-row:last-child { border-bottom: none; }
+    .menu-row-left { flex: 1; min-width: 0; }
+    .menu-wine-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--river);
+      margin-bottom: 2px;
+    }
+    .menu-wine-notes {
+      font-size: 0.9rem;
+      color: #555;
+      font-style: italic;
+      line-height: 1.45;
+    }
+    .menu-wine-pairing {
+      font-size: 0.75rem;
+      color: #888;
+      margin-top: 3px;
+      letter-spacing: 0.3px;
+    }
+    .menu-wine-pairing span { color: var(--bottle); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+    .menu-row-dots {
+      flex: 0 1 auto;
+      min-width: 30px;
+      border-bottom: 2px dotted rgba(196,154,60,0.5);
+      align-self: center;
+      height: 1px;
+      margin-bottom: 6px;
+    }
+    .menu-wine-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--bottle);
+      white-space: nowrap;
     }
 
     /* Quiz */
@@ -786,25 +948,28 @@
         setMenuOpen(false);
       }, [page]);
 
+      // Wine list sourced directly from monroebaywine.com/our-wines1.html
+      // image = real bottle photo (cropped from their 5-wines.jpeg product shot)
+      // featured = shown as a hero bottle card; others appear in the tasting menu
       const wines = [
-        { id: 1, name: 'Cabernet Franc', type: 'Red', price: '$24', color: '#6B2C2C', image: 'images/mb-wine-bottle.jpg', notes: 'Elegant, structured, with earthy depth', pairing: 'Grilled steak, aged Gouda' },
-        { id: 2, name: 'Petit Verdot', type: 'Red', price: '$24', color: '#4A1A1A', image: 'images/mb-bottle-chambourcin.jpg', notes: 'Bold, tannic, layered complexity', pairing: 'Lamb, dark chocolate' },
-        { id: 3, name: 'Viognier', type: 'White', price: '$22', color: '#D4AF37', image: 'images/mb-bottle-cider-boardwalk.jpg', notes: 'Aromatic, honeysuckle & stone fruit', pairing: 'Chesapeake crab, peach tart' },
-        { id: 4, name: 'Chardonnay', type: 'White', price: '$22', color: '#E8D4A0', image: 'images/mb-bottle-cider-apple.jpg', notes: 'Smooth, buttery, golden', pairing: 'Roasted poultry, cream sauces' },
-        { id: 5, name: 'Petit Manseng', type: 'White', price: '$22', color: '#F0E68C', image: 'images/mb-bottle-cider-boardwalk.jpg', notes: 'Crisp, bright citrus, mineral', pairing: 'Seared scallops, white fish' },
-        { id: 6, name: 'Chambourcin', type: 'Red', price: '$20', color: '#5C3D3D', image: 'images/mb-bottle-chambourcin.jpg', notes: 'Medium-bodied, fruity warmth', pairing: 'Pasta bolognese, smoked ribs' },
-        { id: 7, name: 'Tramminette', type: 'White', price: '$20', color: '#E6D8B4', image: 'images/mb-bottle-cider-apple.jpg', notes: 'Floral, Gewurz-like spice', pairing: 'Thai cuisine, spiced dishes' },
-        { id: 8, name: 'Pinot Grigio', type: 'White', price: '$20', color: '#F5E6D3', image: 'images/mb-bottle-cider-boardwalk.jpg', notes: 'Crisp, clean, refreshing', pairing: 'Summer salads, light fare' },
-        { id: 9, name: 'Blue Heron Red', type: 'Red', price: '$20', color: '#6B3E3E', image: 'images/mb-bottle-chambourcin.jpg', notes: 'Approachable, fruit-forward', pairing: 'Backyard barbecue, pizza' },
-        { id: 10, name: 'Blue Heron White', type: 'White', price: '$18', color: '#E8D4A0', image: 'images/mb-bottle-blue-heron-white.jpg', notes: 'Soft, easy-drinking, bright', pairing: 'Brunch, casual afternoons' },
-        { id: 11, name: 'Blue Heron Rosé', type: 'Rosé', price: '$20', color: '#E8A8A8', image: 'images/mb-bottle-blue-heron-rose.jpg', notes: 'Dry, elegant, sunset-pink', pairing: 'Salads, seafood, golden hours' },
+        { id: 1, name: 'Cabernet Franc', type: 'Red', price: '$23.95', color: '#6B2C2C', image: 'images/mb-wine-bottle.jpg', featured: true, notes: 'Elegant, structured, with earthy depth', pairing: 'Grilled steak, aged Gouda' },
+        { id: 2, name: 'Chambourcin', type: 'Red', price: '$23.95', color: '#5C3D3D', image: 'images/mb-bottle-chambourcin.jpg', featured: true, notes: 'Medium-bodied, fruity warmth', pairing: 'Pasta bolognese, smoked ribs' },
+        { id: 3, name: 'Blue Heron White', type: 'White', price: '$18.95', color: '#E8D4A0', image: 'images/mb-bottle-blue-heron-white.jpg', featured: true, notes: 'Soft, easy-drinking, bright', pairing: 'Brunch, casual afternoons' },
+        { id: 4, name: 'Blue Heron Rosé', type: 'Rosé', price: '$18.95', color: '#E8A8A8', image: 'images/mb-bottle-blue-heron-rose.jpg', featured: true, notes: 'Dry, elegant, sunset-pink', pairing: 'Salads, seafood, golden hours' },
+        { id: 5, name: 'Petit Verdot', type: 'Red', price: '$23.95', color: '#4A1A1A', notes: 'Bold, tannic, layered complexity', pairing: 'Lamb, dark chocolate' },
+        { id: 6, name: 'Blue Heron Red', type: 'Red', price: '$23.95', color: '#6B3E3E', notes: 'Approachable, fruit-forward', pairing: 'Backyard barbecue, pizza' },
+        { id: 7, name: 'Viognier', type: 'White', price: '$18.95', color: '#D4AF37', notes: 'Aromatic, honeysuckle & stone fruit', pairing: 'Chesapeake crab, peach tart' },
+        { id: 8, name: 'Chardonnay', type: 'White', price: '$18.95', color: '#E8D4A0', notes: 'Smooth, buttery, golden', pairing: 'Roasted poultry, cream sauces' },
+        { id: 9, name: 'Petit Manseng', type: 'White', price: '$18.95', color: '#F0E68C', notes: 'Crisp, bright citrus, mineral', pairing: 'Seared scallops, white fish' },
+        { id: 10, name: 'Traminette', type: 'White', price: '$18.95', color: '#E6D8B4', notes: 'Floral, Gewürz-like spice', pairing: 'Thai cuisine, spiced dishes' },
       ];
+      const featuredWines = wines.filter(w => w.featured);
 
       const ciders = [
-        { name: 'Boardwalk Cider', notes: 'Semi-Sweet', detail: `Light, approachable, perfect for newcomers. Named for Colonial Beach's iconic boardwalk.` },
-        { name: 'Hard Apple Cider', notes: 'Dry', detail: 'Virginia Hughes Crab apples—the same cultivar President Monroe grew on this very land.' },
-        { name: 'Hopped Cider', notes: 'Dry-Bitter', detail: 'Bold, craft-forward. For those who believe cider should have edge.' },
-        { name: 'Pumpkin Spice Cider', notes: 'Seasonal', detail: 'Autumn in a glass. Spiced, warming, and available only when the leaves turn.' },
+        { name: 'Hard Apple Cider', price: '$16.95', notes: 'Dry', image: 'images/mb-bottle-cider-apple.jpg', detail: 'Virginia Hughes Crab apples — the same cultivar President Monroe grew on this very land.' },
+        { name: 'Boardwalk Cider', price: '$16.95', notes: 'Semi-Sweet', image: 'images/mb-bottle-cider-boardwalk.jpg', detail: `Light, approachable, perfect for newcomers. Named for Colonial Beach's iconic boardwalk.` },
+        { name: 'Hopped Cider', price: '$16.95', notes: 'Dry-Bitter', detail: 'Bold, craft-forward. For those who believe cider should have edge.' },
+        { name: 'Pumpkin Spice Cider', price: '$16.95', notes: 'Seasonal', detail: 'Autumn in a glass. Spiced, warming, and available only when the leaves turn.' },
       ];
 
       const filteredWines = activeWineFilter === 'all'
@@ -1044,19 +1209,19 @@
                         From Virginia's flagship Viognier to age-worthy Cabernet Francs, each bottle reflects the character of our Northern Neck terroir.
                       </p>
                     </div>
-                    <div className="wine-grid stagger-in">
-                      {wines.slice(0, 8).map(wine => (
+                    <div className="featured-grid stagger-in">
+                      {featuredWines.map(wine => (
                         <div key={wine.id} className="wine-card reveal">
                           <div className="wine-bottle-stage">
                             <WineBottle wine={wine} />
+                            <div className="wine-bottle-badge">{wine.type}</div>
                           </div>
                           <div className="wine-info">
                             <div className="flex justify-between items-start mb-2" style={{gap:'0.5rem'}}>
                               <h4 className="text-lg font-bold leading-tight" style={{color:'var(--river)', fontFamily:"'Playfair Display', serif"}}>{wine.name}</h4>
                               <span className="wine-price-tag" style={{fontSize:'1.3rem'}}>{wine.price}</span>
                             </div>
-                            <span className={`wine-type-badge ${wine.type === 'Rosé' ? 'rose' : wine.type === 'White' ? 'white' : ''}`}>{wine.type}</span>
-                            <p className="text-sm text-gray-600 mt-3 italic">"{wine.notes}"</p>
+                            <p className="text-sm text-gray-600 mt-2 italic">"{wine.notes}"</p>
                           </div>
                         </div>
                       ))}
@@ -1225,49 +1390,43 @@
                   </div>
                 </section>
 
+                {/* Signature Photograph — real product shot from monroebaywine.com */}
+                <section className="cellar-signature-band">
+                  <div className="max-w-6xl mx-auto px-6">
+                    <div className="cellar-signature-frame reveal">
+                      <img src="images/mb-5-wines-full.jpeg" alt="The Monroe Bay signature collection — five bottles in Blue Heron livery" />
+                    </div>
+                    <p className="cellar-signature-caption reveal">
+                      The signature lineup, photographed in the tasting room — every bottle wears the hand-illustrated Blue Heron label.
+                    </p>
+                  </div>
+                </section>
+
                 <div className="pb-20 px-6 texture-parchment">
                 <div className="max-w-6xl mx-auto">
-                  <div className="text-center mb-16 mt-16 reveal">
+                  <div className="text-center mb-14 mt-20 reveal">
+                    <p className="text-xs uppercase tracking-widest mb-3 font-semibold" style={{color:'var(--bottle)'}}>Signature Bottles</p>
+                    <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{color:'var(--river)'}}>The Featured Four</h2>
                     <div className="bottle-divider"></div>
                     <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-                      Every bottle here tells a story of Virginia terroir, French inspiration, and a president's birthplace farm. Taste history.
+                      The bottles that define our cellar — a Virginia Cabernet Franc, a fruit-forward Chambourcin, and the two Blue Herons that made us famous on the Chesapeake.
                     </p>
-                    <div className="mt-8 flex justify-center">
-                      <img src="images/mb-wine-bottle.jpg" alt="Monroe Bay Cabernet Franc with Blue Heron Label" className="h-64 object-contain rounded-lg shadow-xl" style={{filter:'brightness(1.05)'}} />
-                    </div>
                   </div>
 
-                  {/* Filters */}
-                  <div className="flex justify-center gap-3 mb-14 flex-wrap reveal">
-                    {['All', 'Red', 'White', 'Rosé'].map(f => (
-                      <button
-                        key={f}
-                        onClick={() => setActiveWineFilter(f === 'All' ? 'all' : f)}
-                        className="px-6 py-2 rounded-full font-semibold text-sm transition-all"
-                        style={{
-                          background: (f === 'All' && activeWineFilter === 'all') || activeWineFilter === f ? 'var(--river)' : 'rgba(45,106,79,0.08)',
-                          color: (f === 'All' && activeWineFilter === 'all') || activeWineFilter === f ? 'var(--straw)' : 'var(--river)',
-                        }}
-                      >
-                        {f}
-                      </button>
-                    ))}
-                  </div>
-
-                  {/* Wine Grid — each variety as a collectible bottle card */}
-                  <div className="wine-grid stagger-in mb-24">
-                    {filteredWines.map(wine => (
+                  {/* Featured bottles — real photos, prominent presentation */}
+                  <div className="featured-grid stagger-in mb-24">
+                    {featuredWines.map(wine => (
                       <div key={wine.id} className="wine-card reveal">
                         <div className="wine-bottle-stage">
                           <WineBottle wine={wine} />
+                          <div className="wine-bottle-badge">{wine.type}</div>
                         </div>
                         <div className="wine-info">
                           <div className="flex justify-between items-start mb-2" style={{gap:'0.75rem'}}>
                             <h4 className="text-xl font-bold leading-tight" style={{color:'var(--river)', fontFamily:"'Playfair Display', serif"}}>{wine.name}</h4>
                             <span className="wine-price-tag">{wine.price}</span>
                           </div>
-                          <span className={`wine-type-badge ${wine.type === 'Rosé' ? 'rose' : wine.type === 'White' ? 'white' : ''}`}>{wine.type}</span>
-                          <p className="text-sm text-gray-700 mt-3 mb-2 leading-relaxed italic">"{wine.notes}"</p>
+                          <p className="text-sm text-gray-700 mt-2 mb-2 leading-relaxed italic">"{wine.notes}"</p>
                           <p className="text-xs text-gray-500 mb-4">
                             <span className="font-semibold" style={{color:'var(--bottle)'}}>Pairs with:</span> {wine.pairing}
                           </p>
@@ -1277,22 +1436,91 @@
                     ))}
                   </div>
 
+                  {/* The Full Tasting Menu — every wine, grouped by type */}
+                  <div className="tasting-menu mb-24 reveal">
+                    <div className="text-center mb-10">
+                      <p className="text-xs uppercase tracking-widest mb-3 font-semibold" style={{color:'var(--bottle)'}}>The Full Tasting Menu</p>
+                      <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{color:'var(--river)'}}>Every Pour, Every Price</h2>
+                      <div className="bottle-divider"></div>
+                    </div>
+
+                    {['Red','White','Rosé'].map(typeGroup => {
+                      const group = wines.filter(w => w.type === typeGroup);
+                      if (!group.length) return null;
+                      return (
+                        <div key={typeGroup} className="menu-section reveal">
+                          <div className="menu-header">
+                            <span className="menu-header-line"></span>
+                            <h3 className="menu-header-title">{typeGroup === 'Red' ? 'The Reds' : typeGroup === 'White' ? 'The Whites' : 'The Rosé'}</h3>
+                            <span className="menu-header-line"></span>
+                          </div>
+                          <div className="menu-list">
+                            {group.map(w => (
+                              <div key={w.id} className="menu-row">
+                                <div className="menu-row-left">
+                                  <h4 className="menu-wine-name">{w.name}</h4>
+                                  <p className="menu-wine-notes">{w.notes}</p>
+                                  <p className="menu-wine-pairing"><span>Pairs with:</span> {w.pairing}</p>
+                                </div>
+                                <div className="menu-row-dots"></div>
+                                <div className="menu-wine-price">{w.price}</div>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+
                   {/* Ciders */}
                   <div className="mb-24 reveal">
-                    <p className="text-xs uppercase tracking-widest mb-3 font-semibold" style={{color:'var(--bottle)'}}>From the Orchard</p>
-                    <h2 className="text-4xl font-bold mb-4" style={{color:'var(--river)'}}>Hard Ciders</h2>
-                    <div className="bottle-divider" style={{margin:'0 0 2rem'}}></div>
-                    <p className="text-gray-600 mb-8 text-lg max-w-2xl">
-                      Virginia's finest apples, pressed and fermented here. Our Hughes Crab apples are the same cultivar President Monroe grew on this very land over two centuries ago.
-                    </p>
-                    <div className="grid md:grid-cols-2 gap-6">
-                      {ciders.map((cider, i) => (
-                        <div key={i} className="glass-card rounded-xl p-6 reveal">
-                          <h4 className="text-xl font-bold mb-2" style={{color:'var(--river)'}}>{cider.name}</h4>
-                          <p className="text-sm font-semibold mb-2" style={{color:'var(--bottle)'}}>{cider.notes}</p>
-                          <p className="text-gray-600">{cider.detail}</p>
+                    <div className="text-center mb-10">
+                      <p className="text-xs uppercase tracking-widest mb-3 font-semibold" style={{color:'var(--bottle)'}}>From the Orchard</p>
+                      <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{color:'var(--river)'}}>Hard Ciders</h2>
+                      <div className="bottle-divider"></div>
+                      <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+                        Virginia's finest apples, pressed and fermented here. Our Hughes Crab apples are the same cultivar President Monroe grew on this very land over two centuries ago.
+                      </p>
+                    </div>
+                    <div className="featured-grid">
+                      {ciders.filter(c => c.image).map((cider, i) => (
+                        <div key={i} className="wine-card reveal">
+                          <div className="wine-bottle-stage">
+                            <img src={cider.image} alt={`Monroe Bay ${cider.name}`} className="wine-bottle-img" loading="lazy" />
+                            <div className="wine-bottle-badge">Cider</div>
+                          </div>
+                          <div className="wine-info">
+                            <div className="flex justify-between items-start mb-2" style={{gap:'0.75rem'}}>
+                              <h4 className="text-xl font-bold leading-tight" style={{color:'var(--river)', fontFamily:"'Playfair Display', serif"}}>{cider.name}</h4>
+                              <span className="wine-price-tag">{cider.price}</span>
+                            </div>
+                            <span className="wine-type-badge white">{cider.notes}</span>
+                            <p className="text-sm text-gray-700 mt-3 mb-3 leading-relaxed italic">"{cider.detail}"</p>
+                            <button onClick={() => openModal('tasting')} className="w-full btn-outline py-2 rounded text-xs uppercase tracking-wider font-semibold">Reserve a Tasting</button>
+                          </div>
                         </div>
                       ))}
+                    </div>
+                    {/* Seasonal ciders as menu rows */}
+                    <div className="menu-section mt-10">
+                      <div className="menu-header">
+                        <span className="menu-header-line"></span>
+                        <h3 className="menu-header-title">Seasonal Pours</h3>
+                        <span className="menu-header-line"></span>
+                      </div>
+                      <div className="menu-list">
+                        {ciders.filter(c => !c.image).map((cider, i) => (
+                          <div key={i} className="menu-row">
+                            <div className="menu-row-left">
+                              <h4 className="menu-wine-name">{cider.name}</h4>
+                              <p className="menu-wine-notes">{cider.detail}</p>
+                              <p className="menu-wine-pairing"><span>Style:</span> {cider.notes}</p>
+                            </div>
+                            <div className="menu-row-dots"></div>
+                            <div className="menu-wine-price">{cider.price}</div>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
 
