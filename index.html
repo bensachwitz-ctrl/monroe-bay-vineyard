@@ -358,13 +358,12 @@
     }
     .wine-bottle-stage {
       background:
-        radial-gradient(ellipse 70% 55% at 50% 42%, rgba(224,195,137,.22), rgba(224,195,137,0) 65%),
-        linear-gradient(180deg, #1B263B 0%, #24384c 55%, #2D6A4F 100%);
-      padding: 1.75rem 1rem 0.5rem;
+        radial-gradient(ellipse 75% 60% at 50% 45%, #f3ecdb 0%, #e6dcc6 40%, #d4c8ad 75%, #b8a98a 100%);
+      padding: 1.5rem 0 0;
       display: flex;
       align-items: flex-end;
       justify-content: center;
-      height: 320px;
+      height: 340px;
       position: relative;
       overflow: hidden;
     }
@@ -373,32 +372,35 @@
       position: absolute;
       inset: 0;
       background-image:
-        radial-gradient(circle at 18% 22%, rgba(255,255,255,0.06), transparent 30%),
-        radial-gradient(circle at 82% 78%, rgba(224,195,137,0.10), transparent 35%);
+        radial-gradient(ellipse 40% 15% at 50% 95%, rgba(0,0,0,0.35), transparent 70%),
+        radial-gradient(circle at 15% 20%, rgba(255,255,255,0.5), transparent 35%),
+        radial-gradient(circle at 85% 85%, rgba(196,154,60,0.15), transparent 40%);
       pointer-events: none;
+      z-index: 1;
     }
     .wine-bottle-stage::after {
       content: '';
       position: absolute;
-      bottom: 4px;
-      left: 22%;
-      right: 22%;
-      height: 14px;
-      background: radial-gradient(ellipse at center, rgba(0,0,0,0.55), transparent 70%);
-      filter: blur(4px);
+      left: 0; right: 0; bottom: 0;
+      height: 20px;
+      background: linear-gradient(180deg, transparent, rgba(27,38,59,0.15));
+      pointer-events: none;
       z-index: 1;
     }
-    .wine-bottle-stage svg {
+    .wine-bottle-img {
       position: relative;
       z-index: 2;
       height: 100%;
       width: auto;
-      max-width: 78%;
-      filter: drop-shadow(0 18px 24px rgba(0,0,0,0.45));
+      max-width: 85%;
+      object-fit: contain;
+      object-position: bottom center;
+      mix-blend-mode: multiply;
+      filter: drop-shadow(0 18px 26px rgba(27,38,59,0.35)) contrast(1.05) saturate(1.08);
       transition: transform .6s cubic-bezier(.34,1.56,.64,1);
     }
-    .wine-card:hover .wine-bottle-stage svg {
-      transform: translateY(-8px) rotate(-1.2deg);
+    .wine-card:hover .wine-bottle-img {
+      transform: translateY(-10px) scale(1.03);
     }
     .wine-info {
       padding: 1.4rem 1.4rem 1.4rem;
@@ -785,17 +787,17 @@
       }, [page]);
 
       const wines = [
-        { id: 1, name: 'Cabernet Franc', type: 'Red', price: '$24', color: '#6B2C2C', notes: 'Elegant, structured, with earthy depth', pairing: 'Grilled steak, aged Gouda' },
-        { id: 2, name: 'Petit Verdot', type: 'Red', price: '$24', color: '#4A1A1A', notes: 'Bold, tannic, layered complexity', pairing: 'Lamb, dark chocolate' },
-        { id: 3, name: 'Viognier', type: 'White', price: '$22', color: '#D4AF37', notes: 'Aromatic, honeysuckle & stone fruit', pairing: 'Chesapeake crab, peach tart' },
-        { id: 4, name: 'Chardonnay', type: 'White', price: '$22', color: '#E8D4A0', notes: 'Smooth, buttery, golden', pairing: 'Roasted poultry, cream sauces' },
-        { id: 5, name: 'Petit Manseng', type: 'White', price: '$22', color: '#F0E68C', notes: 'Crisp, bright citrus, mineral', pairing: 'Seared scallops, white fish' },
-        { id: 6, name: 'Chambourcin', type: 'Red', price: '$20', color: '#5C3D3D', notes: 'Medium-bodied, fruity warmth', pairing: 'Pasta bolognese, smoked ribs' },
-        { id: 7, name: 'Tramminette', type: 'White', price: '$20', color: '#E6D8B4', notes: 'Floral, Gewurz-like spice', pairing: 'Thai cuisine, spiced dishes' },
-        { id: 8, name: 'Pinot Grigio', type: 'White', price: '$20', color: '#F5E6D3', notes: 'Crisp, clean, refreshing', pairing: 'Summer salads, light fare' },
-        { id: 9, name: 'Blue Heron Red', type: 'Red', price: '$20', color: '#6B3E3E', notes: 'Approachable, fruit-forward', pairing: 'Backyard barbecue, pizza' },
-        { id: 10, name: 'Blue Heron White', type: 'White', price: '$18', color: '#E8D4A0', notes: 'Soft, easy-drinking, bright', pairing: 'Brunch, casual afternoons' },
-        { id: 11, name: 'Blue Heron Rosé', type: 'Rosé', price: '$20', color: '#E8A8A8', notes: 'Dry, elegant, sunset-pink', pairing: 'Salads, seafood, golden hours' },
+        { id: 1, name: 'Cabernet Franc', type: 'Red', price: '$24', color: '#6B2C2C', image: 'images/mb-wine-bottle.jpg', notes: 'Elegant, structured, with earthy depth', pairing: 'Grilled steak, aged Gouda' },
+        { id: 2, name: 'Petit Verdot', type: 'Red', price: '$24', color: '#4A1A1A', image: 'images/mb-bottle-chambourcin.jpg', notes: 'Bold, tannic, layered complexity', pairing: 'Lamb, dark chocolate' },
+        { id: 3, name: 'Viognier', type: 'White', price: '$22', color: '#D4AF37', image: 'images/mb-bottle-cider-boardwalk.jpg', notes: 'Aromatic, honeysuckle & stone fruit', pairing: 'Chesapeake crab, peach tart' },
+        { id: 4, name: 'Chardonnay', type: 'White', price: '$22', color: '#E8D4A0', image: 'images/mb-bottle-cider-apple.jpg', notes: 'Smooth, buttery, golden', pairing: 'Roasted poultry, cream sauces' },
+        { id: 5, name: 'Petit Manseng', type: 'White', price: '$22', color: '#F0E68C', image: 'images/mb-bottle-cider-boardwalk.jpg', notes: 'Crisp, bright citrus, mineral', pairing: 'Seared scallops, white fish' },
+        { id: 6, name: 'Chambourcin', type: 'Red', price: '$20', color: '#5C3D3D', image: 'images/mb-bottle-chambourcin.jpg', notes: 'Medium-bodied, fruity warmth', pairing: 'Pasta bolognese, smoked ribs' },
+        { id: 7, name: 'Tramminette', type: 'White', price: '$20', color: '#E6D8B4', image: 'images/mb-bottle-cider-apple.jpg', notes: 'Floral, Gewurz-like spice', pairing: 'Thai cuisine, spiced dishes' },
+        { id: 8, name: 'Pinot Grigio', type: 'White', price: '$20', color: '#F5E6D3', image: 'images/mb-bottle-cider-boardwalk.jpg', notes: 'Crisp, clean, refreshing', pairing: 'Summer salads, light fare' },
+        { id: 9, name: 'Blue Heron Red', type: 'Red', price: '$20', color: '#6B3E3E', image: 'images/mb-bottle-chambourcin.jpg', notes: 'Approachable, fruit-forward', pairing: 'Backyard barbecue, pizza' },
+        { id: 10, name: 'Blue Heron White', type: 'White', price: '$18', color: '#E8D4A0', image: 'images/mb-bottle-blue-heron-white.jpg', notes: 'Soft, easy-drinking, bright', pairing: 'Brunch, casual afternoons' },
+        { id: 11, name: 'Blue Heron Rosé', type: 'Rosé', price: '$20', color: '#E8A8A8', image: 'images/mb-bottle-blue-heron-rose.jpg', notes: 'Dry, elegant, sunset-pink', pairing: 'Salads, seafood, golden hours' },
       ];
 
       const ciders = [
@@ -829,100 +831,15 @@
 
       const navItems = ['home', 'cellar', 'barn', 'weddings', 'story', 'events', 'visit'];
 
-      // --- Magazine-quality SVG bottle illustration, uniquely colored per wine ---
-      const WineBottle = ({ wine }) => {
-        const isRed = wine.type === 'Red';
-        const isRose = wine.type === 'Rosé';
-        const glassDark = isRed ? '#0a1f12' : isRose ? '#6b7f88' : '#3a5a3f';
-        const glassMid  = isRed ? '#16361f' : isRose ? '#a7bfc4' : '#6d8f6a';
-        const glassLite = isRed ? '#2a5030' : isRose ? '#d4e2e4' : '#9cbd95';
-        const capsule   = isRed ? '#1B263B' : isRose ? '#C49A3C' : '#2D6A4F';
-        const capsuleHi = isRed ? '#2f4562' : isRose ? '#e3b860' : '#3d8a66';
-        const labelAccent = '#C49A3C';
-        const gId = `g${wine.id}`;
-        const lId = `l${wine.id}`;
-        const cId = `c${wine.id}`;
-        const nameSize = wine.name.length > 13 ? 7.8 : wine.name.length > 10 ? 9 : 10;
-        return (
-          <svg viewBox="0 0 120 430" xmlns="http://www.w3.org/2000/svg" role="img" aria-label={`${wine.name} bottle`}>
-            <defs>
-              <linearGradient id={gId} x1="0" x2="1" y1="0" y2="0">
-                <stop offset="0%" stopColor={glassDark}/>
-                <stop offset="18%" stopColor={glassMid}/>
-                <stop offset="42%" stopColor={glassLite}/>
-                <stop offset="70%" stopColor={glassMid}/>
-                <stop offset="100%" stopColor="#000"/>
-              </linearGradient>
-              <linearGradient id={lId} x1="0" x2="0" y1="0" y2="1">
-                <stop offset="0%" stopColor={wine.color} stopOpacity="0.0"/>
-                <stop offset="12%" stopColor={wine.color} stopOpacity="0.55"/>
-                <stop offset="100%" stopColor={wine.color} stopOpacity="0.85"/>
-              </linearGradient>
-              <linearGradient id={cId} x1="0" x2="1">
-                <stop offset="0%" stopColor={capsule}/>
-                <stop offset="45%" stopColor={capsuleHi}/>
-                <stop offset="100%" stopColor={capsule}/>
-              </linearGradient>
-              <clipPath id={`clip${wine.id}`}>
-                <path d="M48 52 L72 52 L72 108 Q82 118 90 138 Q96 155 96 175 L96 395 Q96 418 75 418 L45 418 Q24 418 24 395 L24 175 Q24 155 30 138 Q38 118 48 108 Z"/>
-              </clipPath>
-            </defs>
-
-            {/* Capsule / foil */}
-            <rect x="46" y="8" width="28" height="44" fill={`url(#${cId})`} rx="1"/>
-            <rect x="46" y="8" width="28" height="3" fill="rgba(255,255,255,0.35)"/>
-            <rect x="44" y="48" width="32" height="6" fill={capsule} rx="1"/>
-            <rect x="44" y="48" width="32" height="1.5" fill={capsuleHi} opacity="0.8"/>
-
-            {/* Bottle body (neck + shoulders + body) */}
-            <path d="M48 52 L72 52 L72 108 Q82 118 90 138 Q96 155 96 175 L96 395 Q96 418 75 418 L45 418 Q24 418 24 395 L24 175 Q24 155 30 138 Q38 118 48 108 Z" fill={`url(#${gId})`}/>
-
-            {/* Liquid color tint through glass */}
-            <path d="M48 55 L72 55 L72 108 Q82 118 90 138 Q96 155 96 175 L96 395 Q96 418 75 418 L45 418 Q24 418 24 395 L24 175 Q24 155 30 138 Q38 118 48 108 Z" fill={`url(#${lId})`} clipPath={`url(#clip${wine.id})`}/>
-
-            {/* Glass highlights */}
-            <path d="M34 120 Q30 150 30 200 L30 380" stroke="rgba(255,255,255,0.32)" strokeWidth="3" fill="none" strokeLinecap="round"/>
-            <path d="M86 180 Q88 260 86 360" stroke="rgba(255,255,255,0.15)" strokeWidth="2" fill="none" strokeLinecap="round"/>
-            <ellipse cx="58" cy="72" rx="4" ry="10" fill="rgba(255,255,255,0.35)"/>
-
-            {/* Label */}
-            <g>
-              <rect x="22" y="225" width="76" height="135" fill="#FDFBF7" stroke="#1B263B" strokeWidth="0.4"/>
-              <rect x="22" y="225" width="76" height="4" fill={labelAccent}/>
-              <rect x="22" y="356" width="76" height="4" fill={labelAccent}/>
-              <line x1="26" y1="231" x2="94" y2="231" stroke={labelAccent} strokeWidth="0.3" opacity="0.6"/>
-
-              {/* Top label text */}
-              <text x="60" y="244" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="6.2" fill="#1B263B" fontWeight="800" letterSpacing="1.6">MONROE BAY</text>
-              <text x="60" y="252" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="3.4" fill="#2D6A4F" letterSpacing="1">VINEYARD · CIDERY</text>
-
-              {/* Heron silhouette */}
-              <g transform="translate(60,272)">
-                <path d="M-14,4 Q-14,-2 -9,-4 Q-4,-5 1,-3 L6,-6 Q9,-9 12,-7 L10,-3 L13,-1 L16,-3 L14,1 L10,2 L6,0 Q2,2 -3,3 Q-9,4 -14,4 Z M10,-3 Q13,-10 18,-11" stroke="#1B263B" strokeWidth="0.6" fill="#1B263B"/>
-                <line x1="-2" y1="4" x2="-3" y2="10" stroke="#1B263B" strokeWidth="0.8"/>
-                <line x1="2" y1="4" x2="1" y2="10" stroke="#1B263B" strokeWidth="0.8"/>
-              </g>
-
-              {/* Wine name */}
-              <text x="60" y="298" textAnchor="middle" fontFamily="'Playfair Display', Georgia, serif" fontSize={nameSize} fill="#1B263B" fontWeight="700" fontStyle="italic">{wine.name}</text>
-
-              {/* Divider */}
-              <line x1="38" y1="306" x2="82" y2="306" stroke={labelAccent} strokeWidth="0.5"/>
-
-              {/* Type + vintage */}
-              <text x="60" y="317" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="4.4" fill="#2D6A4F" letterSpacing="1.4" fontWeight="600">{wine.type.toUpperCase()}</text>
-              <text x="60" y="328" textAnchor="middle" fontFamily="'Playfair Display', Georgia, serif" fontSize="6" fill="#1B263B" fontWeight="700">2023</text>
-
-              {/* Bottom */}
-              <text x="60" y="344" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="3.4" fill="#666" letterSpacing="1.2">COLONIAL BEACH</text>
-              <text x="60" y="352" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="3.2" fill="#999" letterSpacing="1">VIRGINIA · USA</text>
-            </g>
-
-            {/* Bottle bottom curve shadow */}
-            <ellipse cx="60" cy="415" rx="34" ry="3" fill="rgba(0,0,0,0.3)"/>
-          </svg>
-        );
-      };
+      // --- Real Monroe Bay bottle photograph (sourced from monroebaywine.com) ---
+      const WineBottle = ({ wine }) => (
+        <img
+          src={wine.image}
+          alt={`Monroe Bay ${wine.name} bottle`}
+          className="wine-bottle-img"
+          loading="lazy"
+        />
+      );
 
       return (
         <>
